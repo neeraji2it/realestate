@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Realestate</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" %>
+  <%= csrf_meta_tags %>
+</head>
+ <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse">
+            <ul class="nav pull-left">
+              <li>
+                <%= link_to "Home",  dashboards_path, :class => "active" %>
+              </li>
+              <li>
+                <%= link_to "Condos" %>
+              </li>
+              <li>
+                <%= link_to "Houses", "#" %>
+              </li>
+              <li>
+                <%= link_to "Find Agent", "#" %>
+              </li>
+              <li>
+                <%= link_to "List Your Property", "#" %>
+              </li>
+            </ul>
+            <ul class="nav pull-right"> 
+                <li>
+                  <%= link_to "User Sign In" %>
+                </li>
+                <li>
+                  <%= link_to "Builder Sign In" %>
+                </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container" style="padding-bottom:50px; margin-top: 50px;">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% elsif alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %> 
+      <div id="content">
+        <%= yield %>
+      </div>  
+    </div>
+  </body>
+</html>

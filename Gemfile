@@ -20,5 +20,3 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
-
-

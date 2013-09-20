@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+.star{
+    color: red;
+    font-size: 16px;
+}

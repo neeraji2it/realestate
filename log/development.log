@@ -6614,3 +6614,168 @@ Served asset /application.js - 304 Not Modified (1ms)
 
 Started GET "/assets/dashboards.js?body=1" for 127.0.0.1 at 2013-09-19 15:01:38 +0530
 Served asset /dashboards.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-20 10:12:20 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/index.html.erb within layouts/application (52.2ms)
+Completed 200 OK in 489ms (Views: 487.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /application.css - 304 Not Modified (42ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /bootstrap-responsive.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /bootstrap.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/dashboards.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /dashboards.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /jquery.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /bootstrap.js - 304 Not Modified (38ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /bootstrap.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/dashboards.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /dashboards.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:21 +0530
+Served asset /application.js - 304 Not Modified (16ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-09-20 10:12:24 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (5.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (135.7ms)
+Completed 200 OK in 521ms (Views: 176.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /bootstrap.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dashboards.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /dashboards.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dashboards.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /dashboards.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:25 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 78ms (Views: 24.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /application.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /bootstrap-responsive.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /bootstrap.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dashboards.css?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /dashboards.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dashboards.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /dashboards.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-20 10:12:27 +0530
+Served asset /application.js - 304 Not Modified (4ms)

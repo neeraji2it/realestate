@@ -4,6 +4,8 @@ Realestate::Application.routes.draw do
   devise_for :builders
 
  resources :dashboards
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

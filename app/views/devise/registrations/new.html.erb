@@ -11,7 +11,7 @@
   </div>
   
     <div>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name , :autofocus => true %>
     </div>
   
   <div>
@@ -22,6 +22,15 @@
   <div>
     <%= f.text_field :last_name %>
   </div>
+
+  <div>
+    <p><span>Company Name</span>
+    <span class="star">*</span></p>
+  </div>
+
+    <div>
+      <%= f.text_field :company_name %>
+    </div>
   
   <div>
     <p><span>Select Country</span>
@@ -33,6 +42,14 @@
   </div>
   
   <div>
+  <p><span>Phone</span>
+   <span class="star">*</span></p>
+  </div>
+    
+   <div>
+   <%= f.text_field :phone %>
+   </div>
+ <div>
     <p><span>Address</span>
     <span class="star">*</span></p>
   </div>
@@ -50,14 +67,7 @@
     <%= f.text_field :city %>
   </div>
   
-  <div>
-    <p><span>Company Name</span>
-    <span class="star">*</span></p>
-  </div>
-
-    <div>
-      <%= f.text_field :company_name %>
-    </div>
+  
   
   <div>
     <p><span>Email</span>
@@ -65,7 +75,7 @@
   </div>
 
   <div>
-    <%= f.email_field :email, :autofocus => true %>
+    <%= f.email_field :email %>
   </div>
   
   <div>

@@ -7,15 +7,27 @@ class Builder < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email,:first_name, :last_name, :company_name, :phone, :country, :address, :city, :logo, :company_url 
   # attr_accessible :title, :body
-validates :phone, numericality: { only_integer: true },:length => {:minimum => 10, :maximum => 10}
+validates :phone, :numericality => { :only_integer => true }, :length => {:minimum => 10, :maximum => 10}
 
 #validates_format_of :first_name, :with => /\A[[:graph:]]\Z/i
 has_attached_file :logo
 
 validates_format_of :first_name,:last_name,:company_name ,:address, :city,:with => /\A[^\d]+\Z/, :message => "field should only have letters"
 
+<<<<<<< HEAD
 
 
 
  validates_format_of :company_url, :with => URI::regexp(%w(http https)), :message=>"is like this http://www.companyname.com"
 end
+=======
+  validate :email_exists
+  
+  def email_exists
+    if User.exists?(:email => self.email)
+      errors.add(:email,"User already exists with this email, try another email")
+    end
+  end
+  
+end
+>>>>>>> 11978fa6d21033833c47ef4222a7597a1685cf6f

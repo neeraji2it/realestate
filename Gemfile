@@ -22,3 +22,5 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'country_select'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'omniauth'
+gem 'omniauth-facebook'

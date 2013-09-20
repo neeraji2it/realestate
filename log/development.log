@@ -39638,3 +39638,5 @@ Served asset /users/omniauth_callbacks.js - 304 Not Modified (0ms)
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-20 18:18:35 +0530
 Served asset /application.js - 304 Not Modified (4ms)
 >>>>>>> 11978fa6d21033833c47ef4222a7597a1685cf6f
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml

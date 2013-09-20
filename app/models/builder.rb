@@ -14,20 +14,15 @@ has_attached_file :logo
 
 validates_format_of :first_name,:last_name,:company_name ,:address, :city,:with => /\A[^\d]+\Z/, :message => "field should only have letters"
 
-<<<<<<< HEAD
-
 
 
  validates_format_of :company_url, :with => URI::regexp(%w(http https)), :message=>"is like this http://www.companyname.com"
-end
-=======
+
   validate :email_exists
   
   def email_exists
     if User.exists?(:email => self.email)
       errors.add(:email,"User already exists with this email, try another email")
     end
-  end
-  
+  end 
 end
->>>>>>> 11978fa6d21033833c47ef4222a7597a1685cf6f

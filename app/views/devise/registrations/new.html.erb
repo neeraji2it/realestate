@@ -4,114 +4,132 @@
   <%= devise_error_messages! %>
 
   <% if resource.class.to_s == "Builder" %>
-  <h2>Builder Sign up Form</h2>
-  <div>
-    <p><span>First Name</span>
-    <span class="star">*</span></p>
-  </div>
-  
+    <h2>Builder Sign up Form</h2>
     <div>
-    <%= f.text_field :first_name , :autofocus => true %>
+      <p><span>First Name</span>
+        <span class="star">*</span></p>
     </div>
-  
-  <div>
-    <p><span>Last Name</span>
-    <span class="star">*</span></p>
-  </div>
 
-  <div>
-    <%= f.text_field :last_name %>
-  </div>
+    <div>
+      <%= f.text_field :first_name , :autofocus => true %>
+    </div>
 
-  <div>
-    <p><span>Company Name</span>
-    <span class="star">*</span></p>
-  </div>
+    <div>
+      <p><span>Last Name</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div>
+      <p><span>Company Name</span>
+        <span class="star">*</span></p>
+    </div>
 
     <div>
       <%= f.text_field :company_name %>
     </div>
-  
-  <div>
-    <p><span>Select Country</span>
-    <span class="star">*</span></p>
-  </div>
-  
-  <div>
-    <%= f.country_select :country, [""] %>
-  </div>
-  
-  <div>
-  <p><span>Phone</span>
-   <span class="star">*</span></p>
-  </div>
-    
-   <div>
-   <%= f.text_field :phone %>
-   </div>
- <div>
-    <p><span>Address</span>
-    <span class="star">*</span></p>
-  </div>
 
     <div>
-    <%= f.text_field :address %>
+      <p><span>Company Website</span>
+        <span class="star">*</span></p>
     </div>
-  
-  <div>
-    <p><span>City</span>
-    <span class="star">*</span></p>
-  </div>
 
-  <div>
-    <%= f.text_field :city %>
-  </div>
-  
-  
-  
-  <div>
-    <p><span>Email</span>
-    <span class="star">*</span></p>
-  </div>
+    <div>
+      <%= f.text_field :company_url %>
+    </div>
 
-  <div>
-    <%= f.email_field :email %>
-  </div>
-  
-  <div>
-    <p><span>Password</span>
-    <span class="star">*</span></p>
-  </div>
+    <div>
+      <p><span>Company Logo</span>
+        <span class="star">*</span></p>
+    </div>
 
-  <div>
-    <%= f.password_field :password %></div>
-  
-  <div>
-    <p><span>Password Confirmation</span>
-    <span class="star">*</span></p>
-  </div>
+    <div>
+      <%= f.file_field :logo %>
+    </div>
 
-  <div>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  
-  <br/>
-  <div><%= f.submit "Sign up" %></div>
-  <%= render "devise/shared/links" %>
-<% end %>
-  
+    <div>
+      <p><span>Select Country</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.country_select :country, [""] %>
+    </div>
+
+    <div>
+      <p><span>Phone</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.text_field :phone %>
+    </div>
+    <div>
+      <p><span>Address</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.text_field :address %>
+    </div>
+
+    <div>
+      <p><span>City</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.text_field :city %>
+    </div>
+
+
+
+    <div>
+      <p><span>Email</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.email_field :email %>
+    </div>
+
+    <div>
+      <p><span>Password</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.password_field :password %></div>
+
+    <div>
+      <p><span>Password Confirmation</span>
+        <span class="star">*</span></p>
+    </div>
+
+    <div>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <br/>
+    <div><%= f.submit "Sign up" %></div>
+    <%= render "devise/shared/links" %>
+  <% end %>
+
   <% if resource.class.to_s == "User" %>
-  <h2>User Sign up Form</h2>
+    <h2>User Sign up Form</h2>
     <div><%= f.label :email %><br />
-    <%= f.email_field :email, :autofocus => true %></div>
+      <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
+    <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %></div>
+    <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-  <%= render "devise/shared/links" %>
+    <div><%= f.submit "Sign up" %></div>
+    <%= render "devise/shared/links" %>
   <% end %>  
 <% end %>

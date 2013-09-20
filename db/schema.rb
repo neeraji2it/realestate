@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919071444) do
+ActiveRecord::Schema.define(:version => 20130920060251) do
 
   create_table "builders", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(:version => 20130919071444) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "company_url"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "builders", ["confirmation_token"], :name => "index_builders_on_confirmation_token", :unique => true

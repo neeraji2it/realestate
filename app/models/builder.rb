@@ -13,4 +13,9 @@ validates :phone, numericality: { only_integer: true },:length => {:minimum => 1
 has_attached_file :logo
 
 validates_format_of :first_name,:last_name,:company_name ,:address, :city,:with => /\A[^\d]+\Z/, :message => "field should only have letters"
+
+
+
+
+ validates_format_of :company_url, :with => URI::regexp(%w(http https)), :message=>"is like this http://www.companyname.com"
 end

@@ -26,12 +26,12 @@ class User < ActiveRecord::Base
     user
   end
   
-  #private
+  #public
   
   #def check_exists
    # if Builder.exists?(:email => self.email)
     #  errors.add(:email,"User already exists with this email, try another email")
     #end
   #end 
-  
+#end
 end

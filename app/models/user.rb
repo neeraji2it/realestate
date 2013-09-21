@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,6 +8,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :provider, :uid, :name
   # attr_accessible :title, :body
+  
+  #validate :check_exists
   
   devise :omniauthable, :omniauth_providers => [:facebook]
   
@@ -22,4 +25,13 @@ class User < ActiveRecord::Base
     end
     user
   end
+  
+  #private
+  
+  #def check_exists
+   # if Builder.exists?(:email => self.email)
+    #  errors.add(:email,"User already exists with this email, try another email")
+    #end
+  #end 
+  
 end

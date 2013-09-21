@@ -32,12 +32,15 @@
             <ul class="nav pull-right">
               <%if current_user %>
                 <li>
-                  <%=link_to("Welcome User: Logout", destroy_user_session_path, :method => :delete)%>
+                  <%=link_to("Logout", destroy_user_session_path, :method => :delete)%>
                 </li>
               <% elsif current_builder %>
                 <li>
-                  <%=link_to(" Welcome Builder: Logout", destroy_builder_session_path, :method => :delete)%>
+                  <%=link_to("Logout", destroy_builder_session_path, :method => :delete)%>
                 </li>
+		<li>
+		  <%= link_to "ProfileManagment", profile_path(@builder)%>
+		</li>
               <% else %>
                 <li>
                   <%= link_to "User Sign In","/users/sign_in" %>
@@ -46,7 +49,6 @@
                   <%= link_to "Builder Sign In","/builders/sign_in" %>
                 </li>
               <% end %>
-
             </ul>
           </div><!--/.nav-collapse -->
         </div>

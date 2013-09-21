@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130920060251) do
+ActiveRecord::Schema.define(:version => 20130921063413) do
 
   create_table "builders", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -47,6 +47,37 @@ ActiveRecord::Schema.define(:version => 20130920060251) do
   add_index "builders", ["confirmation_token"], :name => "index_builders_on_confirmation_token", :unique => true
   add_index "builders", ["email"], :name => "index_builders_on_email", :unique => true
   add_index "builders", ["reset_password_token"], :name => "index_builders_on_reset_password_token", :unique => true
+
+  create_table "properties", :force => true do |t|
+    t.integer  "builder_id"
+    t.string   "property_name"
+    t.string   "property_listing"
+    t.string   "property_type"
+    t.integer  "no_of_flats"
+    t.integer  "no_of_floors"
+    t.integer  "no_of_houses"
+    t.integer  "no_of_plots"
+    t.string   "state"
+    t.string   "city"
+    t.text     "address"
+    t.string   "zip_code"
+    t.string   "lat"
+    t.string   "lng"
+    t.string   "total_area"
+    t.string   "saleable_area"
+    t.string   "sale_price"
+    t.integer  "parking"
+    t.integer  "swimming"
+    t.integer  "playground"
+    t.integer  "party_hall"
+    t.string   "property_status"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.date     "upcoming_date"
+    t.text     "description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,0 +1,81 @@
+  <%= form_for @property do |f| %>
+<div>
+  <div>
+    Property Name:
+    <%= f.text_field :property_name %>
+  </div>
+
+<div>
+  Property Listing:<%=f.select :property_listing, options_for_select(["For Sale","For Rent","ForSale or Rent"]) %>
+</div>
+
+<div>
+  Property Type:
+  <%=f.select :property_type, options_for_select(["Apartment", "Villa", "Row House", "Layout"]) %>
+</div>
+
+<div>
+  No of flats:<%=f.select :no_of_flats, options_for_select(1..50) %>
+</div>
+
+<div>
+  No of floors:<%=f.select :no_of_floors, options_for_select(1..50) %>
+</div>
+
+<div>
+  No of Houses:<%=f.select :no_of_houses, options_for_select(1..50) %>
+</div>
+
+<div>
+  No of Plots:<%=f.select :no_of_plots, options_for_select(1..50) %>
+</div>
+
+<div>
+  Total Area:<%=f.text_field :total_area %>
+</div>
+
+<div>
+  Saleable Area:<%=f.text_field :saleable_area %>
+</div>
+
+<div>
+  Sale Price:<%=f.text_field :sale_price %>
+</div>
+
+<div>
+  Description:<%=f.text_area :description, :rows => 2, :cols => 5 %>
+</div>
+  
+  <span>
+      Remaining Area:
+      <span style="margin-left: 10px;">
+      <%= f.check_box :parking %>Parking &nbsp; &nbsp; &nbsp; &nbsp;
+      <%= f.check_box :swimming %>Swimming
+     </span>
+      <br/>
+      <span style="margin-left: 120px;">
+      <%= f.check_box :playground %>Playground &nbsp;
+      <%= f.check_box :party_hall %>Partyhall
+      </span>
+    </span>
+</div>  
+     
+<div>
+  <div>
+    State:<%=f.text_field :state %>
+  </div>
+  <div>
+    City:<%=f.text_field :city %>
+  </div>
+  <div>
+    Address:<%=f.text_area :address,:rows => 2, :cols => 4 %>
+  </div>
+  <div>
+    Postal Code:<%=f.text_field :zip_code %>
+  </div>
+</div>
+
+<div>
+  <%= f.submit %>
+</div>
+  <% end %>

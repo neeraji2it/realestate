@@ -1,2 +1,20 @@
-<h1>Properties#index</h1>
-<p>Find me in app/views/properties/index.html.erb</p>
+<table>
+  <tr>
+    <th>Project Name</th>
+    <th>Property Listing</th>
+    <th>Project Type</th>
+  </tr>
+  <% @properties.each do |property| %>
+  <tr>
+    <td>
+      <%= property.property_name %>
+    </td>
+    <td>
+      <%= property.property_listing %>
+    </td>
+    <td>
+      <%= property.property_type %>
+    </td>
+  </tr>
+  <% end %>
+</table>

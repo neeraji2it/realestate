@@ -1,6 +1,6 @@
 Realestate::Application.routes.draw do
-
-  devise_for :builders
+  
+ devise_for :builders
 
   resources :dashboards
  
@@ -11,6 +11,8 @@ Realestate::Application.routes.draw do
   end
   
   resources :profiles
+  
+  resources :properties
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

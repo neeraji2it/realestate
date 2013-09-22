@@ -5,7 +5,7 @@
 </h1>
 </div>
 
-<table width="520" cellspacing="0" cellpadding="0" border="0">
+<table width="320" cellspacing="0" cellpadding="0" border="0">
 
 <tbody>
 
@@ -62,7 +62,7 @@
  <tr>   
  <td valign="top" align="right"><strong>Company Logo:</strong></td>
  <td>
-<%= image_tag(current_builder.logo(:original))%>
+<%= image_tag (current_builder.logo), :width=>"150", :height=>"50"%>
 </td>
  </tr>     
 </tbody>

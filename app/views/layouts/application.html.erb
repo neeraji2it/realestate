@@ -32,7 +32,7 @@
             <ul class="nav pull-right">
               <%if current_user %>
                 <li>
-                  <%=link_to("Logout", destroy_user_session_path, :method => :delete)%>
+                  <%=link_to("Logout", sign_out_path, :id => "sign_out")%>
                 </li>
               <% elsif current_builder %>
                 <li>

@@ -3,12 +3,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable, :confirmable
+    :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :provider, :uid, :name
-  # attr_accessible :title, :body
-  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :provider, :uid, :name, :oauth_token, :oauth_expires_at
   #validate :check_exists
   
   devise :omniauthable, :omniauth_providers => [:facebook]
@@ -20,6 +18,8 @@ class User < ActiveRecord::Base
         :provider=>auth.provider,
         :uid=>auth.uid,
         :email=>auth.info.email,
+        :oauth_token=>auth.credentials.token,
+        :oauth_expires_at=>Time.at(auth.credentials.expires_at),
         :password=>Devise.friendly_token[0,20]
       )
     end

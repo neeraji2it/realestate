@@ -1,25 +1,31 @@
-<table>
+<tr>
+  <td>
+    <%=link_to "Add Listing Properties",new_property_path%>
+  </td>
+</tr>  
+<table border="1">
   <tr>
     <th>Project Name</th>
     <th>Property Listing</th>
     <th>Project Type</th>
-<th>NO of flats</th>
-<th>NO of floors</th>
-<th>NO of houses</th>
-<th>NO of plots</th>
-<th>Total area</th>
-<th>Saleable area</th>
-<th>sale price</th>
-<th>state</th>
-<th>city</th>
-<th>Address</th>
-<th>postal code</th>
-<th>start date</th>
-<th>end date</th>
-<th>Property status</th>
-<th>upcomingdate</th>
-</tr>
+    <th>No.of flats</th>
+    <th>No.of floors</th>
+    <th>No.of houses</th>
+    <th>No.of plots</th>
+    <th>Total area</th>
+    <th>Saleable area</th>
+    <th>Sale price</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Address</th>
+    <th>Postal code</th>
+    <th>Property status</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Upcoming date</th>
+  </tr>
   <% @properties.each do |property| %>
+<<<<<<< HEAD
   <tr>
     <td>
       <%= property.property_name %>
@@ -76,5 +82,70 @@
       <%= property.upcoming_date %>
     </td>
   </tr>
+=======
+    <tr>
+      <td align="center">
+        <%= property.property_name %>
+      </td>
+      <td align="center">
+        <%= property.property_listing %>
+      </td>
+      <td align="center">
+        <%= property.property_type %>
+      </td>
+      <td align="center">
+        <%= property.no_of_flats %>
+      </td>
+      <td align="center">
+        <%= property.no_of_floors %>
+      </td>
+      <td align="center">
+        <%= property.no_of_houses %>
+      </td>
+      <td align="center">
+        <%= property.no_of_plots%>
+      </td>
+      <td align="center">
+        <%= property.total_area %>
+      </td>
+      <td align="center">
+        <%= property.saleable_area %>
+      </td>
+      <td align="center">
+        <%= property.sale_price %>
+      </td>
+      <td align="center">
+        <%= property.state %>
+      </td>
+      <td align="center">
+        <%= property.city %>
+      </td>
+      <td align="center">
+        <%= property.address %>
+      </td>
+      <td align="center">
+        <%= property.zip_code %>
+      </td>
+      <td align="center">
+        <%= property.property_status %>
+      </td>
+      <td align="center" >
+        <%= property.start_date%>
+      </td>
+      <td align="center">
+        <%= property.end_date %>
+      </td>
+
+      <td align="center">
+        <%= property.upcoming_date %>
+      </td>
+
+      <td><%= link_to "edit",  edit_property_path(property) %> </td>
+      <td><%= link_to "delete", property_path(property),:method => 'DELETE' %></td>
+      <td><%= link_to "show", property_path(property) %></td>
+
+
+    </tr>
+>>>>>>> 1887b36407a42a67990c9eb82fad16a192ca6201
   <% end %>
 </table>

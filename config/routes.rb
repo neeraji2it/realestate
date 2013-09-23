@@ -1,6 +1,8 @@
 Realestate::Application.routes.draw do
   
  devise_for :builders
+ 
+ #devise_for :users
 
   resources :dashboards
  

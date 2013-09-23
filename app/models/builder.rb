@@ -7,6 +7,7 @@ class Builder < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email,:first_name, :last_name, :company_name, :phone, :country, :address, :city, :logo, :company_url 
 
+  
   has_many :properties, :dependent => :destroy
 
   # attr_accessible :title, :body
@@ -19,7 +20,7 @@ validates_format_of :first_name,:last_name,:company_name ,:address, :city,:with 
 
  validates_format_of :company_url, :with => URI::regexp(%w(http https)), :message=>"is like this http://www.companyname.com"
 
-  validate :email_exists
+ validate :email_exists
   
   def email_exists
     if User.exists?(:email => self.email)

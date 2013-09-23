@@ -1,5 +1,8 @@
 class PropertiesController < ApplicationController
   def index
+  end
+
+  def view
     @properties = Property.all
   end
 
@@ -14,11 +17,11 @@ class PropertiesController < ApplicationController
       redirect_to '/'
     else
       render 'new'
-    end
-    
+    end    
   end
-
+  
   def show
     
   end
+
 end

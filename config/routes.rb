@@ -2,12 +2,21 @@ Realestate::Application.routes.draw do
   
  devise_for :builders
 
- resources :dashboards
+  resources :dashboards
  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+
   resources :profiles 
    
+
+  devise_scope :user do
+    get "sign_out", :to => "sessions#destroy"
+  end
+  
+  resources :profiles
+  
+
   resources :properties
 
   # The priority is based upon order of creation:

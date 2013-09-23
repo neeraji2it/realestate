@@ -31,5 +31,4 @@ class User < ActiveRecord::Base
       errors.add(:email,"Builder already exists with this email, try another email")
     end
   end 
-  
 end

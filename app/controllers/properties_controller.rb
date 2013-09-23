@@ -1,4 +1,6 @@
 class PropertiesController < ApplicationController
+  before_filter :is_builder?
+  
   def index
   end
 
@@ -23,5 +25,4 @@ class PropertiesController < ApplicationController
   def show
     
   end
-
 end

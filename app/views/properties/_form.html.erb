@@ -1,97 +1,187 @@
 <%= form_for @property do |f| %>
-<div>
-  <div>
-    Property Name:
-    <%= f.text_field :property_name %>
+  <div id="property_descr">
+    <div>
+      <span style="margin-right: 30px;">Property Name:</span>
+      <span><%= f.text_field :property_name %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 28px;">Property Listing:</span>
+      <span><%=f.select :property_listing, options_for_select(["","For Sale","For Rent","For Sale or Rent"]) %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 37px;">Property Type:</span>
+      <span><%=f.select :property_type, options_for_select(["","Apartment", "Villa", "Row House", "Layout"]) %></span>
+    </div>
+
+    <div id="flats">
+      <span style="margin-right: 62px;">No of flats:</span>
+      <span><%=f.select :no_of_flats, options_for_select(["","1BHK","2BHK","3BHK","4BHK","5BHK","6BHK","7BHK","8BHK"]) %></span>
+    </div>
+
+    <div id="floors">
+      <span style="margin-right: 53px;">No of floors:</span>
+      <span><%=f.select :no_of_floors, options_for_select(1..50) %></span>
+    </div>
+
+    <div id="houses">
+      <span style="margin-right: 40px;">No of Houses:</span>
+      <span><%=f.select :no_of_houses, options_for_select(1..50) %></span>
+    </div>
+
+    <div id="plots">
+      <span style="margin-right: 57px;">No of Plots:</span>
+      <span><%=f.select :no_of_plots, options_for_select(1..50) %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 61px;">Total Area:</span>
+      <span><%=f.text_field :total_area %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 38px;">Saleable Area:</span>
+      <span><%=f.text_field :saleable_area %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 62px;">Sale Price:</span>
+      <span><%=f.text_field :sale_price %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 55px;">Description:</span>
+      <span><%=f.text_area :description, :rows => 2, :cols => 5 %></span>
+    </div>
+
+    <div style="margin-bottom: 14px;">
+      <span style="margin-right: 24px;">Remaining Area:</span>
+      <span><%= f.check_box :parking %>Parking</span>
+      <span style="margin-left: 70px;"><%= f.check_box :swimming %>Swimming</span><br/>
+      <span style="margin-left: 134px"><%= f.check_box :playground %>Playground</span>
+      <span style="margin-left: 47px;"><%= f.check_box :party_hall %>Party hall</span>
+    </div>
+  </div>  
+
+  <div id="body_addr">
+    <div>
+      <span style="margin-right: 92px;">State:</span>
+      <span><%=f.text_field :state %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 102px;">City:</span>
+      <span><%=f.text_field :city %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 74px;">Address:</span>
+      <span><%=f.text_area :address,:rows => 2, :cols => 4 %></span>
+    </div>
+
+    <div>
+      <span style="margin-right: 49px;">Postal Code:</span>
+      <span><%=f.text_field :zip_code %></span>
+    </div>
   </div>
 
-<div>
-Property Listing:<%=f.select :property_listing, options_for_select(["For Sale","For         Rent","ForSale or Rent"]) %>
-</div>
+  <div id="body_property">
+    <div>
+      <span style="margin-right: 73px;">Property Status:</span>
+      <span><%=f.select :property_status,options_for_select([[""],['Ongoing'],['Ready To Move'],['Upcoming']]) %></span>
+    </div>
 
-<div>
-  Property Type:
-  <%=f.select :property_type, options_for_select(["Apartment", "Villa", "Row House", "Layout"]) %>
-</div>
+    <div id="start">
+      <span style="margin-right: 60px;">Project Start Date:</span>
+      <span><%=f.date_select :start_date %></span>
+    </div>
 
-<div>
-  No of flats:<%=f.select :no_of_flats, options_for_select(["select","1BHK","2BHK","3BHK","4BHK","5BHK","6BHK","7BHK","8BHK"]) %>
-</div>
+    <div id="end">
+      <span style="margin-right: 19px;">Project Completion Date:</span>
+      <span><%=f.date_select :end_date %></span>
+    </div>
 
-<div>
-  No of floors:<%=f.select :no_of_floors, options_for_select(1..50) %>
-</div>
+    <div id="upcoming">
+      <span style="margin-right: 25px;">Project Upcoming Date:</span>
+      <span><%=f.date_select :upcoming_date %></span>
+    </div>
 
-<div>
-  No of Houses:<%=f.select :no_of_houses, options_for_select(1..50) %>
-</div>
+    <div id="image_upload">
 
-<div>
-  No of Plots:<%=f.select :no_of_plots, options_for_select(1..50) %>
-</div>
+    </div>
 
-<div>
-  Total Area:<%=f.text_field :total_area %>
-</div>
-
-<div>
-  Saleable Area:<%=f.text_field :saleable_area %>
-</div>
-
-<div>
-  Sale Price:<%=f.text_field :sale_price %>
-</div>
-
-<div>
-  Description:<%=f.text_area :description, :rows => 2, :cols => 5 %>
-</div>
-  
-  <span>
-      Remaining Area:
-      <span style="margin-left: 10px;">
-      <%= f.check_box :parking %>Parking &nbsp; &nbsp; &nbsp; &nbsp;
-      <%= f.check_box :swimming %>Swimming
-     </span>
-      <br/>
-      <span style="margin-left: 120px;">
-      <%= f.check_box :playground %>Playground &nbsp;
-      <%= f.check_box :party_hall %>Partyhall
-      </span>
-    </span>
-</div>  
-     
-<div>
-  <div>
-    State:<%=f.text_field :state %>
+    <%= f.submit %>
   </div>
-  <div>
-    City:<%=f.text_field :city %>
-  </div>
-  <div>
-    Address:<%=f.text_area :address,:rows => 2, :cols => 4 %>
-  </div>
-  <div>
-    Postal Code:<%=f.text_field :zip_code %>
-  </div>
-</div>
+<% end %>
 
-<div>
-<div>
- Propertystatus:<%=f.select  :property_status,options_for_select(["ongoing","upcoming","ready to move"]) %>
-</div>
-<div>
-Startdate:<%=f.date_select :start_date %>
-</div>
+<script>
+  $(document).ready(function() {
+    $('#start').hide();
+    $('#end').hide();
+    $('#upcoming').hide();
 
-<div>
-Enddate:<%=f.date_select :end_date %>
-</div>
-<div>
-Upcomingdate:<%=f.date_select :upcoming_date %>
-</div>
+    $('#property_property_status').live("change", function() {
+      if ($('#property_property_status').val() == "Ongoing") {
+        $('#start').show();
+        $('#end').show();
+        $('#upcoming').hide();
+      }
+      else if ($('#property_property_status').val() == "Ready To Move") {
+        $('#start').hide();
+        $('#end').show();
+        $('#upcoming').hide();
+      }
+      else if ($('#property_property_status').val() == "Upcoming") {
+        $('#start').hide();
+        $('#end').hide();
+        $('#upcoming').show();
+      }
+      else {
+        $('#start').hide();
+        $('#end').hide();
+        $('#upcoming').hide();
+      }
+    })
+  })
 
+  $(document).ready(function() {
+    $('#flats').hide();
+    $('#floors').hide();
+    $('#houses').hide();
+    $('#plots').hide();
 
-<div>
-  <%= f.submit %>
-</div>
-  <% end %>
+    $('#property_property_type').live("change", function() {
+      if ($('#property_property_type').val() == "Apartment") {
+        $('#flats').show();
+        $('#floors').show();
+        $('#houses').hide();
+        $('#plots').hide();
+      }
+      else if ($('#property_property_type').val() == "Villa") {
+        $('#flats').hide();
+        $('#floors').show();
+        $('#houses').show();
+        $('#plots').hide();
+      }
+      else if ($('#property_property_type').val() == "Row House") {
+        $('#flats').hide();
+        $('#floors').show();
+        $('#houses').show();
+        $('#plots').hide();
+      }
+      else if ($('#property_property_type').val() == "Layout") {
+        $('#flats').hide();
+        $('#floors').hide();
+        $('#houses').hide();
+        $('#plots').show();
+      }
+      else {
+        $('#flats').hide();
+        $('#floors').hide();
+        $('#houses').hide();
+        $('#plots').hide();
+      }
+    })
+  })
+</script>

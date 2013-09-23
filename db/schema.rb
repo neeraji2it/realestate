@@ -106,9 +106,6 @@ ActiveRecord::Schema.define(:version => 20130921175227) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
   end

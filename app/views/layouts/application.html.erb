@@ -33,14 +33,17 @@
                 </li>
               <% elsif current_builder %>
                 <li>
-                <%= link_to "List Your Property", "#" %>
+                <%= link_to "List Your Property", new_property_path %>
               </li>
+              
+              <li>
+		  <%= link_to "ProfileManagment", profile_path(current_builder) %>
+	      </li>
+              
                 <li>
                   <%=link_to("Logout", destroy_builder_session_path, :method => :delete)%>
                 </li>
-		<li>
-		  <%= link_to "ProfileManagment", profile_path(@builder)%>
-		</li>
+		
               <% else %>
                 <li>
                   <%= link_to "User Sign In","/users/sign_in" %>

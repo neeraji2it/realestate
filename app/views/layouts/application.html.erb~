@@ -25,9 +25,6 @@
               <li>
                 <%= link_to "Find Agent", "#" %>
               </li>
-              <li>
-                <%= link_to "List Your Property", "#" %>
-              </li>
             </ul>
             <ul class="nav pull-right">
               <%if current_user %>
@@ -36,10 +33,13 @@
                 </li>
               <% elsif current_builder %>
                 <li>
+                <%= link_to "List Your Property", new_property_path %>
+              </li>
+                <li>
                   <%=link_to("Logout", destroy_builder_session_path, :method => :delete)%>
                 </li>
 		<li>
-		  <%= link_to "ProfileManagment", profile_path(@builder)%>
+		  <%= link_to "ProfileManagment", profile_path(@builder) %>
 		</li>
               <% else %>
                 <li>

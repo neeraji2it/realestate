@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
-  def index 
+def index
   @builder = current_builder 
   end
+
 end

@@ -1,15 +1,15 @@
 class PropertiesController < ApplicationController
-  before_filter :is_builder?
+ 
   
-  def index
-    before_filter :allow_currentuser, :only=>[:edit, :destroy]
-    def allow_currentuser
+ before_filter :allow_currentbuilder, :only=>[:edit, :destroy]
+    def allow_currentbuilder
       @property=Property.find(params[:id])
       unless @property.builder_id==current_builder.id
         flash[:notice]="access denied"
         redirect_to properties_path
       end
     end
+    
     def index
       @properties = Property.all
     end
@@ -49,3 +49,4 @@ class PropertiesController < ApplicationController
       redirect_to properties_path
     end
   end
+                                                                                                       

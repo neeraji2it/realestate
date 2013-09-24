@@ -1,8 +1,5 @@
-<tr>
-  <td>
-    <%=link_to "Add Listing Properties",new_property_path%>
-  </td>
-</tr>  
+
+<%=link_to "Add Listing Properties",new_property_path%>
 <table border="1">
   <tr>
     <th>Project Name</th>
@@ -25,7 +22,7 @@
     <th>Upcoming date</th>
   </tr>
   <% @properties.each do |property| %>
-<<<<<<< HEAD
+
   <tr>
     <td>
       <%= property.property_name %>
@@ -75,70 +72,13 @@
     <td>
       <%= property.end_date %>
     </td>
-<td>
+   <td>
       <%= property.property_status %>
     </td>
     <td>
       <%= property.upcoming_date %>
     </td>
-  </tr>
-=======
-    <tr>
-      <td align="center">
-        <%= property.property_name %>
-      </td>
-      <td align="center">
-        <%= property.property_listing %>
-      </td>
-      <td align="center">
-        <%= property.property_type %>
-      </td>
-      <td align="center">
-        <%= property.no_of_flats %>
-      </td>
-      <td align="center">
-        <%= property.no_of_floors %>
-      </td>
-      <td align="center">
-        <%= property.no_of_houses %>
-      </td>
-      <td align="center">
-        <%= property.no_of_plots%>
-      </td>
-      <td align="center">
-        <%= property.total_area %>
-      </td>
-      <td align="center">
-        <%= property.saleable_area %>
-      </td>
-      <td align="center">
-        <%= property.sale_price %>
-      </td>
-      <td align="center">
-        <%= property.state %>
-      </td>
-      <td align="center">
-        <%= property.city %>
-      </td>
-      <td align="center">
-        <%= property.address %>
-      </td>
-      <td align="center">
-        <%= property.zip_code %>
-      </td>
-      <td align="center">
-        <%= property.property_status %>
-      </td>
-      <td align="center" >
-        <%= property.start_date%>
-      </td>
-      <td align="center">
-        <%= property.end_date %>
-      </td>
-
-      <td align="center">
-        <%= property.upcoming_date %>
-      </td>
+    
 
       <td><%= link_to "edit",  edit_property_path(property) %> </td>
       <td><%= link_to "delete", property_path(property),:method => 'DELETE' %></td>
@@ -146,6 +86,6 @@
 
 
     </tr>
->>>>>>> 1887b36407a42a67990c9eb82fad16a192ca6201
+
   <% end %>
 </table>

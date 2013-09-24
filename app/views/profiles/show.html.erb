@@ -10,7 +10,7 @@
 <tbody>
 
 <tr>
-<td width="350" valign="top" bgcolor="#edf6fd" style="border-width: 1px; border-color: #317cb4; border-style: solid">
+<td width="350" valign="top" >
 
 <table width="350" cellspacing="0" cellpadding="4" border="0" style="font-family: arial; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; color: #000000">
 
@@ -64,6 +64,12 @@
  <td>
 <%= image_tag (current_builder.logo), :width=>"150", :height=>"50"%>
 </td>
+
+ <tr>
+   <td>
+     <td><%= link_to "Edit My Profile", edit_builder_registration_path %> </td>
+   </td>
+ </tr>
  </tr>     
 </tbody>
 </table>

@@ -13,8 +13,8 @@ class CreateProperties < ActiveRecord::Migration
        t.string :city
        t.text :address
        t.string :zip_code
-       t.string :lat
-       t.string :lng
+       t.float :latitude
+       t.float :longitude
        t.string :total_area
        t.string :saleable_area
        t.string :sale_price
@@ -27,6 +27,7 @@ class CreateProperties < ActiveRecord::Migration
        t.date :end_date
        t.date :upcoming_date
        t.text :description
+       t.boolean :gmaps
       t.timestamps
     end
   end

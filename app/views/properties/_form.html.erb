@@ -1,3 +1,10 @@
+<span>
+  <span id="step1"><%=  "Step1" %></span>
+  <span id="step2"><%=  "Step2" %></span>
+  <span id="step3"><%=  "Step3" %></span>
+  <span id="step4"><%=  "Step4" %></span>
+</span>
+
 <%= form_for @property do |f| %>
   <div id="property_descr">
     <div>
@@ -7,17 +14,17 @@
 
     <div>
       <span style="margin-right: 28px;">Property Listing:</span>
-      <span><%=f.select :property_listing, options_for_select(["","For Sale","For Rent","For Sale or Rent"]) %></span>
+      <span><%=f.select :property_listing, options_for_select(["For Sale","For Rent","For Sale or Rent"]) %></span>
     </div>
 
     <div>
       <span style="margin-right: 37px;">Property Type:</span>
-      <span><%=f.select :property_type, options_for_select(["","Apartment", "Villa", "Row House", "Layout"]) %></span>
+      <span><%=f.select :property_type, options_for_select(["Apartment", "Villa", "Row House", "Layout"]) %></span>
     </div>
 
     <div id="flats">
       <span style="margin-right: 62px;">No of flats:</span>
-      <span><%=f.select :no_of_flats, options_for_select(["","1BHK","2BHK","3BHK","4BHK","5BHK","6BHK","7BHK","8BHK"]) %></span>
+      <span><%=f.select :no_of_flats, options_for_select(["1BHK","2BHK","3BHK","4BHK","5BHK","6BHK","7BHK","8BHK"]) %></span>
     </div>
 
     <div id="floors">
@@ -64,6 +71,41 @@
     </div>
   </div>  
 
+  <div id="body_property">
+    <div>
+      <span style="margin-right: 73px;">Property Status:</span>
+      <span><%=f.select :property_status,options_for_select([['Ongoing'],['Ready To Move'],['Upcoming']]) %></span>
+    </div>
+
+    <div id="start">
+      <span style="margin-right: 60px;">Project Start Date:</span>
+      <span><%=f.date_select :start_date %></span>
+    </div>
+
+    <div id="end">
+      <span style="margin-right: 19px;">Project Completion Date:</span>
+      <span><%=f.date_select :end_date %></span>
+    </div>
+
+    <div id="upcoming">
+      <span style="margin-right: 25px;">Project Upcoming Date:</span>
+      <span><%=f.date_select :upcoming_date %></span>
+    </div>
+  </div>
+
+  <div id="img">
+    <h4>Upload Images For Your Properties</h4>
+    <div style="margin-bottom: 20px;">
+      <%= f.fields_for :images, :html => {:multipart => true} do |builder| %>
+        <%= builder.file_field :image %>
+      <% end %>  
+      <br/>
+      <div style="margin: 10px 0px">
+        <%= link_to_add_fields "Upload More Images", f, :images %> 
+      </div>
+    </div>       
+  </div>
+
   <div id="body_addr">
     <div>
       <span style="margin-right: 92px;">State:</span>
@@ -84,36 +126,40 @@
       <span style="margin-right: 49px;">Postal Code:</span>
       <span><%=f.text_field :zip_code %></span>
     </div>
+
+    <div id="gmaps">
+      <%= gmaps4rails(@json) %>
+    </div>
   </div>
 
-  <div id="body_property">
-    <div>
-      <span style="margin-right: 73px;">Property Status:</span>
-      <span><%=f.select :property_status,options_for_select([[""],['Ongoing'],['Ready To Move'],['Upcoming']]) %></span>
-    </div>
-
-    <div id="start">
-      <span style="margin-right: 60px;">Project Start Date:</span>
-      <span><%=f.date_select :start_date %></span>
-    </div>
-
-    <div id="end">
-      <span style="margin-right: 19px;">Project Completion Date:</span>
-      <span><%=f.date_select :end_date %></span>
-    </div>
-
-    <div id="upcoming">
-      <span style="margin-right: 25px;">Project Upcoming Date:</span>
-      <span><%=f.date_select :upcoming_date %></span>
-    </div>
-
-    <div id="image_upload">
-
-    </div>
-
-    <%= f.submit %>
+  <div id="submit" style="margin: 40px 0px">
+    <%= f.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>
+
+<div id="ns">
+  <%= link_to_function "Next", "steps();" %>
+</div>
+
+<div id="nt">
+  <%= link_to_function "Next", "stept();" %>
+</div>
+
+<div id="nf">
+  <%= link_to_function "Next", "stepf();" %>
+</div>
+
+<div id="bf">
+  <%= link_to_function "Back", "step1();" %>
+</div>
+
+<div id="bs">
+  <%= link_to_function "Back", "steps();" %>
+</div>
+
+<div id="bt">
+  <%= link_to_function "Back", "stept();" %>
+</div>
 
 <script>
   $(document).ready(function() {
@@ -184,4 +230,109 @@
       }
     })
   })
+
+  $(document).ready(function() {
+    $('#img').hide();
+    $('#body_addr').hide();
+    $('#property_descr').show();
+    $('#body_property').show();
+    $('#submit').hide();
+    
+    $('#step1').show();
+    $('#step2').hide();
+    $('#step3').hide();
+    $('#step4').hide();
+    
+    $('#ns').show();
+    $('#nt').hide();
+    $('#nf').hide();
+    
+    $('#bf').hide();
+    $('#bs').hide();
+    $('#bt').hide();
+  })
+  
+  function step1() {
+    $('#img').hide();
+    $('#body_addr').hide();
+    $('#property_descr').show();
+    $('#body_property').show();
+    $('#submit').hide();
+    
+    $('#step1').show();
+    $('#step2').hide();
+    $('#step3').hide();
+    $('#step4').hide();
+    
+    $('#ns').show();
+    $('#nt').hide();
+    $('#nf').hide();
+    
+    $('#bf').hide();
+    $('#bs').hide();
+    $('#bt').hide();
+  }
+  
+  function steps() {
+    $("#img").show();
+    $("#body_addr").hide();
+    $('#property_descr').hide();
+    $('#body_property').hide();
+    $('#submit').hide();
+    
+    $('#step1').hide();
+    $('#step2').show();
+    $('#step3').hide();
+    $('#step4').hide();
+    
+    $('#ns').hide();
+    $('#nt').show();
+    $('#nf').hide();
+    
+    $('#bf').show();
+    $('#bs').hide();
+    $('#bt').hide();
+  }
+  
+  function stept() {
+    $("#img").hide();
+    $("#body_addr").show();
+    $('#property_descr').hide();
+    $('#body_property').hide();
+    $('#submit').hide();
+    
+    $('#step1').hide();
+    $('#step2').hide();
+    $('#step3').show();
+    $('#step4').hide();
+    
+    $('#ns').hide();
+    $('#nt').hide();
+    $('#nf').show();
+    
+    $('#bf').hide();
+    $('#bs').show();
+    $('#bt').hide();
+  }
+  
+  function stepf() {
+    $("#img").hide();
+    $("#body_addr").hide();
+    $('#property_descr').hide();
+    $('#body_property').hide();
+    $('#submit').show();
+    
+    $('#step1').hide();
+    $('#step2').hide();
+    $('#step3').hide();
+    $('#step4').show();
+    
+    $('#ns').hide();
+    $('#nt').hide();
+    $('#nf').hide();
+    
+    $('#bf').hide();
+    $('#bs').hide();
+    $('#bt').show();
+  } 
 </script>

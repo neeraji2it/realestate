@@ -1,13 +1,9 @@
-<tr>
-  <td>
-    <%=link_to "Add Listing Properties",new_property_path%>
-  </td>
-</tr>  
-<table border="1">
+<%=link_to "Add Listing Properties",new_property_path%>
+<table class="table table-striped">
   <tr>
     <th>Project Name</th>
     <th>Property Listing</th>
-    <th>Project Type</th>
+    <th>Property Type</th>
     <th>No.of flats</th>
     <th>No.of floors</th>
     <th>No.of houses</th>
@@ -25,64 +21,6 @@
     <th>Upcoming date</th>
   </tr>
   <% @properties.each do |property| %>
-<<<<<<< HEAD
-  <tr>
-    <td>
-      <%= property.property_name %>
-    </td>
-    <td>
-      <%= property.property_listing %>
-    </td>
-    <td>
-      <%= property.property_type %>
-    </td>
-    <td>
-      <%= property.no_of_flats %>
-    </td>
-    <td>
-      <%= property.no_of_floors %>
-    </td>
-    <td>
-      <%= property.no_of_houses %>
-    </td>
-    <td>
-      <%= property.no_of_plots%>
-    </td>
-    <td>
-      <%= property.total_area %>
-    </td>
-    <td>
-      <%= property.saleable_area %>
-    </td>
-    <td>
-      <%= property.sale_price %>
-    </td>
-    <td>
-      <%= property.state %>
-    </td>
-    <td>
-      <%= property.city %>
-    </td>
-    <td>
-      <%= property.address %>
-    </td>
-    <td>
-      <%= property.zip_code %>
-    </td>
-    <td>
-      <%= property.start_date%>
-    </td>
-    <td>
-      <%= property.end_date %>
-    </td>
-<td>
-      <%= property.property_status %>
-    </td>
-    <td>
-      <%= property.upcoming_date %>
-    </td>
-  </tr>
-=======
     <tr>
       <td align="center">
         <%= property.property_name %>
@@ -141,11 +79,8 @@
       </td>
 
       <td><%= link_to "edit",  edit_property_path(property) %> </td>
-      <td><%= link_to "delete", property_path(property),:method => 'DELETE' %></td>
+      <td><%= link_to "delete", property_path(property),:method => :delete, :confirm => 'Are u sure to delete?' %></td>
       <td><%= link_to "show", property_path(property) %></td>
-
-
     </tr>
->>>>>>> 1887b36407a42a67990c9eb82fad16a192ca6201
   <% end %>
 </table>

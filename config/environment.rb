@@ -2,4 +2,7 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Realestate::Application.initialize!
+
+ActiveSupport::Deprecation.silence do
+  Realestate::Application.initialize!
+end

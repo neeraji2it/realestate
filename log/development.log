@@ -1,0 +1,12 @@
+Connecting to database specified by database.yml
+  [1m[36m (3.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateBuilders (20130919064341)
+Migrating to DeviseCreateUsers (20130919071444)
+Migrating to AddColumnsToBuilders (20130920053802)
+Migrating to AddAttachmentLogoToBuilders (20130920060251)
+Migrating to CreateProperties (20130921063413)
+Migrating to AddOauthTokenToUsers (20130921141108)
+Migrating to AddSessionsTable (20130921175227)
+Migrating to CreateImages (20130924080748)
+Migrating to AddAttachmentImageToImages (20130924081856)
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 

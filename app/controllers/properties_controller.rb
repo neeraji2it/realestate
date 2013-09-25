@@ -44,7 +44,7 @@ class PropertiesController < ApplicationController
     elsif params[:property][:property_status]=='Ongoing'
       @property.upcoming_date="" 
     elsif params[:property][:property_status]=='Upcoming'
-     @property.start_date=""
+      @property.start_date=""
       @property.end_date=""
     else
       flash[:notice] = "Please select property status"

@@ -1,13 +1,17 @@
 class Property < ActiveRecord::Base
   attr_accessible :builder_id,:property_name,:property_listing,:property_type,:no_of_flats,:no_of_floors,:images_attributes,:no_of_houses,:no_of_plots,:state,:city,:address,:zip_code,:latitude,:longitude,:total_area,:saleable_area,:sale_price,:parking,:swimming,:playground,:party_hall,:property_status,:start_date,:end_date,:upcoming_date,:description, :gmaps
-  validate :builder_id, :property_name, :property_listing, :property_type, :presence => true
+  validates :builder_id, :property_name, :property_listing, :property_type,:property_status, :total_area,:saleable_area,:sale_price,:presence => true
+  
   belongs_to :builder  
   has_many :images     
   accepts_nested_attributes_for :images, :allow_destroy => true, :reject_if=>:all_blank
   
-  acts_as_gmappable
-  
+ #acts_as_gmappable
+acts_as_gmappable :process_geocoding => false
+
   def gmaps4rails_address
-    "#{self.zip_code}"
+ 
+  "#{self.address}, #{self.city}, #{self.zip_code}" 
+  
   end
 end

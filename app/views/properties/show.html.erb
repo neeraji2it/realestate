@@ -1,100 +1,168 @@
 <table>
   <tr>
-    <td>Project Name:<%= @property.property_name %>
+    <td>Project Name:</td>
+    <td>
+     <%= @property.property_name %>
     </td>
   </tr>
   <tr>
     <td>
-      Project Listing:<%= @property.property_listing %>
+      Project Listing:</td>
+    <td>
+     <%= @property.property_listing %>
     </td>
   </tr>
   <tr>
     <td>
-      Project Type:<%= @property.property_type %>
+      Project Type:</td>
+    <td>
+    <%= @property.property_type %>
+    </td>
+  </tr>
+   <% if @property.property_type=="Villa" || @property.property_type == "Row House" %>
+
+       <tr>
+          <td>
+            No.of Floors:</td>
+          <td>
+            <%=@property.no_of_floors%>
+          </td>
+        </tr>
+      <tr>
+        <td>
+          No.of Houses:</td>
+        <td>
+          <%=@property.no_of_houses%>
+        </td>
+      </tr>
+    <%  end %>
+      
+       <% if @property.property_type == "Apartment"  %>
+     
+      <tr>
+        <td>
+          No.of Flats:</td>
+        <td>
+          <%= @property.no_of_flats %>
+        </td>
+      </tr>
+     
+        <tr>
+          <td>
+            No.of Floors:</td>
+          <td>
+            <%=@property.no_of_floors%>
+          </td>
+        </tr>
+      <% end %>
+       
+  <% if @property.property_type == "Layout"  %>
+    <tr>
+      <td>
+        No.of Plots:</td>
+      <td>
+        <%=@property.no_of_plots %>
+      </td>
+    </tr>
+
+ <% end %>
+ 
+    <tr>
+    <td>
+      Total Area:</td>
+  <td>
+    <%=@property.total_area %>
     </td>
   </tr>
   <tr>
     <td>
-      No.of Flats:<%= @property.no_of_flats %>
+      Saleable Area:</td>
+    <td>
+    <%=@property.saleable_area %>
     </td>
   </tr>
   <tr>
     <td>
-      No.of Floors:<%=@property.no_of_floors%>
+      Sale Price:</td>
+    <td>
+    <%=@property.sale_price %>
     </td>
   </tr>
   <tr>
     <td>
-      No.of Houses:<%=@property.no_of_houses%>
+      Description:</td>
+    <td>
+    <%=@property.description %>
     </td>
   </tr>
   <tr>
     <td>
-      No.of Plots:<%=@property.no_of_plots %>
+      State:</td>
+    <td>
+    <%=@property.state %>
+    </td>
+  </tr>
+  <tr>
+    <td>City:</td>
+    <td>
+    <%=@property.city %>
     </td>
   </tr>
   <tr>
     <td>
-      Total Area:<%=@property.total_area %>
+      Address:</td>
+    <td>
+    <%=@property.address %>
     </td>
   </tr>
   <tr>
     <td>
-      Saleable Area:<%=@property.saleable_area %>
+      Postal code:</td>
+  <td>
+    <%=@property.zip_code %>
     </td>
   </tr>
 
+  <tr>
+    <td>
+      Property Status:</td>
+    <td>
+    <%=@property.property_status%>
+    </td>
+  </tr>
+  <% if @property.property_status == "Ongoing"  %>
+    <tr>
+      <td>
+        Start Date:</td>
+      <td>
+        <%=@property.start_date %>
+      </td>
+    </tr>
 
-  <tr>
-    <td>
-      Sale Price:<%=@property.sale_price %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Description:<%=@property.description %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      State:<%=@property.state %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      City:<%=@property.city %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Address:<%=@property.address %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Postal code:<%=@property.zip_code %>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Property Status:<%=@property.property_status%>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Start Date:<%=@property.start_date %>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      End Date:<%=@property.end_date %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Upcoming Date:<%=@property.upcoming_date %>
-    </td>
-  </tr>
+    <tr>
+      <td>
+        End Date:</td>
+      <td>
+        <%=@property.end_date %>
+      </td>
+    </tr>
+    <% end %>
+     <% if @property.property_status == "Ready To Move"  %>
+     <tr>
+      <td>
+        End Date:</td>
+      <td>
+        <%=@property.end_date %>
+      </td>
+    </tr>
+    <% end %>
+    <% if @property.property_status == "Upcoming"  %>
+    <tr>
+      <td>
+        Upcoming Date:</td>
+      <td>
+        <%=@property.upcoming_date %>
+      </td>
+    </tr>
+    <% end %>
 </table>

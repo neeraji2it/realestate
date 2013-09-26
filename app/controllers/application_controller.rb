@@ -16,10 +16,5 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def is_builder?
-    unless current_builder
-      flash[:alert] = "Sorry you are not authorized to access this page"
-      redirect_to dashboards_path
-    end
-  end
+  
 end

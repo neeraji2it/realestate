@@ -239,7 +239,6 @@ Devise.setup do |config|
 
     config.omniauth :facebook, '275883659203603', '5295590eeadb62394123b3fe405b2ada' if Rails.env=='production'
 
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

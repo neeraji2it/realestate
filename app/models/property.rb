@@ -10,4 +10,16 @@ class Property < ActiveRecord::Base
   def gmaps4rails_address
     "#{self.zip_code}"
   end
+  
+  define_index do
+    indexes property_listing
+    indexes property_type
+    indexes sale_price
+    indexes city
+  end
+  
+  def gmaps4rails_infowindow
+    "Address: #{self.address} <br/> City: #{self.city} <br /> Longitude: #{self.longitude} <br/> Latitude: #{self.latitude}"
+  end
+    
 end

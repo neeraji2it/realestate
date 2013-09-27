@@ -27,3 +27,4 @@ gem 'quiet_assets'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
+gem 'thinking-sphinx', '2.0.10'

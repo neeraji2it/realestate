@@ -4,7 +4,11 @@ Realestate::Application.routes.draw do
  
  #devise_for :users
 
-  resources :dashboards
+  resources :dashboards do
+    collection do
+      get 'search'
+    end
+  end
  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -17,9 +21,12 @@ Realestate::Application.routes.draw do
   end
   
   resources :profiles
-  
-
   resources :properties
+  resources :images
+  
+  resources :builders do
+    resources :properties
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

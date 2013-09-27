@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="span9 offset2"><%= gmaps4rails(@json) %></div>
+</div>
+<br/>
+<div class="row">
+  <% @properties.each do |property| %>
+    <div class="span3">
+      <div class="row">
+        <div class="span3"><%= property.property_name %></div>
+          <%= image_tag property.images, :class => 'span2 img-polaroid' %>
+        <div class="span3"><%= property.property_type %></div>
+        <div class="span3">City: <%=property.city %></div>
+        <div class="span3"><%= property.property_listing %><br/></div>
+        <div class="span3">Sale Area: <%=property.saleable_area + "sq.ft" %></div>
+        <div class="span3"><%= "Sale Price: Rs." + property.sale_price %></div>
+        <div class="span3"><%="Status: " + property.property_status%></div>
+        <div class="span3">
+          <%= link_to 'Full Details', property_path(property.id), :class => "btn btn-small btn-primary" %> &nbsp; 
+          <%#= link_to 'Map', "#modalMap", :role => "button", :class => "btn btn-small btn-primary", "data-toggle" => "modal" %>
+          <%= link_to "View Map", dashboard_path(property.id), :class => "btn btn-small btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>

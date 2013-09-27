@@ -7,12 +7,12 @@ class PropertiesController < ApplicationController
   
   def show
     @property = Property.find(params[:id])
+    @json = @property.to_gmaps4rails
   end
 
   def new
     @property = Property.new
     1.times {@property.images.build}
-    @json = Property.all.to_gmaps4rails
   end
   
   def create

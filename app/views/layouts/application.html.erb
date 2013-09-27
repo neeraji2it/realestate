@@ -3,9 +3,13 @@
 <head>
   <title>Realestate</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag 'gmaps4rails' %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" %>
-  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <%= csrf_meta_tags %> 
+  <%= yield :head %>
 </head>
 
  <body>
@@ -67,7 +71,7 @@
       <div id="content">
         <%= yield %>
       </div>  
+        <%= yield :scripts %>
     </div>
-   <%= yield :scripts %>
   </body>
 </html>

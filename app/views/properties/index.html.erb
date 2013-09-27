@@ -1,178 +1,81 @@
-<%=link_to "Add Listing Properties",new_property_path%>
-<% @properties.each do |property| %>
-  <table>
+<%=link_to "Add",new_property_path%>
+<table class="table table-striped" cellspacing="10" cellpadding="10" border="1">
+  <tr>
+    <th>PropertyName</th>
+    <th>PropertyListing</th>
+    <th>PropertyType</th>
+    <th>TotalArea</th>
+    <th>SalePrice</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Address</th>
+    <th>PropertyStatus</th>
+    <th>StartDate</th>
+    <th>EndDate</th>
+    <th>UpcomingDate</th>
+    <th>Actions</th>
+  </tr>
+  <% @properties.each do |property| %>
     <tr>
-      <td>Project Name:</td>
-      <td>
+      <td align="center">
         <%= property.property_name %>
       </td>
-    </tr>
-    <tr>
-      <td>
-        Project Listing:</td>
-      <td>
+      <td align="center">
         <%= property.property_listing %>
       </td>
-    </tr>
-    <tr>
-      <td>
-        Property Type:</td>
-      <td>
+      <td align="center">
         <%= property.property_type %>
       </td>
-    </tr>
-
-
-    <% if property.property_type=="Villa" || property.property_type == "Row House" %>
-
-       <tr>
-          <td>
-            No.of Floors:</td>
-          <td>
-            <%=property.no_of_floors%>
-          </td>
-        </tr>
-      <tr>
-        <td>
-          No.of Houses:</td>
-        <td>
-          <%=property.no_of_houses%>
-        </td>
-      </tr>
-    <%  end %>
-
-    <% if property.property_type == "Apartment"  %>
+      <td align="center">
+        <%= property.total_area %>
+      </td>
+      <td align="center">
+        <%= property.sale_price %>
+      </td>
+      <td align="center">
+        <%= property.state %>
+      </td>
+      <td align="center">
+        <%= property.city %>
+      </td>
+      <td align="center">
+        <%= property.address %>
+      </td>
+      <td align="center">
+        <%= property.property_status %>
+      </td>
+      <td>  
+       <% if property.property_status == "Ongoing"  %>
      
-      <tr>
-        <td>
-          No.of Flats:</td>
-        <td>
-          <%= property.no_of_flats %>
-        </td>
-      </tr>
-     
-        <tr>
-          <td>
-            No.of Floors:</td>
-          <td>
-            <%=property.no_of_floors%>
-          </td>
-        </tr>
-      <% end %>
-       
-  <% if property.property_type == "Layout"  %>
-    <tr>
-      <td>
-        No.of Plots:</td>
-      <td>
-        <%=property.no_of_plots %>
-      </td>
-    </tr>
-
- <% end %>
-    <tr>
-      <td>
-        Total Area:</td>
-      <td>
-        <%=property.total_area %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Saleable Area:</td>
-      <td>
-        <%=property.saleable_area %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Sale Price:</td>
-      <td>
-        <%=property.sale_price %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Description:</td>
-      <td>
-        <%=property.description %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        State:</td>
-      <td>
-        <%=property.state %>
-      </td>
-    </tr>
-    <tr>
-      <td>City:</td>
-      <td>
-        <%=property.city %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Address:</td>
-      <td>
-        <%=property.address %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Postal code:</td>
-      <td>
-        <%=property.zip_code %>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Property Status:</td>
-      <td>
-        <%=property.property_status%>
-      </td>
-    </tr>
-     <% if property.property_status == "Ongoing"  %>
-    <tr>
-      <td>
-        Start Date:</td>
-      <td>
         <%=property.start_date %>
+     
+        <td>
+          <%=property.end_date %>
+        </td>
+ 
+      <% end %>
+    
+      <% if property.property_status == "Ready To Move"  %>
+        <td>
+      <%=property.end_date %>
+        </td>
+      <% end %>
+     
+    
+     <td> 
+        <% if property.property_status == "Upcoming"  %>
+     <td>
+          <%=property.upcoming_date %>
+     </td>
+     <% end %>
+     </td>
+     </td>
+     
+      <td>
+        <%= link_to "Edit",  edit_property_path(property) %> 
+        <%= link_to "Delete", property_path(property),:method => :delete, :confirm => 'Are u sure to delete?' %>
+        <%= link_to "View", property_path(property) %>
       </td>
     </tr>
-
-    <tr>
-      <td>
-        End Date:</td>
-      <td>
-        <%=property.end_date %>
-      </td>
-    </tr>
-    <% end %>
-     <% if property.property_status == "Ready To Move"  %>
-     <tr>
-      <td>
-        End Date:</td>
-      <td>
-        <%=property.end_date %>
-      </td>
-    </tr>
-    <% end %>
-    <% if property.property_status == "Upcoming"  %>
-    <tr>
-      <td>
-        Upcoming Date:</td>
-      <td>
-        <%=property.upcoming_date %>
-      </td>
-    </tr>
-    <% end %>
-    <tr>
-      <td><%= link_to "edit",  edit_property_path(property) %> </td>
-      <td><%= link_to "delete", property_path(property),:method => :delete, :confirm => 'Are u sure to delete?' %></td>
-      <td><%= link_to "show", property_path(property) %></td>
-    </tr>
-
-  </table>
-<% end %>
+  <% end %>
+</table>

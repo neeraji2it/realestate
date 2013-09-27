@@ -1,14 +1,14 @@
 class PropertiesController < ApplicationController
 
-before_filter :allow_builder, :only => [ "edit",  "destroy"]
+  before_filter :allow_builder, :only => [ "edit",  "destroy"]
   
   def allow_builder
     @property = Property.find(params[:id])
     unless @property.builder_id==current_builder.id
-          flash[:notice]="Access Denied"
-        redirect_to properties_path
-  end
+      flash[:notice]="Access Denied"
+      redirect_to properties_path
     end
+  end
   
 
   def index
@@ -19,6 +19,8 @@ before_filter :allow_builder, :only => [ "edit",  "destroy"]
     @property = Property.find(params[:id])
   end
 
+ 
+
   def new
     @property = Property.new
     1.times {@property.images.build}
@@ -28,7 +30,7 @@ before_filter :allow_builder, :only => [ "edit",  "destroy"]
   def create
     @property = Property.new(params[:property].merge(:builder_id => current_builder.id ))
     if @property.images.blank?
-     1.times {@property.images.build}
+      1.times {@property.images.build}
     end
     
     if params[:property][:property_type]=='Apartment'
@@ -71,8 +73,12 @@ before_filter :allow_builder, :only => [ "edit",  "destroy"]
   
   def update
     @property = Property.find(params[:id])
-    @property.update_attributes(params[:property])
-    redirect_to properties_path(@property)
+    if @property.update_attributes(params[:property])
+      redirect_to properties_path(@property)
+    else
+      p @property.errors.inspect
+      render :action => :edit
+    end
   end
   
   

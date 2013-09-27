@@ -5,7 +5,10 @@ class Property < ActiveRecord::Base
   belongs_to :builder  
   has_many :images     
   accepts_nested_attributes_for :images, :allow_destroy => true, :reject_if=>:all_blank
-  
+  validates_format_of :zip_code,
+                  with: /\A\d{6}-\d{5}|\A\d{6}\z/,
+                  message: "should be 123456 or 12345-1234",
+                  allow_blank: false
  #acts_as_gmappable
 acts_as_gmappable :process_geocoding => false
 

@@ -156,7 +156,9 @@
       </td>
     </tr>
     <% end %>
-    <% if @property.property_status == "Upcoming"  %>
+   
+
+<% if @property.property_status == "Upcoming"  %>
     <tr>
       <td>
         Upcoming Date:</td>
@@ -164,5 +166,16 @@
         <%=@property.upcoming_date %>
       </td>
     </tr>
-    <% end %>
-</table>
+   <% end %>
+   
+    <tr>
+    <td>
+        Images:
+      </td>
+      <td>
+        <% @property.images.each do |image| %>
+        <%= image_tag (image.image),:width=>"150", :height=>"50" %>
+        <% end%>
+ </td>
+    </tr>
+    </table>

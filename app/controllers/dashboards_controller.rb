@@ -1,7 +1,6 @@
 class DashboardsController < ApplicationController
   def index
     @builder = current_builder 
-    #@properties = Property.all
   end
   
   def search

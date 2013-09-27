@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row-fluid">
   <div class="span12">
     <h2>Property Details</h2>
@@ -136,3 +137,186 @@
   </div>
 </div>
 </div>
+=======
+<table>
+  <tr>
+    <td>Project Name:</td>
+    <td>
+     <%= @property.property_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Project Listing:</td>
+    <td>
+     <%= @property.property_listing %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Project Type:</td>
+    <td>
+    <%= @property.property_type %>
+    </td>
+  </tr>
+   <% if @property.property_type=="Villa" || @property.property_type == "Row House" %>
+
+       <tr>
+          <td>
+            No.of Floors:</td>
+          <td>
+            <%=@property.no_of_floors%>
+          </td>
+        </tr>
+      <tr>
+        <td>
+          No.of Houses:</td>
+        <td>
+          <%=@property.no_of_houses%>
+        </td>
+      </tr>
+    <%  end %>
+      
+       <% if @property.property_type == "Apartment"  %>
+     
+      <tr>
+        <td>
+          No.of Flats:</td>
+        <td>
+          <%= @property.no_of_flats %>
+        </td>
+      </tr>
+     
+        <tr>
+          <td>
+            No.of Floors:</td>
+          <td>
+            <%=@property.no_of_floors%>
+          </td>
+        </tr>
+      <% end %>
+       
+  <% if @property.property_type == "Layout"  %>
+    <tr>
+      <td>
+        No.of Plots:</td>
+      <td>
+        <%=@property.no_of_plots %>
+      </td>
+    </tr>
+
+ <% end %>
+ 
+    <tr>
+    <td>
+      Total Area:</td>
+  <td>
+    <%=@property.total_area %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Saleable Area:</td>
+    <td>
+    <%=@property.saleable_area %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Sale Price:</td>
+    <td>
+    <%=@property.sale_price %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Description:</td>
+    <td>
+    <%=@property.description %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      State:</td>
+    <td>
+    <%=@property.state %>
+    </td>
+  </tr>
+  <tr>
+    <td>City:</td>
+    <td>
+    <%=@property.city %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Address:</td>
+    <td>
+    <%=@property.address %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Postal code:</td>
+  <td>
+    <%=@property.zip_code %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Property Status:</td>
+    <td>
+    <%=@property.property_status%>
+    </td>
+  </tr>
+  <% if @property.property_status == "Ongoing"  %>
+    <tr>
+      <td>
+        Start Date:</td>
+      <td>
+        <%=@property.start_date %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        End Date:</td>
+      <td>
+        <%=@property.end_date %>
+      </td>
+    </tr>
+    <% end %>
+     <% if @property.property_status == "Ready To Move"  %>
+     <tr>
+      <td>
+        End Date:</td>
+      <td>
+        <%=@property.end_date %>
+      </td>
+    </tr>
+    <% end %>
+   
+
+<% if @property.property_status == "Upcoming"  %>
+    <tr>
+      <td>
+        Upcoming Date:</td>
+      <td>
+        <%=@property.upcoming_date %>
+      </td>
+    </tr>
+   <% end %>
+   
+    <tr>
+    <td>
+        Images:
+      </td>
+      <td>
+        <% @property.images.each do |image| %>
+        <%= image_tag (image.image),:width=>"150", :height=>"50" %>
+        <% end%>
+ </td>
+    </tr>
+    </table>
+>>>>>>> 60471bd628d0b325f9a8424e18f990279b79161f

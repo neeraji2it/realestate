@@ -6,6 +6,13 @@
 </span>
 
 <%= form_for @property do |f| %>
+  <% if !@property.errors.empty? %>
+    <ul>
+      <% @property.errors.each do |attr,message| %>
+        <li><%= attr %>&nbsp;<%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div id="property_descr">
     <div>
       <span style="margin-right: 30px;">Property Name:</span>
@@ -19,7 +26,7 @@
 
     <div>
       <span style="margin-right: 37px;">Property Type:</span>
-      <span><%=f.select :property_type, options_for_select(["Apartment", "Villa", "Row House", "Layout"]) %></span>
+      <span><%=f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Row House","Row House"],["Layout","Layout"]],:selected => f.object.property_type) %></span>
     </div>
 
     <div id="flats">
@@ -43,12 +50,12 @@
     </div>
 
     <div>
-      <span style="margin-right: 61px;">Total Area:</span>
+      <span style="margin-right: 25px;">Total Area(SQF):</span>
       <span><%=f.text_field :total_area %></span>
     </div>
 
     <div>
-      <span style="margin-right: 38px;">Saleable Area:</span>
+      <span style="margin-right: 05px;">SaleableArea(SQF):</span>
       <span><%=f.text_field :saleable_area %></span>
     </div>
 
@@ -73,8 +80,8 @@
 
   <div id="body_property">
     <div>
-      <span style="margin-right: 73px;">Property Status:</span>
-      <span><%=f.select :property_status,options_for_select([['Ongoing'],['Ready To Move'],['Upcoming']]) %></span>
+      <span style="margin-right: 25px;">Property Status:</span>
+      <span><%=f.select :property_status,options_for_select([["Select",""],['Ongoing',"Ongoing"],['Ready To Move','Ready To Move'],['Upcoming','Upcoming']],:selected => f.object.property_status) %></span>
     </div>
 
     <div id="start">
@@ -101,12 +108,13 @@
       <% end %>  
       <br/>
       <div style="margin: 10px 0px">
-        <%= link_to_add_fields "Upload More Images", f, :images %> 
+        <%= link_to_add_fields "Upload More Images", f,:images %> 
       </div>
     </div>       
   </div>
 
   <div id="body_addr">
+    
     <div>
       <span style="margin-right: 92px;">State:</span>
       <span><%=f.text_field :state %></span>
@@ -127,9 +135,7 @@
       <span><%=f.text_field :zip_code %></span>
     </div>
 
-    <div id="gmaps">
-      <%= gmaps4rails(@json) %>
-    </div>
+
   </div>
 
   <div id="submit" style="margin: 40px 0px">
@@ -237,102 +243,102 @@
     $('#property_descr').show();
     $('#body_property').show();
     $('#submit').hide();
-    
+
     $('#step1').show();
     $('#step2').hide();
     $('#step3').hide();
     $('#step4').hide();
-    
+
     $('#ns').show();
     $('#nt').hide();
     $('#nf').hide();
-    
+
     $('#bf').hide();
     $('#bs').hide();
     $('#bt').hide();
   })
-  
+
   function step1() {
     $('#img').hide();
     $('#body_addr').hide();
     $('#property_descr').show();
     $('#body_property').show();
     $('#submit').hide();
-    
+
     $('#step1').show();
     $('#step2').hide();
     $('#step3').hide();
     $('#step4').hide();
-    
+
     $('#ns').show();
     $('#nt').hide();
     $('#nf').hide();
-    
+
     $('#bf').hide();
     $('#bs').hide();
     $('#bt').hide();
   }
-  
+
   function steps() {
     $("#img").show();
     $("#body_addr").hide();
     $('#property_descr').hide();
     $('#body_property').hide();
     $('#submit').hide();
-    
+
     $('#step1').hide();
     $('#step2').show();
     $('#step3').hide();
     $('#step4').hide();
-    
+
     $('#ns').hide();
     $('#nt').show();
     $('#nf').hide();
-    
+
     $('#bf').show();
     $('#bs').hide();
     $('#bt').hide();
   }
-  
+
   function stept() {
     $("#img").hide();
     $("#body_addr").show();
     $('#property_descr').hide();
     $('#body_property').hide();
     $('#submit').hide();
-    
+
     $('#step1').hide();
     $('#step2').hide();
     $('#step3').show();
     $('#step4').hide();
-    
+
     $('#ns').hide();
     $('#nt').hide();
     $('#nf').show();
-    
+
     $('#bf').hide();
     $('#bs').show();
     $('#bt').hide();
   }
-  
+
   function stepf() {
     $("#img").hide();
     $("#body_addr").hide();
     $('#property_descr').hide();
     $('#body_property').hide();
     $('#submit').show();
-    
+
     $('#step1').hide();
     $('#step2').hide();
     $('#step3').hide();
     $('#step4').show();
-    
+
     $('#ns').hide();
     $('#nt').hide();
     $('#nf').hide();
-    
+
     $('#bf').hide();
     $('#bs').hide();
     $('#bt').show();
-  } 
+  }
 </script>

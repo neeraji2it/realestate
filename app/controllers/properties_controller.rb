@@ -1,6 +1,16 @@
 class PropertiesController < ApplicationController
-  before_filter :is_builder?, :only => ["new", "edit", "create", "update", "destroy"]
+
+  before_filter :allow_builder, :only => [ "edit",  "destroy"]
   
+  def allow_builder
+    @property = Property.find(params[:id])
+    unless @property.builder_id==current_builder.id
+      flash[:notice]="Access Denied"
+      redirect_to properties_path
+    end
+  end
+  
+
   def index
     @properties = Property.all
   end
@@ -9,6 +19,8 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
     @json = @property.to_gmaps4rails
   end
+
+ 
 
   def new
     @property = Property.new
@@ -34,8 +46,6 @@ class PropertiesController < ApplicationController
       @property.no_of_houses=""
       @property.no_of_flats=""
       @property.no_of_floors=""
-    else
-      flash[:notice] = "Please select property type"
     end
     
     if params[:property][:property_status]=='Ready To Move'
@@ -46,14 +56,13 @@ class PropertiesController < ApplicationController
     elsif params[:property][:property_status]=='Upcoming'
       @property.start_date=""
       @property.end_date=""
-    else
-      flash[:notice] = "Please select property status"
     end
     
     if @property.save
       flash[:notice]="property created successfully"
       redirect_to '/'
     else
+      flash[:error] = "property creation failed"
       render 'new'
     end
   end
@@ -64,8 +73,12 @@ class PropertiesController < ApplicationController
   
   def update
     @property = Property.find(params[:id])
-    @property.update_attributes(params[:property])
-    redirect_to properties_path(@property)
+    if @property.update_attributes(params[:property])
+      redirect_to properties_path(@property)
+    else
+      p @property.errors.inspect
+      render :action => :edit
+    end
   end
   
   

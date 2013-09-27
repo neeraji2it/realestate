@@ -8,8 +8,7 @@ class PropertiesController < ApplicationController
       flash[:notice]="Access Denied"
       redirect_to properties_path
     end
-  end
-  
+  end 
 
   def index
     @properties = Property.all
@@ -19,8 +18,6 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
     @json = @property.to_gmaps4rails
   end
-
- 
 
   def new
     @property = Property.new

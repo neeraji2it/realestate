@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Realestate</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag 'gmaps4rails' %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" %>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-  <%= csrf_meta_tags %> 
-  <%= yield :head %>
-</head>
+  <head>
+    <title>Realestate</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag 'gmaps4rails' %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" %>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <%= csrf_meta_tags %> 
+    <%= yield :head %>
+  </head>
 
- <body>
+  <body>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -22,33 +22,49 @@
                 <%= link_to "Home",  dashboards_path, :class => "active" %>
               </li>
               <li>
-                <%= link_to "Condos" %>
+                <%= link_to "Apartment" %>
               </li>
               <li>
-                <%= link_to "Houses", "#" %>
+                <%= link_to "Villas", "#" %>
               </li>
               <li>
-                <%= link_to "Find Agent", "#" %>
+                <%= link_to "Layouts", "#" %>
               </li>
             </ul>
             <ul class="nav pull-right">
               <%if current_user %>
-                <li>
-                  <%=link_to("Logout", sign_out_path, :id => "sign_out")%>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                      <%= link_to "View", profile_path(current_user) %>
+                    </li>
+                    <li>
+                      <%= link_to "Edit", edit_user_registration_path %>
+                    </li>
+                    <li>
+                      <%=link_to("Logout", sign_out_path, :id => "sign_out")%>
+                    </li>
+                  </ul>
                 </li>
               <% elsif current_builder %>
                 <li>
-                <%= link_to "List Your Property", properties_path %>
-              </li>
-              
-              <li>
-		  <%= link_to "ProfileManagment", profile_path(current_builder) %>
-	      </li>
-              
-                <li>
-                  <%=link_to("Logout", destroy_builder_session_path, :method => :delete)%>
+                  <%= link_to "List Your Property", properties_path %>
                 </li>
-		
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                      <%= link_to "View", profile_path(current_builder) %>
+                    </li>
+                    <li>
+                      <%= link_to "Edit", edit_builder_registration_path %>
+                    </li>
+                    <li>
+                      <%=link_to("Logout", destroy_builder_session_path, :method => :delete)%>
+                    </li>
+                  </ul>
+                </li>
               <% else %>
                 <li>
                   <%= link_to "User Sign In","/users/sign_in" %>
@@ -71,7 +87,7 @@
       <div id="content">
         <%= yield %>
       </div>  
-        <%= yield :scripts %>
+      <%= yield :scripts %>
     </div>
   </body>
 </html>

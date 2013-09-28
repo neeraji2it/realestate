@@ -1,75 +1,108 @@
-<div>
-<h1>
-<font style="text-transform: uppercase">
-<%= current_builder.company_name %> Details </font>
-</h1>
-</div>
+<% if current_builder %>
+  <div>
+    <h1>
+      <font style="text-transform: uppercase">
+      <%= current_builder.company_name %> Details </font>
+    </h1>
+  </div>
 
-<table width="320" cellspacing="0" cellpadding="0" border="0">
+  <table width="320" cellspacing="0" cellpadding="0" border="0">
 
-<tbody>
+    <tbody>
 
-<tr>
-<td width="350" valign="top" >
+      <tr>
+        <td width="350" valign="top" >
 
-<table width="350" cellspacing="0" cellpadding="4" border="0" style="font-family: arial; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; color: #000000">
+          <table width="350" cellspacing="0" cellpadding="4" border="0" style="font-family: arial; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; color: #000000">
 
 
 
-<tr>
-<td width="104" valign="top" align="right">
-<strong>Builder:</strong>
-</td> 
+            <tr>
+              <td width="104" valign="top" align="right">
+                <strong>Builder:</strong>
+              </td> 
 
-<td width="230" valign="top">
-<font style="text-transform: capitalize;">
-<%= current_builder.company_name %>
-</font>
-</td>
-</tr>
- 
- <tr>
- <td valign="top" align="right">
- <strong>Company URL:</strong>
- </td>
- <td valign="top">
- <%= current_builder.company_url%>
- </td>
- </tr>
- 
- <tr>
- <td valign="top" align="right">
- <strong>Phone:</strong>
- </td> 
- <td valign="top"><%= current_builder.phone %></td>  
- </tr>
+              <td width="230" valign="top">
+                <font style="text-transform: capitalize;">
+                <%= current_builder.company_name %>
+                </font>
+              </td>
+            </tr>
 
- 
- <tr>   
- <td valign="top" align="right"><strong>City:</strong></td>
- <td>
- <font style="text-transform: capitalize;">
- <%= current_builder.city %></font>
- </td>
- </tr>  
- 
- <tr> 
- <td valign="top" align="right"><strong>Country:</strong>
- </td>  
- <td><%= current_builder.country %></td> 
- </tr>    
+            <tr>
+              <td valign="top" align="right">
+                <strong>Company URL:</strong>
+              </td>
+              <td valign="top">
+                <%= current_builder.company_url%>
+              </td>
+            </tr>
 
- <tr>   
- <td valign="top" align="right"><strong>Company Logo:</strong></td>
- <td>
-<%= image_tag (current_builder.logo), :width=>"150", :height=>"50"%>
-</td>
+            <tr>
+              <td valign="top" align="right">
+                <strong>Phone:</strong>
+              </td> 
+              <td valign="top"><%= current_builder.phone %></td>  
+            </tr>
 
- <tr>
-   <td>
-     <td><%= link_to "Edit My Profile", edit_builder_registration_path %> </td>
-   </td>
- </tr>
- </tr>     
-</tbody>
-</table>
+
+            <tr>   
+              <td valign="top" align="right"><strong>City:</strong></td>
+              <td>
+                <font style="text-transform: capitalize;">
+                <%= current_builder.city %></font>
+              </td>
+            </tr>  
+
+            <tr> 
+              <td valign="top" align="right"><strong>Country:</strong>
+              </td>  
+              <td><%= current_builder.country %></td> 
+            </tr>    
+
+            <tr>   
+              <td valign="top" align="right"><strong>Company Logo:</strong></td>
+              <td>
+                <%= image_tag (current_builder.logo), :width=>"150", :height=>"50"%>
+              </td>
+
+            <tr>
+              <td>
+              <td><%= link_to "Edit My Profile", edit_builder_registration_path, :class => 'btn btn-small btn-primary' %> </td>
+              </td>
+            </tr>
+      </tr>     
+    </tbody>
+  </table>
+<% end %>
+
+<% if current_user %>
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="row-fluid">
+        <div class="span4">
+          Welcome:
+        </div>
+        <div class="span4">
+          <%= current_user.email %>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span4">
+          Your Id is:
+        </div>
+        <div class="span4">
+          <%= current_user.id %>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          Click Below To Edit Your Profile
+        </div>
+        <div class="span4">
+          <%= link_to "Edit My Profile", edit_user_registration_path, :class => 'btn btn-small btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

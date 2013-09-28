@@ -22,6 +22,8 @@ function add_fields(link, association, content){
     $(link).parent().before(content.replace(regexp, new_id));
 }
 
+$('.dropdown-toggle').dropdown();
+
 function remove_fields(link){
     $(link).prev("input[type=hidden]").val("1");
     $(link).closest(".fields").hide();

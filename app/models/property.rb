@@ -6,6 +6,7 @@ class Property < ActiveRecord::Base
   has_many :images     
   
   accepts_nested_attributes_for :images, :allow_destroy => true, :reject_if=>:all_blank
+  
   validates_format_of :zip_code,
                   :with => /\A\{6}-\d{5}|\A\d{6}\z/,
                   :message => "should be 123456 or 12345-1234",
@@ -16,13 +17,30 @@ class Property < ActiveRecord::Base
   def gmaps4rails_address
   "#{self.address}, #{self.city}, #{self.zip_code}" 
   end
+
+  scope :property_listing, lambda { |*args|
+    unless args.first.blank?
+      {:conditions => ["property_listing = ?", args.first]}
+    end
+  }
   
-  define_index do
-    indexes property_listing
-    indexes property_type
-    indexes sale_price
-    indexes city
-  end
+  scope :property_type, lambda { |*args|
+    unless args.first.blank?
+      {:conditions => ["property_type = ?", args.first]}
+    end
+  }
+  
+  scope :sale_price, lambda { |*args|
+    unless args.first.blank?
+      {:conditions => ["sale_price = ?", args.first]}
+    end
+  }
+  
+  scope :city, lambda { |*args|
+    unless args.first.blank?
+      {:conditions => ["city = ?", args.first]}
+    end
+  }
   
   def gmaps4rails_infowindow
     "Address: #{self.address} <br/> City: #{self.city} <br /> Longitude: #{self.longitude} <br/> Latitude: #{self.latitude}"

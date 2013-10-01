@@ -1,0 +1,90 @@
+<%= form_for @contact,:url => post_contact_property_path(@property, @contact), :html => {:method => 'post'} do |f| %>
+
+  <div class="row-fluid">
+    <div class="span6 well">
+      <h5>Request More Info</h5>
+      <div class="row-fluid">
+
+        <div class="row-fluid">
+          <div class="span12">
+            <p>I would like to:</p>
+            <div class="row-fluid">              
+              <div class="span4">
+                <%= f.radio_button :option, "1"%>
+                <span>Make an enquiry</span>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span6">
+                <%= f.radio_button :option, "2"%>
+                <span>Request an appointment</span>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span6">
+                <%= f.radio_button :option, "3"%>
+                <span>Inquire if this property is still available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span4">Name:</div>
+          <div class="span4"><%= f.text_field :name %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Email:</div>
+          <div class="span4"><%= f.text_field :email %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Phone:</div>
+          <div class="span4"><%= f.text_field :email %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span6">What would you like to ask?</div>
+        </div>
+        <div>
+          <%= f.text_area :question, :rows => 3, :cols => 60 %>
+        </div>
+        <div class="row-fluid">
+          <div class="span6">When are you free?</div>
+        </div>
+        <div class="row-fluid">
+          <div class="span6">
+            <div id="datetimepicker1" class="input-append date">
+              <style>
+                .btn{
+                  padding :0;
+                }
+              </style>
+              <%= f.text_field :appointment_time, "data-format"=>"dd/MM/yyyy hh:mm:ss" %>
+              <span class="add-on">
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                </i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= f.submit "Send Message" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<style>
+  #contact_question{
+    width: 364px;
+  }
+</style>
+
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+      format: 'dd/MM/yyyy hh:mm:ss',
+      language: 'en'
+    });
+  });
+</script>

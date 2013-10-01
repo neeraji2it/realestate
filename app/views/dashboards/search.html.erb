@@ -1,6 +1,7 @@
 <div class="row">
   <div class="span9 offset2"><%= gmaps4rails(@json) %></div>
 </div>
+
 <br/>
 <div class="row">
   <% if @properties.present? %>
@@ -8,12 +9,9 @@
       <div class="span3">
         <div class="row">
           <div class="span3"><%= property.property_name %></div>
-          <div>
-            <% property.images.each do |image| %>
-              <%= image_tag(image.image, :height => '200px', :width => '200px;', :class=>"img-polaroid") %>
-            <% end%> 
-          </div>
-
+          <% property.images.each do |image| %>
+            <%= image_tag(image.image, :height => '200px', :width => '200px;', :class=>"img-polaroid") %>
+          <% end %>
           <div class="span3"><%= property.property_type %></div>
           <div class="span3">City: <%=property.city %></div>
           <div class="span3"><%= property.property_listing %><br/></div>
@@ -31,5 +29,5 @@
 </div>
 
 <div class="pagination pagination-centered pagination-large">
-   <%= will_paginate(@properties) %>
+  <%= will_paginate(@properties) %>
 </div>

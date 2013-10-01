@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @property.builder.email %></h1>
+    <h4>Please check user details who want to enquiry your property</h4>
+    <p>
+      Contact Name : <%= @contact.name %>
+    </p>
+    <p>      
+      Contact Email: <%= @contact.email %>.<br/>
+    </p>
+    <p>Phone: <%= @contact.phone %></p>
+    <p>
+      Query: <%= @contact.question %>
+    </p>
+    <p>Thanks for joining and have a great day! RealEstate Team</p>
+  </body>
+</html>

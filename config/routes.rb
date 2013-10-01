@@ -1,8 +1,8 @@
 Realestate::Application.routes.draw do
   
- devise_for :builders
+  devise_for :builders
  
- #devise_for :users
+  #devise_for :users
 
   resources :dashboards do
     collection do
@@ -25,9 +25,16 @@ Realestate::Application.routes.draw do
   resources :images
   
   resources :builders do
-    resources :properties
+    resources :properties 
   end
-
+  
+  resources :properties do 
+    member do
+      get 'add_contact'
+      post 'post_contact'
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

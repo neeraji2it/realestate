@@ -8,6 +8,7 @@ class Builder < ActiveRecord::Base
   attr_accessible  :email,:password, :password_confirmation, :remember_me, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email,:first_name, :last_name, :company_name, :phone, :country, :address, :city, :logo, :company_url 
 
   has_many :properties, :dependent => :destroy
+  has_many :contacts
 
   # attr_accessible :title, :body
 

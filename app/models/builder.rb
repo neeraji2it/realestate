@@ -8,7 +8,12 @@ class Builder < ActiveRecord::Base
   attr_accessible  :email,:password, :password_confirmation, :remember_me, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email,:first_name, :last_name, :company_name, :phone, :country, :address, :city, :logo, :company_url ,:approved ,:status
 
   has_many :properties, :dependent => :destroy
-  scope :status, where(status: true)
+
+  #scope :status, where(status: true)
+
+  has_many :contacts
+
+
   # attr_accessible :title, :body
 
   validates :phone, :numericality => { :only_integer => true }, :length => {:minimum => 10, :maximum => 10}

@@ -22,6 +22,7 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
     @json = @property.to_gmaps4rails
+    @contact = Contact.new
   end
 
   def new
@@ -79,11 +80,10 @@ class PropertiesController < ApplicationController
     if @property.update_attributes(params[:property])
       redirect_to properties_path(@property)
     else
-      p @property.errors.inspect
+      #@property.errors.inspect
       render :action => :edit
     end
   end
-  
   
   def destroy
     @property = Property.find(params[:id])
@@ -96,4 +96,22 @@ class PropertiesController < ApplicationController
      @properties.update_attribute(:published,params[:status])
       redirect_to manage_properties_admin_builder_path(@properties.builder)
   end
+
+  def add_contact
+    @contact = Contact.new
+  end
+  
+  def post_contact
+    @property = Property.find(params[:id])
+    @title = "Contact"
+    @contact = Contact.new(params[:contact].merge(:property_id => @property.id))
+    @contact.builder_id = @property.builder_id
+    if @contact.save
+      ContactMailer.enquiry(@contact, @property).deliver
+      redirect_to property_path(@property)
+    else
+      render :action => 'show'
+    end
+  end  
+
 end

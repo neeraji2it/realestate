@@ -32,6 +32,7 @@ Realestate::Application.routes.draw do
     member do
       get 'add_contact'
       post 'post_contact'
+      get 'reply_user'
     end
   end
   

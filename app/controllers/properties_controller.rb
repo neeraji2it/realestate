@@ -92,7 +92,7 @@ class PropertiesController < ApplicationController
   def post_contact
     @property = Property.find(params[:id])
     @title = "Contact"
-    @contact = Contact.new(params[:contact])
+    @contact = Contact.new(params[:contact].merge(:property_id => @property.id))
     @contact.builder_id = @property.builder_id
     if @contact.save
       ContactMailer.enquiry(@contact, @property).deliver
@@ -100,5 +100,6 @@ class PropertiesController < ApplicationController
     else
       render :action => 'show'
     end
-  end
+  end  
+
 end

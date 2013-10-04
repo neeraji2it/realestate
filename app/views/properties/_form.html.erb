@@ -81,7 +81,7 @@
   <div id="body_property">
     <div>
       <span style="margin-right: 25px;">Property Status:</span>
-      <span><%=f.select :property_status,options_for_select([["Select",""],['Ongoing',"Ongoing"],['Ready To Move','Ready To Move'],['Upcoming','Upcoming']],:selected => f.object.property_status) %></span>
+      <span><%=f.select :property_status,options_for_select([["Select",""],['Ongoing',"Ongoing"],['Ready To Move','Ready To Move'],['Upcoming','Upcoming']], :selected => f.object.property_status) %></span>
     </div>
 
     <div id="start">
@@ -257,7 +257,7 @@
     $('#bs').hide();
     $('#bt').hide();
   })
-
+  
   function step1() {
     $('#img').hide();
     $('#body_addr').hide();

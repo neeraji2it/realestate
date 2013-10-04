@@ -5,11 +5,12 @@ class ContactMailer < ActionMailer::Base
   # with the following lookup:
   #
   #   en.contact_mailer.contact.subject
-  #
+  
   def enquiry(contact, property)
     @contact = contact
     @property = property
     @message = "Hi builder #{property.builder.email}. #{contact.email} wants to enquiry your property"
-    mail(:to => property.builder.email, :subject => @message)
+   mail(:to => property.builder.email, :subject => @message)
   end
+  
 end

@@ -7,14 +7,14 @@
     <h1>Hello <%= @property.builder.email %></h1>
     <h4>Please check user details who want to enquiry your property</h4>
     <p>
-      Contact Name : <%= @contact.name %>
+      Contact Name : <%= @contact.name if @contact.name.present? %>
     </p>
     <p>      
-      Contact Email: <%= @contact.email %>.<br/>
+      Contact Email: <%= @contact.email if @contact.email.present?%>.<br/>
     </p>
-    <p>Phone: <%= @contact.phone %></p>
+    <p>Phone: <%= @contact.phone if @contact.phone.present?%></p>
     <p>
-      Query: <%= @contact.question %>
+      Query: <%= @contact.question if @contact.question.present? %>
     </p>
     <p>Thanks for joining and have a great day! RealEstate Team</p>
   </body>

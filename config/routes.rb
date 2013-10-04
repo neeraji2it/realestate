@@ -1,8 +1,10 @@
 Realestate::Application.routes.draw do
   
- devise_for :builders
+  devise_for :admins
+
+  devise_for :builders
  
- #devise_for :users
+  #devise_for :users
 
   resources :dashboards do
     collection do
@@ -14,19 +16,34 @@ Realestate::Application.routes.draw do
 
 
   resources :profiles 
+  
+  namespace :admin do
+    resources :users
+  end
+    
    
+  namespace :admin do
+    resources :builders do
+      member do
+        put :block_builders
+        get :manage_properties
+      end
+    end
+  end
 
   devise_scope :user do
     get "sign_out", :to => "sessions#destroy"
   end
   
   resources :profiles
-  resources :properties
+  
+  resources :properties do
+    member do
+      put :manage_property
+    end
+  end
   resources :images
   
-  resources :builders do
-    resources :properties
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

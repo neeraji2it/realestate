@@ -1,0 +1,27 @@
+<table border="2">
+  <tr>
+    <th>Id</th>
+    <th>Company Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>City</th>
+    <th>Property Listing</th>
+    <th>Last sign_in</th>
+    <th>Action</th>
+  </tr>
+  <% @builders.each do |builder| %>
+    <tr>
+      <td align="center"><%=builder.id%></td>
+      <td align="center"><%=builder.company_name%>
+      <td align="center"><%= builder.email%></td>
+      <td align="center"><%=builder.phone%></td>
+      <td align="center"><%=builder.city%></td>
+      <td align="center"><%= link_to "#{builder.properties.count}",  manage_properties_admin_builder_path(builder) %></td>
+
+      <td align="center"><%=builder. last_sign_in_at %></td>
+      <td>
+        <%=  builder.approved == false ? (link_to "Block", block_builders_admin_builder_path(builder, :status => 'tru'), :method => :put) : (link_to "Un Block", block_builders_admin_builder_path(builder, :status => 'fal'), :method => :put)%>
+      </td>
+    </tr>
+  <% end %>
+</table>

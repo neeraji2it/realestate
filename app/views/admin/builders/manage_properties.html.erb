@@ -1,4 +1,3 @@
-<%=link_to "Add",new_property_path%>
 <table class="table table-striped" cellspacing="10" cellpadding="10" border="1">
   <tr>
     <th>PropertyName</th>
@@ -13,8 +12,7 @@
     <th>StartDate</th>
     <th>EndDate</th>
     <th>UpcomingDate</th>
-   
-    <th>Actions</th>
+    <th>Action</th>
   </tr>
 
   <% @properties.each do |property| %>
@@ -73,10 +71,8 @@
      </td>
      </td>
    
-      <td>
-        <%= link_to "Edit",  edit_property_path(property) %> 
-        <%= link_to "Delete", property_path(property),:method => :delete, :confirm => 'Are u sure to delete?' %>
-        <%= link_to "View", property_path(property) %>
+        <td>
+        <%= link_to property.published == false ? "Activate" : "Deactive", manage_property_property_path(:id =>property.id,:status => property.published == false ? true : false),:method => :put%>
       </td>
     </tr>
   <% end %>

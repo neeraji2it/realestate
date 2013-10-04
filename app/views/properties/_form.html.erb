@@ -138,9 +138,14 @@
 
   </div>
 
-  <div id="submit" style="margin: 40px 0px">
+
+    <div id="submit" style="margin: 40px 0px">
+      <div>
+    <span style="margin-right: 49px;"> Expiry on:</span>
+    <span><%=f.date_select :expire_date %></span>
+      </div>   
     <%= f.submit :class => 'btn btn-primary' %>
-  </div>
+    </div>
 <% end %>
 
 <span id="ns" style="margin-right: 20px;">

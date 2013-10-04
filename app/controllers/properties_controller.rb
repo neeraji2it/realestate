@@ -11,7 +11,12 @@ class PropertiesController < ApplicationController
   end 
 
   def index
-    @properties = Property.all
+    if params[:format].present?
+      @builder = Builder.find_by_id(params[:format])
+      @properties = @builder.properties
+    else
+      @properties = current_builder.properties.where("published = #{true}")
+    end
   end
   
   def show
@@ -56,6 +61,7 @@ class PropertiesController < ApplicationController
     end
     
     if @property.save
+      @property.update_attribute(:published, false)
       flash[:notice]="property created successfully"
       redirect_to '/'
     else
@@ -83,5 +89,11 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
     @property.destroy
     redirect_to properties_path
+  end
+  
+  def manage_property
+    @properties = Property.find params[:id]
+     @properties.update_attribute(:published,params[:status])
+      redirect_to manage_properties_admin_builder_path(@properties.builder)
   end
 end

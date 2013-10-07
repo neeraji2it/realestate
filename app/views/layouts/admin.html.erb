@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real estate</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag 'gmaps4rails' %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" %>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <%= csrf_meta_tags %> 
+    <%= yield :head %>
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse">
+            <ul class="nav pull-left">
+              <%if current_admin %>
+                <li>
+                  <%= link_to "UserManagement", admin_users_path %>
+                </li>
+                <li>
+                  <%= link_to "BuilderManagement",admin_builders_path  %>
+                </li>
+                <li>
+                  <%=link_to("Logout", destroy_admin_session_path, :method => :delete)%>
+                </li>
+              <% end %>
+            </ul>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div> 
+    </div>
+
+  </div>
+</body>
+</html>

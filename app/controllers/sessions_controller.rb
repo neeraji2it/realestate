@@ -1,4 +1,7 @@
 class SessionsController < Devise::SessionsController
+  
+ 
+  
   def destroy
     if current_user.oauth_token
       redirect_to "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{current_user.oauth_token}"
@@ -9,4 +12,5 @@ class SessionsController < Devise::SessionsController
     end
     #super
   end
+  
 end

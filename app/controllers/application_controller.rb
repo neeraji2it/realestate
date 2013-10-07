@@ -2,7 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   def after_sign_in_path_for(resource_or_scope)
-    root_path
+    if resource_or_scope.is_a?(Admin)
+      root_path
+    elsif resource_or_scope.is_a?(Builder)
+      dashboards_path
+      elsif resource_or_scope.is_a?(Builder)
+      dashboards_path
+    end
   end
   
   def after_sign_up_path_for(resource_or_scope)
@@ -15,4 +21,6 @@ class ApplicationController < ActionController::Base
       redirect_to dashboards_path
     end
   end
+
+
 end

@@ -34,9 +34,10 @@ class User < ActiveRecord::Base
     self.provider.nil?
   end
   
+  
   def check_email_exists
     if ::Builder.exists?(:email => self.email)
       errors.add(:email,"Builder already exists with this email, try another email")
     end
-  end 
+  end
 end

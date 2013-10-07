@@ -59,10 +59,10 @@ Realestate::Application.routes.draw do
       get 'add_contact'
       post 'post_contact'
       get 'reply_user'
+      get 'summary'
     end
   end
   
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

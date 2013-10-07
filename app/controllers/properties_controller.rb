@@ -21,6 +21,7 @@ class PropertiesController < ApplicationController
   
   def show
     @property = Property.find(params[:id])
+    @property.update_attributes(:full_view =>@property.full_view+1)
     @json = @property.to_gmaps4rails
     @contact = Contact.new
   end
@@ -112,6 +113,10 @@ class PropertiesController < ApplicationController
     else
       render :action => 'show'
     end
-  end  
+  end
+
+  def summary
+    @property = Property.find(params[:id])
+  end
 
 end

@@ -12,7 +12,9 @@ class DashboardsController < ApplicationController
   def search        
 
     @properties = Property.property_listing(params[:property_listing]).property_type(params[:property_type]).sale_price(params[:sale_price]).city(params[:city]).paginate(:page => params[:page], :per_page => 5)
-    
+    @properties.each do|property|
+    property.update_attributes(:search_view => property.search_view+1)
+    end
     @json = @properties.to_gmaps4rails
     respond_to do |format|
       format.html

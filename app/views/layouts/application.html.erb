@@ -26,6 +26,7 @@
   </script>
 
   <body>
+    
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -42,10 +43,6 @@
               </li>
               <li>
                 <%= link_to "Layouts", "#" %>
-              </li>
-              <li>
-                <%#*<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Freference%2Fplugins%2Flike&amp;width=450&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=true&amp;appId=1378164095751835" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>%>
-                <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F0.0.0.0%3A3000&amp;width=100&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=false&amp;appId=1378164095751835" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
               </li>
             </ul>
             <ul class="nav pull-right">
@@ -95,22 +92,30 @@
         </div>
       </div>
     </div>
-    <div class="container" style="padding-bottom:50px; margin-top: 50px;">
-      <% if notice %>
-        <div class="alert alert-info" style="margin-top: 0px;">
-          <a class="close" data-dismiss="alert">x</a>
-          <strong><%= notice %></strong>
-        </div>
-      <% elsif alert %>
-        <div class="alert alert-error" style="margin-top: 0px;">
-          <a class="close" data-dismiss="alert">x</a>
-          <strong><%= alert %></strong>
-        </div>
-      <% end %> 
-      <div id="content">
-        <%= yield %>
-      </div>  
-      <%= yield :scripts %>
+  
+
+    
+  
+  <div class="container" style="padding-bottom:50px; margin-top: 50px;">
+    <% if notice %>
+      <div class="alert alert-info" style="margin-top: 0px;">
+        <a class="close" data-dismiss="alert">x</a>
+        <strong><%= notice %></strong>
+      </div>
+    <% elsif alert %>
+      <div class="alert alert-error" style="margin-top: 0px;">
+        <a class="close" data-dismiss="alert">x</a>
+        <strong><%= alert %></strong>
+      </div>
+    <% end %> 
+      
+    <div>
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F0.0.0.0%3A3000&amp;width=100&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=false&amp;appId=1378164095751835" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
     </div>
-  </body>
+    <div id="content">
+     <%= yield %>
+    </div>  
+    <%= yield :scripts %>
+  </div>
+</body>
 </html>

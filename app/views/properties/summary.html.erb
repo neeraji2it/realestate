@@ -1,0 +1,27 @@
+<h1>Property summary</h1>
+
+<div>
+  <%=@property.address %>,<%=@property.city %>
+</div>
+<div>
+  <%=@property.sale_price%>|<%=@property.saleable_area%>
+</div>
+<div>Property status:
+  <% if @property.published == true %>
+  Active
+  <% else %>
+  De active
+  <% end %>
+</div>
+
+<div>Posted on:
+<%= @property.created_at %>
+</div>
+<div>
+  Total no.of search views:
+  <%= @property.search_view %>
+</div>
+<div>
+  Total no.of view full details:
+  <%= @property.full_view %>
+</div>

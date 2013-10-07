@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131004071541) do
+ActiveRecord::Schema.define(:version => 20131007102355) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
@@ -68,6 +68,19 @@ ActiveRecord::Schema.define(:version => 20131004071541) do
   add_index "builders", ["email"], :name => "index_builders_on_email", :unique => true
   add_index "builders", ["reset_password_token"], :name => "index_builders_on_reset_password_token", :unique => true
 
+  create_table "contacts", :force => true do |t|
+    t.integer  "builder_id"
+    t.integer  "property_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "question"
+    t.string   "option"
+    t.datetime "appointment_time"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "images", :force => true do |t|
     t.integer  "builder_id"
     t.integer  "property_id"
@@ -111,6 +124,8 @@ ActiveRecord::Schema.define(:version => 20131004071541) do
     t.datetime "updated_at",                          :null => false
     t.date     "expire_date"
     t.boolean  "published",        :default => false
+    t.integer  "search_view",      :default => 0
+    t.integer  "full_view",        :default => 0
   end
 
   create_table "sessions", :force => true do |t|

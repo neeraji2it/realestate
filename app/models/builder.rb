@@ -32,11 +32,14 @@ class Builder < ActiveRecord::Base
   validates_format_of :first_name,:last_name,:company_name ,:address, :city,:with => /\A[^\d]+\Z/, :message => "field should only have letters"
   validates_format_of :company_url, :with => URI::regexp(%w(http https)), :message=>"is like this http://www.companyname.com"
 
+  
+ 
   validate :email_exists
   
-  def email_exists
+   def email_exists
     if User.exists?(:email => self.email)
       errors.add(:email,"User already exists with this email, try another email")
     end
   end 
+  
 end

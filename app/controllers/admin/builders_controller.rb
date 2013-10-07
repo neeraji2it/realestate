@@ -4,7 +4,7 @@ class Admin::BuildersController < ApplicationController
   def layout
     'admin'
   end
-
+  
   def index
     @builders=Builder.all
   end

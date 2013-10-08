@@ -39,13 +39,12 @@
                 <li>
                   <%= link_to "BuilderManagement",admin_builders_path  %>
                 </li>
-                <li>
-                  <%= link_to "Add Builder",new_builder_registration_path  %>
-                </li>
-                <li>
-                  <%= link_to "Add Property",admin_builders_path  %>
-                </li>
-                <li>
+                
+                    <li>
+                      <%= link_to "Create Builder",  new_builderregistration_path %>
+                    </li>
+                
+                 <li>
                   <%=link_to("Logout", destroy_admin_session_path, :method => :delete)%>
                 </li>
               <% end %>

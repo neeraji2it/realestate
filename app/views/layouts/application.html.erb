@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Realestate</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" %>
-  <%= csrf_meta_tags %>
-</head>
- <body>
+  <head>
+    <title>Realestate</title>
+    <%= stylesheet_link_tag "application","/assets/bootstrap-datetimepicker.min.css", "gmaps4rails", :media => "all" %>
+    <%= javascript_include_tag "application", "/assets/bootstrap-datetimepicker.min", "jquery.js", "http://code.jquery.com/ui/1.10.2/jquery-ui.js" %>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+
+    <%= csrf_meta_tags %> 
+    <%= yield :head %>
+  </head>
+
+  <script type="text/javascript"
+          src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+  </script> 
+  <script type="text/javascript"
+          src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+  </script>
+  <script type="text/javascript"
+          src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+  </script>
+
+  <body>
+    
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -17,33 +36,49 @@
                 <%= link_to "Home",  dashboards_path, :class => "active" %>
               </li>
               <li>
-                <%= link_to "Condos" %>
+                <%= link_to "Apartment" %>
               </li>
               <li>
-                <%= link_to "Houses", "#" %>
+                <%= link_to "Villas", "#" %>
               </li>
               <li>
-                <%= link_to "Find Agent", "#" %>
+                <%= link_to "Layouts", "#" %>
               </li>
             </ul>
             <ul class="nav pull-right">
               <%if current_user %>
-                <li>
-                  <%=link_to("Logout", sign_out_path, :id => "sign_out")%>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                      <%= link_to "View", profile_path(current_user) %>
+                    </li>
+                    <li>
+                      <%= link_to "Edit", edit_user_registration_path %>
+                    </li>
+                    <li>
+                      <%=link_to("Logout", sign_out_path, :id => "sign_out")%>
+                    </li>
+                  </ul>
                 </li>
               <% elsif current_builder %>
                 <li>
-                <%= link_to "List Your Property", properties_path %>
-              </li>
-              
-              <li>
-		  <%= link_to "ProfileManagment", profile_path(current_builder) %>
-	      </li>
-              
-                <li>
-                  <%=link_to("Logout", destroy_builder_session_path, :method => :delete)%>
+                  <%= link_to "List Your Property", properties_path %>
                 </li>
-		
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                      <%= link_to "View", profile_path(current_builder) %>
+                    </li>
+                    <li>
+                      <%= link_to "Edit", edit_builder_registration_path %>
+                    </li>
+                    <li>
+                      <%=link_to("Logout", destroy_builder_session_path, :method => :delete)%>
+                    </li>
+                  </ul>
+                </li>
               <% else %>
                 <li>
                   <%= link_to "User Sign In","/users/sign_in" %>
@@ -57,15 +92,30 @@
         </div>
       </div>
     </div>
-    <div class="container" style="padding-bottom:50px; margin-top: 50px;">
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <% elsif alert %>
-        <p class="alert"><%= alert %></p>
-      <% end %> 
-      <div id="content">
-        <%= yield %>
-      </div>  
+  
+
+    
+  
+  <div class="container" style="padding-bottom:50px; margin-top: 50px;">
+    <% if notice %>
+      <div class="alert alert-info" style="margin-top: 0px;">
+        <a class="close" data-dismiss="alert">x</a>
+        <strong><%= notice %></strong>
+      </div>
+    <% elsif alert %>
+      <div class="alert alert-error" style="margin-top: 0px;">
+        <a class="close" data-dismiss="alert">x</a>
+        <strong><%= alert %></strong>
+      </div>
+    <% end %> 
+      
+    <div>
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F0.0.0.0%3A3000&amp;width=100&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=false&amp;appId=1378164095751835" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
     </div>
-  </body>
+    <div id="content">
+     <%= yield %>
+    </div>  
+    <%= yield :scripts %>
+  </div>
+</body>
 </html>

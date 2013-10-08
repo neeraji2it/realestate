@@ -1,16 +1,38 @@
 Realestate::Application.routes.draw do
   
- devise_for :builders
- 
- #devise_for :users
 
-  resources :dashboards
+  devise_for :admins
+
+
+
+  devise_for :builders
+ 
+  #devise_for :users
+
+  resources :dashboards do
+    collection do
+      get 'search'
+    end
+  end
  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
   resources :profiles 
+  
+  namespace :admin do
+    resources :users
+  end
+    
    
+  namespace :admin do
+    resources :builders do
+      member do
+        put :block_builders
+        get :manage_properties
+      end
+    end
+  end
 
   devise_scope :user do
     get "sign_out", :to => "sessions#destroy"
@@ -19,8 +41,28 @@ Realestate::Application.routes.draw do
   resources :profiles
   
 
-  resources :properties
+  resources :properties do
+    member do
+      put :manage_property
+    end
+  end
+  resources :images
+  
 
+
+  resources :builders do
+    resources :properties 
+  end
+  
+  resources :properties do 
+    member do
+      get 'add_contact'
+      post 'post_contact'
+      get 'reply_user'
+      get 'summary'
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

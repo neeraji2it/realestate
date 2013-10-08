@@ -10,6 +10,23 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require twitter/bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require gmaps4rails/gmaps4rails.googlemaps
+//= require gmaps4rails/gmaps4rails.base
+
+
+function add_fields(link, association, content){
+    var new_id = new Date().getTime();
+    var regexp=new RegExp("new_" + association, "g");
+    $(link).parent().before(content.replace(regexp, new_id));
+}
+
+$('.dropdown-toggle').dropdown();
+
+function remove_fields(link){
+    $(link).prev("input[type=hidden]").val("1");
+    $(link).closest(".fields").hide();
+}

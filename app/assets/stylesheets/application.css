@@ -11,7 +11,25 @@
  *= require_self
  *= require_tree .
  */
+
 .star{
     color: red;
     font-size: 16px;
 }
+
+/*#description{
+    border: medium dotted #CCCCCC;
+    float: left;
+    height: 300px;
+    width: 250px;
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+#img{
+    box-shadow: 2px 2px 2px 2px #999999;
+    height: 150px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    width: 180px;
+}*/

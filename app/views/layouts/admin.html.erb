@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Realestate</title>
+    <%= stylesheet_link_tag "application","/assets/bootstrap-datetimepicker.min.css", "gmaps4rails", :media => "all" %>
+    <%= javascript_include_tag "application", "/assets/bootstrap-datetimepicker.min", "jquery.js", "http://code.jquery.com/ui/1.10.2/jquery-ui.js" %>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+
+    <%= csrf_meta_tags %> 
+    <%= yield :head %>
+  </head>
+
+  <script type="text/javascript"
+          src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+  </script> 
+  <script type="text/javascript"
+          src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+  </script>
+  <script type="text/javascript"
+          src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+  </script>
+
+  <body>
+    
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse">
+            <ul class="nav pull-left">
+              <%if current_admin %>
+                <li>
+                  <%= link_to "UserManagement", admin_users_path %>
+                </li>
+                <li>
+                  <%= link_to "BuilderManagement",admin_builders_path  %>
+                </li>
+                <li>
+                  <%= link_to "Add Builder",new_builder_registration_path  %>
+                </li>
+                <li>
+                  <%= link_to "Add Property",admin_builders_path  %>
+                </li>
+                <li>
+                  <%=link_to("Logout", destroy_admin_session_path, :method => :delete)%>
+                </li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+  <div class="container" style="padding-bottom:50px; margin-top: 50px;">
+    <% if notice %>
+      <div class="alert alert-info" style="margin-top: 0px;">
+        <a class="close" data-dismiss="alert">x</a>
+        <strong><%= notice %></strong>
+      </div>
+    <% elsif alert %>
+      <div class="alert alert-error" style="margin-top: 0px;">
+        <a class="close" data-dismiss="alert">x</a>
+        <strong><%= alert %></strong>
+      </div>
+    <% end %> 
+      
+    <div>
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F0.0.0.0%3A3000&amp;width=100&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=false&amp;appId=1378164095751835" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+    </div>
+    <div id="content">
+     <%= yield %>
+    </div>  
+    <%= yield :scripts %>
+  </div>
+</body>
+</html>

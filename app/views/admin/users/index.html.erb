@@ -1,0 +1,16 @@
+<div align="center">
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Email</th>
+    <th>Last sign in</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td align="center"><%=user.id%></td>
+      <td align="center"><%= user.email%></td>
+      <td align="center"><%=user.last_sign_in_at %></td>
+    </tr>
+  <% end %>
+</table>
+</div>

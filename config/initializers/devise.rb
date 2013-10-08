@@ -9,6 +9,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
+   config.mailer_sender = "realestate034@gmail.com"
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   config.secret_key = '34a8ee39d58a55a1fe285df885950dc37c921546d99bbb03ac4580a0f53d658df9566884675476ba00f3027811bd2b4a304675dbdfaa700b774ec362a8c6d5e1'
   
@@ -232,8 +233,11 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  require "omniauth-facebook"
-  config.omniauth :facebook, '1378164095751835', '6e5cd8a1d5aa2ef6b0ec5daeed3a78c1'
+  require "omniauth-facebook"  
+  
+    config.omniauth :facebook, '1378164095751835', '6e5cd8a1d5aa2ef6b0ec5daeed3a78c1' if Rails.env=='development'
+
+    config.omniauth :facebook, '275883659203603', '5295590eeadb62394123b3fe405b2ada' if Rails.env=='production'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -257,4 +261,5 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  
 end

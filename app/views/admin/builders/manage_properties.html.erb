@@ -1,0 +1,79 @@
+<table class="table table-striped" cellspacing="10" cellpadding="10" border="1">
+  <tr>
+    <th>PropertyName</th>
+    <th>PropertyListing</th>
+    <th>PropertyType</th>
+    <th>TotalArea</th>
+    <th>SalePrice</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Address</th>
+    <th>PropertyStatus</th>
+    <th>StartDate</th>
+    <th>EndDate</th>
+    <th>UpcomingDate</th>
+    <th>Action</th>
+  </tr>
+
+  <% @properties.each do |property| %>
+    <tr>
+      <td align="center">
+        <%= property.property_name %>
+      </td>
+      <td align="center">
+        <%= property.property_listing %>
+      </td>
+      <td align="center">
+        <%= property.property_type %>
+      </td>
+      <td align="center">
+        <%= property.total_area %>
+      </td>
+      <td align="center">
+        <%= property.sale_price %>
+      </td>
+      <td align="center">
+        <%= property.state %>
+      </td>
+      <td align="center">
+        <%= property.city %>
+      </td>
+      <td align="center">
+        <%= property.address %>
+      </td>
+      <td align="center">
+        <%= property.property_status %>
+      </td>
+      <td>  
+       <% if property.property_status == "Ongoing"  %>
+     
+        <%=property.start_date %>
+     
+        <td>
+          <%=property.end_date %>
+        </td>
+ 
+      <% end %>
+    
+      <% if property.property_status == "Ready To Move"  %>
+        <td>
+      <%=property.end_date %>
+        </td>
+      <% end %>
+     
+    
+     <td> 
+        <% if property.property_status == "Upcoming"  %>
+     <td>
+          <%=property.upcoming_date %>
+     </td>
+     <% end %>
+     </td>
+     </td>
+   
+        <td>
+        <%= link_to property.published == false ? "Activate" : "Deactive", manage_property_property_path(:id =>property.id,:status => property.published == false ? true : false),:method => :put%>
+      </td>
+    </tr>
+  <% end %>
+</table>

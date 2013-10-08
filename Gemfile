@@ -19,10 +19,14 @@ group :assets do
 end
 
 gem 'jquery-rails'
+#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'country_select'
 gem 'thin'
+gem 'gmaps4rails'
+gem 'quiet_assets'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'omniauth'
-#gem 'omniauth-facebook'
 gem 'omniauth-facebook', '1.4.0'
+gem 'will_paginate','>= 3.0.pre'

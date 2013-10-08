@@ -1,0 +1,21 @@
+<h3>
+  Search For Real Estate
+</h3>
+
+<%= form_tag search_dashboards_path, :method => 'get', :class => 'form_search' do |f| %>
+<div>
+  <div style="float: left;">
+    <%= select_tag :property_listing, options_for_select([["Buy","For Sale"], ["Rent","For Rent"], ["Buy / Rent","For Sale or Rent"]]) %>
+    <%= select_tag :property_type, options_for_select([["Select",""], ["Apartment","Apartment"], ["Villa","Villa"], ["Row House","Row House"], ["Layout","Layout"]]) %>  
+  </div> 
+
+  <div style="float: left;">
+    <%= text_field_tag :city, nil, :placeholder => 'Enter City Name', :class => 'input-medium search-query' %>
+    <%= text_field_tag :sale_price, nil, :placeholder => 'Enter Price Value', :class => 'input-medium search-query' %>
+  </div>
+  
+  <div style="float: left;">
+    <%= submit_tag  "Search Property", :class => 'btn btn-primary' %>
+  </div>  
+</div>  
+<% end %>

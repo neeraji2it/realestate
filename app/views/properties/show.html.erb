@@ -1,101 +1,210 @@
-<table>
-  <tr>
-<td>Project Name:<%= @property.property_name %>
-</td>
-  </tr>
-  <tr>
-    <td>
-      Project Listing:<%= @property.property_listing %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Project Type:<%= @property.property_type %>
-      </td>
-  </tr>
-  <tr>
-    <td>
-      No.of Flats:<%= @property.no_of_flats %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      No.of Floors:<%=@property.no_of_floors%>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      No.of Houses:<%=@property.no_of_houses%>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      No.of Plots:<%=@property.no_of_plots %>
-     </td>
-  </tr>
-  <tr>
-    <td>
-      Total Area:<%=@property.total_area %>
-    </td>
-  </tr>
-<tr>
-    <td>
-      Saleable Area:<%=@property.saleable_area %>
-    </td>
-  </tr>
+<div class="row-fluid">
+  <div class="span12">
+    <h2>Property Details</h2>
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Property Information</h5>
+        <div class="row-fluid">
+          <div class="span4">Property Name :</div>
+          <div class="span4"><%= @property.property_name %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Property Listing :</div>
+          <div class="span4"><%= @property.property_listing %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Total Area(sq.ft) :</div>
+          <div class="span4"><%= @property.total_area %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Sale Area(sq.ft) :</div>
+          <div class="span4"><%= @property.saleable_area %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Sale Price(Rs) :</div>
+          <div class="span4"><%= @property.sale_price %></div>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Type of Property</h5>
+        <div class="row-fluid">
+          <div class="span4">Property Type:</div>
+          <div class="span4"><%= @property.property_type %></div>
+        </div>
+        <% if @property.property_type=="Villa" || @property.property_type == "Row House" %>
+          <div class="row-fluid">
+            <div class="span4">Number of Floors:</div>
+            <div class="span4"><%= @property.no_of_floors %></div>
+          </div>
+          <div class="row-fluid">
+            <div class="span4">Number of Houses:</div>
+            <div class="span4"><%= @property.no_of_houses %></div>
+          </div>
+        <% end %>
+        <% if @property.property_type == "Apartment"  %>
+          <div class="row-fluid">
+            <div class="span4">Number of Flats:</div>
+            <div class="span4"><%= @property.no_of_flats %></div>
+          </div>
+          <div class="row-fluid">
+            <div class="span4">Number of Floors:</div>
+            <div class="span4"><%= @property.no_of_floors %></div>
+          </div>
+        <% end %>
+        <% if @property.property_type == "Layout"  %>
+          <div class="row-fluid">
+            <div class="span4">Number of Plots:</div>
+            <div class="span4"><%= @property.no_of_plots %></div>
+          </div>
+        <% end %> 
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Images:</h5>
+        <div class="row-fluid">
+          <% @property.images.each do |image| %>
+            <div class="span4">
+              <%= image_tag (image.image),:width=>"150", :height=>"50" %>
+            </div>
+          <% end%> 
+        </div>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Property Status</h5>
+        <div class="row-fluid">
+          <div class="span4">Status:</div>
+          <div class="span4"><%= @property.property_status %></div>
+        </div>
+        <% if @property.property_status == "Ongoing"  %>
+          <div class="row-fluid">
+            <div class="span4">Start Date:</div>
+            <div class="span4"><%= @property.start_date %></div>
+          </div>
+          <div class="row-fluid">
+            <div class="span4">Completion Date:</div>
+            <div class="span4"><%= @property.end_date %></div>
+          </div>
+        <% end %>
+        <% if @property.property_status == "Ready To Move"  %>
+          <div class="row-fluid">
+            <div class="span4">Completion Date:</div>
+            <div class="span4"><%= @property.end_date %></div>
+          </div>
+        <% end %>
+        <% if @property.property_status == "Upcoming"  %>
+          <div class="row-fluid">
+            <div class="span4">Upcoming Date:</div>
+            <div class="span4"><%= @property.upcoming_date %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Additional Features</h5>
+        <% if @property.parking == 1 %>
+          <div class="row-fluid">
+            <div class="span4">Parking:</div>
+            <div class="span4">available</div>
+          </div>
+        <% end %>
+        <% if  @property.swimming == 1 %>
+          <div class="row-fluid">
+            <div class="span4">Swimming:</div>
+            <div class="span4">available</div>
+          </div>
+        <% end %>
+        <% if  @property.playground == 1 %>
+          <div class="row-fluid">
+            <div class="span4">Playground:</div>
+            <div class="span4">available</div>
+          </div>
+        <% end %>
+        <% if @property.party_hall == 1 %>
+          <div class="row-fluid">
+            <div class="span4">Party Hall:</div>
+            <div class="span4">available</div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Property Location</h5>
+        <div class="row-fluid">
+          <div class="span4">State:</div>
+          <div class="span4"><%= @property.state %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">City:</div>
+          <div class="span4"><%= @property.city %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Address:</div>
+          <div class="span4"><%= @property.address %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Postal Code</div>
+          <div class="span4"><%= @property.zip_code %></div>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Property on Map</h5>
+        <div class="row-fluid">
+          <div class="span12"><%= render 'map' %></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Property Description</h5>
+        <div class="row-fluid">
+          <div class="span12"><%= @property.description %></div>
+        </div>
+      </div>
+    </div>
   
-  
-  <tr>
-    <td>
-     Sale Price:<%=@property.sale_price %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Description:<%=@property.description %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      State:<%=@property.state %>
-    </td>
-  </tr>
-<tr>
-    <td>
-      City:<%=@property.city %>
-    </td>
-  </tr>
-<tr>
-    <td>
-      Address:<%=@property.address %>
-    </td>
-  </tr>
-<tr>
-    <td>
-      Postal code:<%=@property.zip_code %>
-    </td>
-  </tr>
+    
+    <div class="row-fluid">
+      <div class="span6">
+        <h5>Builder Information:</h5>
+        <div class="row-fluid">
+          <div class="span4">Builder:</div>
+          <div class="span4"><%= @property.builder.company_name %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Logo:</div>
+          <div class="span4"><%= image_tag (@property.builder.logo), :class => 'img-circle' %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Website Address:</div>
+          <div class="span4"><%= link_to @property.builder.company_url, @property.builder.company_url %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Email:</div>
+          <div class="span4"><%= @property.builder.email %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Phone:</div>
+          <div class="span4"><%= @property.builder.phone %></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">Location:</div>
+          <div class="span4"><%= @property.builder.city %></div>
+        </div>
+      </div>
+    </div>
 
-  <tr>
-    <td>
-     Property Status:<%=@property.property_status%>
-    </td>
-  </tr>
-<tr>
-    <td>
-      Start Date:<%=@property.start_date %>
-    </td>
-  </tr>
-
-<tr>
-    <td>
-     End Date:<%=@property.end_date %>
-    </td>
-  </tr>
-<tr>
-    <td>
-      Upcoming Date:<%=@property.upcoming_date %>
-    </td>
-  </tr>
-
-</table>
+    <%= render 'contact' %>
+</div>
+</div>

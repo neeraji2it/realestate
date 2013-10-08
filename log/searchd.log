@@ -1,7 +1,0 @@
-[Fri Sep 27 19:28:11.267 2013] [ 6326] caught SIGTERM, shutting down
-[Fri Sep 27 19:28:11.267 2013] [ 6326] shutdown complete
-[Fri Sep 27 19:28:11.427 2013] [11465] accepting connections
-[Fri Sep 27 19:28:44.603 2013] [11465] caught SIGHUP (seamless=1, in queue=1)
-[Fri Sep 27 19:28:44.629 2013] [11465] WARNING: rotating index 'property_core': rename '/home/rails/Desktop/realestate/db/sphinx/development/property_core.mvp' to '/home/rails/Desktop/realestate/db/sphinx/development/property_core.old.mvp' failed: No such file or directory
-[Fri Sep 27 19:28:44.630 2013] [11465] rotating index 'property_core': success
-[Fri Sep 27 19:28:44.630 2013] [11465] rotating finished

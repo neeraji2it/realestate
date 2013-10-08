@@ -50473,3 +50473,561 @@ Processing by PropertiesController#index as HTML
   Rendered properties/index.html.erb within layouts/application (4.7ms)
 Completed 200 OK in 257ms (Views: 253.1ms | ActiveRecord: 0.7ms)
 >>>>>>> 36858eec630ac3933af29c2ab935d1e5f5e190b0
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-08 15:47:19 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/index.html.erb within layouts/application (66.2ms)
+Compiled dashboards.css  (984ms)  (pid 24297)
+Compiled admin/builders.css  (47ms)  (pid 24297)
+Compiled admin/users.css  (6ms)  (pid 24297)
+Compiled bootstrap-datetimepicker.min.css  (0ms)  (pid 24297)
+Compiled gmaps4rails.css  (0ms)  (pid 24297)
+Compiled application.css  (142ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-transition.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-alert.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-modal.js  (1ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-dropdown.js  (1ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-scrollspy.js  (50ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-tab.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-tooltip.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-popover.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-button.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-collapse.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-carousel.js  (1ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-typeahead.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap/bootstrap-affix.js  (0ms)  (pid 24297)
+Compiled twitter/bootstrap.js  (300ms)  (pid 24297)
+Compiled jquery.js  (1ms)  (pid 24297)
+Compiled admin/builders.js  (772ms)  (pid 24297)
+Compiled admin/users.js  (4ms)  (pid 24297)
+Compiled bootstrap-datetimepicker.min.js  (1ms)  (pid 24297)
+Compiled gmaps4rails/gmaps4rails.base.js  (315ms)  (pid 24297)
+Compiled gmaps4rails/gmaps4rails.bing.js  (95ms)  (pid 24297)
+Compiled gmaps4rails/gmaps4rails.googlemaps.js  (170ms)  (pid 24297)
+Compiled gmaps4rails/gmaps4rails.mapquest.js  (70ms)  (pid 24297)
+Compiled gmaps4rails/gmaps4rails.openlayers.js  (136ms)  (pid 24297)
+Compiled application.js  (2055ms)  (pid 24297)
+Completed 200 OK in 6991ms (Views: 6351.2ms | ActiveRecord: 563.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-08 15:48:14 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (5.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (379.3ms)
+Completed 200 OK in 658ms (Views: 507.3ms | ActiveRecord: 74.6ms)
+
+
+Started GET "/admins/signin" for 127.0.0.1 at 2013-10-08 15:48:30 +0530
+
+ActionController::RoutingError (No route matches [GET] "/admins/signin"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /home/rails/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-08 15:48:37 +0530
+Processing by Devise::SessionsController#new as HTML
+Mysql2::Error: Table 'realestate_development.admins' doesn't exist: SHOW FULL FIELDS FROM `admins`
+Completed 500 Internal Server Error in 14ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'realestate_development.admins' doesn't exist: SHOW FULL FIELDS FROM `admins`):
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `query'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `block in execute'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract_adapter.rb:280:in `block in log'
+  activesupport (3.2.13) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract_adapter.rb:275:in `log'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `execute'
+  activerecord (3.2.13) lib/active_record/connection_adapters/mysql2_adapter.rb:211:in `execute'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:259:in `execute_and_free'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:426:in `columns'
+  activerecord (3.2.13) lib/active_record/connection_adapters/schema_cache.rb:12:in `block in initialize'
+  activerecord (3.2.13) lib/active_record/model_schema.rb:228:in `yield'
+  activerecord (3.2.13) lib/active_record/model_schema.rb:228:in `default'
+  activerecord (3.2.13) lib/active_record/model_schema.rb:228:in `columns'
+  activerecord (3.2.13) lib/active_record/model_schema.rb:243:in `column_defaults'
+  activerecord (3.2.13) lib/active_record/base.rb:482:in `initialize'
+  devise (3.1.1) app/controllers/devise/sessions_controller.rb:8:in `new'
+  devise (3.1.1) app/controllers/devise/sessions_controller.rb:8:in `new'
+  actionpack (3.2.13) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.13) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.13) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.13) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:447:in `_run__3737491922620477636__process_action__1910691349419549312__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.13) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.13) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.13) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.13) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.13) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.13) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.13) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.13) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.13) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.13) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.13) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.13) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.13) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/mapper.rb:42:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:612:in `call'
+  omniauth (1.1.4) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.1.4) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__3572644417758474002__call__2456958359817383916__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /home/rails/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/rails/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/rails/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+Connecting to database specified by database.yml
+  [1m[36m (133.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateBuilders (20130919064341)
+Migrating to DeviseCreateUsers (20130919071444)
+Migrating to AddColumnsToBuilders (20130920053802)
+Migrating to AddAttachmentLogoToBuilders (20130920060251)
+Migrating to CreateProperties (20130921063413)
+Migrating to AddOauthTokenToUsers (20130921141108)
+Migrating to AddSessionsTable (20130921175227)
+Migrating to CreateImages (20130924080748)
+Migrating to AddAttachmentImageToImages (20130924081856)
+Migrating to AddKeysToUsers (20130926043532)
+Migrating to DeviseCreateAdmins (20130930101444)
+  [1m[35m (1427.3ms)[0m  CREATE TABLE `admins` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (836.0ms)[0m  [1mCREATE UNIQUE INDEX `index_admins_on_email` ON `admins` (`email`)[0m
+  [1m[35m (921.3ms)[0m  CREATE UNIQUE INDEX `index_admins_on_reset_password_token` ON `admins` (`reset_password_token`)
+  [1m[36m (322.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130930101444')[0m
+Migrating to CreateContacts (20130930115432)
+Migrating to AddApprovedToBuilders (20131001090057)
+  [1m[35m (1420.7ms)[0m  ALTER TABLE `builders` ADD `approved` tinyint(1)
+  [1m[36m (110.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131001090057')[0m
+Migrating to AddExpireDateToProperties (20131001104714)
+  [1m[35m (1044.7ms)[0m  ALTER TABLE `properties` ADD `expire_date` date
+  [1m[36m (110.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131001104714')[0m
+Migrating to AddPublishedToProperties (20131004071541)
+  [1m[35m (1265.6ms)[0m  ALTER TABLE `properties` ADD `published` tinyint(1) DEFAULT 0
+  [1m[36m (109.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131004071541')[0m
+Migrating to AddSearchViewAndFullViewToProperties (20131007102355)
+  [1m[35m (1029.2ms)[0m  ALTER TABLE `properties` ADD `search_view` int(11) DEFAULT 0
+  [1m[36m (1480.2ms)[0m  [1mALTER TABLE `properties` ADD `full_view` int(11) DEFAULT 0[0m
+  [1m[35m (110.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131007102355')
+  [1m[36m (0.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Connecting to database specified by database.yml
+  [1m[36m (3.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35mAdmin Exists (0.7ms)[0m  SELECT 1 AS one FROM `admins` LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (21.1ms)[0m  SELECT 1 AS one FROM `admins` WHERE `admins`.`email` = BINARY 'admin@gmail.com' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `admins` (`created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `last_sign_in_at`, `last_sign_in_ip`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `updated_at`, `username`) VALUES ('2013-10-08 10:19:33', NULL, NULL, 'admin@gmail.com', '$2a$10$XAZtEReePTucsB9skIh1L.Dxr6C0TWTuKp7FYxq.5EANkZWZ6CQ6m', NULL, NULL, NULL, NULL, NULL, 0, '2013-10-08 10:19:33', 'admin')[0m
+  [1m[35m (158.0ms)[0m  COMMIT
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-08 15:50:20 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 299ms (Views: 269.7ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-08 15:50:47 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U2n5RUujk2+lkxJ9+okW+U/ihkJ8JFKi0g82tIIJrNU=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1[0m
+Completed 401 Unauthorized in 161ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U2n5RUujk2+lkxJ9+okW+U/ihkJ8JFKi0g82tIIJrNU=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 215ms (Views: 126.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-08 15:51:11 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U2n5RUujk2+lkxJ9+okW+U/ihkJ8JFKi0g82tIIJrNU=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  UPDATE `admins` SET `last_sign_in_at` = '2013-10-08 10:21:11', `current_sign_in_at` = '2013-10-08 10:21:11', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-10-08 10:21:11' WHERE `admins`.`id` = 1
+  [1m[36m (1005.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:4000/
+Completed 302 Found in 1395ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-08 15:51:13 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mAdmin Load (0.9ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  Rendered dashboards/index.html.erb within layouts/admin (0.8ms)
+Completed 200 OK in 207ms (Views: 202.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 15:51:26 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.8ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (19.7ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (182.0ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 491ms (Views: 344.4ms | ActiveRecord: 30.0ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 15:57:09 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (11.0ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 543ms (Views: 538.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 15:58:21 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (7.3ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 132ms (Views: 127.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 15:59:11 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (7.3ms)
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 174ms (Views: 169.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 15:59:33 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (11.1ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 246ms (Views: 242.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:00:48 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (5.5ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 194ms (Views: 189.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:01:17 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (6.1ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 137ms (Views: 134.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:02:38 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (5.8ms)
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 126ms (Views: 123.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:02:54 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (8.0ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 175ms (Views: 170.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:04:51 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (8.9ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 245ms (Views: 240.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:04:56 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (8.7ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 198ms (Views: 193.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:05:00 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (10.0ms)
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 199ms (Views: 195.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:05:18 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.5ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (7.4ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 131ms (Views: 126.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:05:26 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (9.0ms)
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 173ms (Views: 168.8ms | ActiveRecord: 1.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:06:47 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (382.9ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 1276ms (Views: 1185.2ms | ActiveRecord: 31.6ms)
+
+
+Started PUT "/admin/builders/2/block_builders?status=fal" for 127.0.0.1 at 2013-10-08 16:07:36 +0530
+Processing by Admin::BuildersController#block_builders as HTML
+  Parameters: {"authenticity_token"=>"9+FqDXAi1uojy2gSYdrHdt5W028LSsjXuP7XI9mgYp0=", "status"=>"fal", "id"=>"2"}
+  [1m[36mBuilder Load (1.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (119.8ms)[0m  [1mUPDATE `builders` SET `approved` = 0, `updated_at` = '2013-10-08 10:37:36' WHERE `builders`.`id` = 2[0m
+  [1m[35m (112.1ms)[0m  COMMIT
+Redirected to http://localhost:4000/admin/builders
+Completed 302 Found in 278ms (ActiveRecord: 233.4ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:07:36 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.8ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (6.4ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 186ms (Views: 182.2ms | ActiveRecord: 1.8ms)
+
+
+Started PUT "/admin/builders/2/block_builders?status=tru" for 127.0.0.1 at 2013-10-08 16:07:40 +0530
+Processing by Admin::BuildersController#block_builders as HTML
+  Parameters: {"authenticity_token"=>"9+FqDXAi1uojy2gSYdrHdt5W028LSsjXuP7XI9mgYp0=", "status"=>"tru", "id"=>"2"}
+  [1m[36mBuilder Load (1.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.4ms)[0m  [1mUPDATE `builders` SET `approved` = 1, `updated_at` = '2013-10-08 10:37:40' WHERE `builders`.`id` = 2[0m
+  [1m[35m (122.9ms)[0m  COMMIT
+Redirected to http://localhost:4000/admin/builders
+Completed 302 Found in 133ms (ActiveRecord: 125.5ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:07:41 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.9ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (5.7ms)
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 196ms (Views: 191.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:11:14 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (11.3ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 145ms (Views: 140.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:11:44 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (8.8ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 197ms (Views: 192.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:12:11 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (6.2ms)
+Completed 200 OK in 245ms (Views: 240.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:13:33 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3
+  Rendered admin/builders/index.html.erb within layouts/admin (11.1ms)
+Completed 200 OK in 192ms (Views: 188.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:13:46 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (10.1ms)
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 140ms (Views: 134.6ms | ActiveRecord: 1.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:15:49 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.5ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (238.2ms)
+Completed 200 OK in 980ms (Views: 854.8ms | ActiveRecord: 49.5ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:16:38 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3
+  Rendered admin/builders/index.html.erb within layouts/admin (10.3ms)
+Completed 200 OK in 195ms (Views: 190.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:17:19 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (5.5ms)
+Completed 200 OK in 189ms (Views: 184.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-08 16:33:58 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.3ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 3
+  Rendered admin/builders/index.html.erb within layouts/admin (11.4ms)
+Completed 200 OK in 142ms (Views: 137.3ms | ActiveRecord: 0.9ms)

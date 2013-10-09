@@ -1,1 +1,10 @@
-<%= render 'form'%>
+<span>
+  <span id="step1"><%=  "Step1" %></span>
+  <span id="step2"><%=  "Step2" %></span>
+  <span id="step3"><%=  "Step3" %></span>
+  <span id="step4"><%=  "Step4" %></span>
+</span>
+
+<%= form_for @property,:url => builder_properties_path(@builder,@property) do |f| %>
+  <%= render :partial => 'properties/form',:locals => {:f => f}%>
+<% end %>

@@ -6,6 +6,7 @@ class BuilderregistrationsController < ApplicationController
 def create
   @builder = Builder.new(params[:project])
   @builder.save
-  redirect_to '/'
+  redirect_to 'admins'
 end
+
 end

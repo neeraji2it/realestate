@@ -122,7 +122,6 @@ ActiveRecord::Schema.define(:version => 20131007102355) do
     t.boolean  "gmaps"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
-    t.date     "expire_date"
     t.boolean  "published",        :default => false
     t.integer  "search_view",      :default => 0
     t.integer  "full_view",        :default => 0

@@ -164,7 +164,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row-fluid">
       <div class="span6">
         <h5>Property Description</h5>
@@ -173,8 +173,8 @@
         </div>
       </div>
     </div>
-  
-    
+
+
     <div class="row-fluid">
       <div class="span6">
         <h5>Builder Information:</h5>
@@ -204,7 +204,8 @@
         </div>
       </div>
     </div>
-
-    <%= render 'contact' %>
-</div>
+    <%if !current_builder  %>
+      <%= render 'contact' %>
+    <% end %>
+  </div>
 </div>

@@ -1,11 +1,3 @@
-<span>
-  <span id="step1"><%=  "Step1" %></span>
-  <span id="step2"><%=  "Step2" %></span>
-  <span id="step3"><%=  "Step3" %></span>
-  <span id="step4"><%=  "Step4" %></span>
-</span>
-
-<%= form_for @property do |f| %>
   <% if !@property.errors.empty? %>
     <ul>
       <% @property.errors.each do |attr,message| %>
@@ -140,36 +132,32 @@
 
 
     <div id="submit" style="margin: 40px 0px">
-      <div>
-    <span style="margin-right: 49px;"> Expiry on:</span>
-    <span><%=f.date_select :expire_date %></span>
-      </div>   
-    <%= f.submit :class => 'btn btn-primary' %>
+      <%= f.submit :class => 'btn btn-primary' %>
     </div>
-<% end %>
+
 
 <span id="ns" style="margin-right: 20px;">
-  <%= link_to_function "Next", "steps();" %>
+  <%= link_to_function image_tag('nt.jpeg'), "steps();" %>
 </span>
 
 <span id="nt" style="margin-right: 20px;">
-  <%= link_to_function "Next", "stept();" %>
+  <%= link_to_function image_tag('nt.jpeg'), "stept();" %>
 </span>
 
 <span id="nf" style="margin-right: 20px;">
-  <%= link_to_function "Next", "stepf();" %>
+  <%= link_to_function image_tag('nt.jpeg'), "stepf();" %>
 </span>
 
 <span id="bf">
-  <%= link_to_function "Back", "step1();" %>
+  <%= link_to_function image_tag('bk.jpeg'), "step1();" %>
 </span>
 
 <span id="bs">
-  <%= link_to_function "Back", "steps();" %>
+  <%= link_to_function image_tag('bk.jpeg'), "steps();" %>
 </span>
 
 <span id="bt">
-  <%= link_to_function "Back", "stept();" %>
+  <%= link_to_function image_tag('bk.jpeg'), "stept();" %>
 </span>
 
 <script>

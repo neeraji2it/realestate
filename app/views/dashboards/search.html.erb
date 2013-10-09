@@ -19,8 +19,8 @@
           <div class="span3"><%= "Sale Price: Rs." + property.sale_price %></div>
           <div class="span3"><%="Status: " + property.property_status%></div>
           <div class="span3">
-            <%= link_to 'Full Details', property_path(property.id), :class => "btn btn-small btn-primary" %> &nbsp; 
-            <%= link_to "View Map", dashboard_path(property.id), :class => "btn btn-small btn-primary" %>
+            <%= link_to 'Full Details', property_path(property), :class => "btn btn-small btn-primary" %> &nbsp; 
+            <%= link_to "View Map", dashboard_path(property), :class => "btn btn-small btn-primary" %>
           </div>
         </div>
       </div>

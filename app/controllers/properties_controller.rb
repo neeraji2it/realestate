@@ -20,6 +20,7 @@ class PropertiesController < ApplicationController
   end
   
   def show
+    
     @property = Property.find(params[:id])
     @property.update_attributes(:full_view =>@property.full_view+1)
     @json = @property.to_gmaps4rails
@@ -27,12 +28,16 @@ class PropertiesController < ApplicationController
   end
 
   def new
+    @builder = Builder.find params[:builder_id]
     @property = Property.new
     1.times {@property.images.build}
   end
   
   def create
-    @property = Property.new(params[:property].merge(:builder_id => current_builder.id ))
+    @builder = Builder.find params[:builder_id]
+    @property = Property.new(params[:property])
+    @property.builder_id = @builder.id
+      
     if @property.images.blank?
       1.times {@property.images.build}
     end
@@ -94,8 +99,8 @@ class PropertiesController < ApplicationController
   
   def manage_property
     @properties = Property.find params[:id]
-     @properties.update_attribute(:published,params[:status])
-      redirect_to manage_properties_admin_builder_path(@properties.builder)
+    @properties.update_attribute(:published,params[:status])
+    redirect_to manage_properties_admin_builder_path(@properties.builder)
   end
 
   def add_contact

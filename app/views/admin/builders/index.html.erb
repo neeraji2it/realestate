@@ -1,29 +1,33 @@
 <div align="center">
-<table border="2">
-  <tr>
-    <th>Id</th>
-    <th>Company Name</th>
-    <th>Email</th>
-    <th>Phone Number</th>
-    <th>City</th>
-    <th>Property Listing</th>
-    <th>Last sign_in</th>
-    <th>Action</th>
-  </tr>
-  <% @builders.each do |builder| %>
+  <table border="2">
     <tr>
-      <td align="center"><%=builder.id%></td>
-      <td align="center"><%=builder.company_name%>
-      <td align="center"><%= builder.email%></td>
-      <td align="center"><%=builder.phone%></td>
-      <td align="center"><%=builder.city%></td>
-      <td align="center"><%= link_to "#{builder.properties.count}",  manage_properties_admin_builder_path(builder) %></td>
-
-      <td align="center"><%=builder. last_sign_in_at %></td>
-      <td>
-        <%=  builder.approved == false ? (link_to image_tag('cross.png'), block_builders_admin_builder_path(builder, :status => 'tru'), :method => :put) : (link_to image_tag('r.gif'), block_builders_admin_builder_path(builder, :status => 'fal'), :method => :put)%>
-      </td>
+      <th>Id</th>
+      <th>Company Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>City</th>
+      <th>Property Listing</th>
+      <th>Last sign_in</th>
+      <th>Action</th>
+      <th>Add Property</th>
     </tr>
-  <% end %>
-</table>
+    <% @builders.each do |builder| %>
+      <tr>
+        <td align="center"><%=builder.id%></td>
+        <td align="center"><%=builder.company_name%>
+        <td align="center"><%= builder.email%></td>
+        <td align="center"><%=builder.phone%></td>
+        <td align="center"><%=builder.city%></td>
+        <td align="center"><%= link_to "#{builder.properties.count}", manage_properties_admin_builder_path(builder) %></td>
+
+        <td align="center"><%=builder. last_sign_in_at %></td>
+        <td>
+          <%=  builder.approved == false ? (link_to image_tag('cross.png'), block_builders_admin_builder_path(builder, :status => 'tru'), :method => :put) : (link_to image_tag('r.gif'), block_builders_admin_builder_path(builder, :status => 'fal'), :method => :put)%>
+        </td>
+        <td>
+          <%= link_to image_tag('ap.jpg'),new_builder_property_path(builder) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>

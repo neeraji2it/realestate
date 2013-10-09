@@ -1,4 +1,4 @@
-<%=link_to "Add",new_property_path%>
+<%=link_to "Add",builder_properties_path%>
 <table class="table table-striped" cellspacing="10" cellpadding="10" border="1">
   <tr>
     <th>PropertyName</th>
@@ -74,10 +74,10 @@
      </td>
    
       <td>
-        <%= link_to "Edit",  edit_property_path(property) %> 
-        <%= link_to "Delete", property_path(property),:method => :delete, :confirm => 'Are u sure to delete?' %>
-        <%= link_to "View", property_path(property) %>
-        <%= link_to "Summary",summary_property_path(property) %>
+        <%= link_to "Edit",  edit_builder_property_path(property.builder_id,property) %> 
+        <%= link_to "Delete", builder_property_path(property.builder_id,property),:method => :delete, :confirm => 'Are u sure to delete?' %>
+        <%= link_to "View",  builder_property_path(property.builder_id,property) %>
+        <%= link_to "Summary",summary_builder_property_path(property.builder_id,property) %>
       </td>
     </tr>
   <% end %>

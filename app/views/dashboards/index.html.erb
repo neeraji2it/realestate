@@ -1,8 +1,7 @@
-<% if current_builder %>
-  <div id="search">
-    <%= render :partial => 'form' %>
-  </div>
-<% else %>
+<% if !current_admin %>
+<div id="search">
+  <%= render :partial => 'form' %>
+</div>
 <% end %>
 
 

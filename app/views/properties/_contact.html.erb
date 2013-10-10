@@ -8,19 +8,19 @@
             <p>I would like to:</p>
             <div class="row-fluid">              
               <div class="span4">
-                <%= f.radio_button :option, "1", :checked => true %>
+                <%= f.radio_button :contact_option, "1", :checked => true %>
                 <span>Make an enquiry</span>
               </div>
             </div>
             <div class="row-fluid">
               <div class="span6">
-                <%= f.radio_button :option, "2"%>
+                <%= f.radio_button :contact_option, "2"%>
                 <span>Request an appointment</span>
               </div>
             </div>
             <div class="row-fluid">
               <div class="span6">
-                <%= f.radio_button :option, "3"%>
+                <%= f.radio_button :contact_option, "3"%>
                 <span>Inquire if this property is still available</span>
               </div>
             </div>
@@ -90,19 +90,19 @@
     $('#date_time').hide();
     $('#basic_info').show();
     $('#qry').show();
-    $('#contact_option_3').live("click", function() {
+    $('#contact_contact_option_3').live("click", function() {
         $('#date_time').hide();
         $('#basic_info').show();
         $('#qry').hide();
     })
 
-    $('#contact_option_1').live("click", function() {
+    $('#contact_contact_option_1').live("click", function() {
       $('#date_time').hide();
       $('#basic_info').show();
       $('#qry').show();
     })
     
-    $('#contact_option_2').live("click", function() {
+    $('#contact_contact_option_2').live("click", function() {
       $('#date_time').show();
       $('#basic_info').show();
       $('#qry').show();

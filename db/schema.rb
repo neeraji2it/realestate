@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(:version => 20131007102355) do
     t.string   "email"
     t.string   "phone"
     t.text     "question"
-    t.string   "option"
+    t.string   "contact_option"
     t.datetime "appointment_time"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false

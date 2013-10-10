@@ -42,6 +42,14 @@
   Total no.of view full details:
   <%= @property.full_view %>
 </div>
+  <div align="left">
+  Total no.of Respones:
+  <%= @property.contacts.count %>
+</div>
+  <div align="left">
+  Total no.of Appointments:
+  <%= @property.contacts.where("contact_option = 2").count %>
+</div>
 </td>
 </div>
 </table>

@@ -7,7 +7,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.text :question
-      t.string :option
+      t.string :contact_option
       t.datetime :appointment_time
       t.timestamps
     end

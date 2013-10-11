@@ -6,6 +6,6 @@
   <span id="step4"><%=  "Step4" %></span>
 </span>
 
-<%= form_for @property,:url => builder_properties_path(@builder,@property) do |f| %>
+<%= form_for @property,:url => builder_property_path(@builder,@property) do |f| %>
   <%= render :partial => 'properties/form',:locals => {:f => f}%>
 <% end %>

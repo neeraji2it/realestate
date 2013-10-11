@@ -13808,3 +13808,907 @@ Processing by Admin::BuildersController#index as HTML
   Rendered admin/builders/index.html.erb within layouts/admin (7.0ms)
   [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
 Completed 200 OK in 233ms (Views: 229.9ms | ActiveRecord: 0.9ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-11 17:24:51 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.0ms)
+  Rendered dashboards/index.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 557ms (Views: 520.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-11 17:25:08 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 352ms (Views: 209.7ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-11 17:25:29 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4ZD2+aFYu4FRYOWjidxZCZ1olb+mGDzTtTaT+EmNTvw=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mBuilder Load (0.6ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `builders` SET `last_sign_in_at` = '2013-10-11 10:18:38', `current_sign_in_at` = '2013-10-11 11:55:29', `sign_in_count` = 14, `updated_at` = '2013-10-11 11:55:29' WHERE `builders`.`id` = 1[0m
+  [1m[35m (60.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashboards
+Completed 302 Found in 282ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2013-10-11 17:25:29 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mBuilder Load (0.5ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/_form.html.erb (0.0ms)
+  Rendered dashboards/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 134ms (Views: 131.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2013-10-11 17:25:56 +0530
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.3ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered profiles/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 204ms (Views: 199.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/builders/edit" for 127.0.0.1 at 2013-10-11 17:26:06 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered devise/registrations/edit.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 190ms (Views: 186.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-11 17:26:23 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[35mBuilder Load (0.3ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (80.1ms)
+Completed 200 OK in 336ms (Views: 245.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-11 17:26:50 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.7ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  UPDATE `properties` SET `full_view` = 33, `updated_at` = '2013-10-11 11:56:50' WHERE `properties`.`id` = 1
+  [1m[36m (107.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (3.0ms)
+  Rendered properties/_map.html.erb (89.8ms)
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered properties/show.html.erb within layouts/application (152.4ms)
+Completed 200 OK in 492ms (Views: 291.8ms | ActiveRecord: 113.9ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:26:52 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.9ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendered properties/edit.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/builders/1/properties/1/summary" for 127.0.0.1 at 2013-10-11 17:26:54 +0530
+Processing by PropertiesController#summary as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (contact_option = 2)
+  Rendered properties/summary.html.erb within layouts/application (5.0ms)
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 120ms (Views: 117.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:27:41 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  Rendered properties/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:27:44 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendered properties/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:30:05 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  Rendered properties/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:30:08 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendered properties/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:30:37 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  Rendered properties/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-11 17:30:41 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 236ms (Views: 232.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:30:45 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendered properties/edit.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:33:03 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  Rendered properties/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 11:56:50", published: true, search_view: 7, full_view: 33>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/builders/1/properties/1/summary" for 127.0.0.1 at 2013-10-11 17:33:30 +0530
+Processing by PropertiesController#summary as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (contact_option = 2)[0m
+  Rendered properties/summary.html.erb within layouts/application (4.3ms)
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Completed 200 OK in 289ms (Views: 286.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-11 17:33:41 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `properties` SET `full_view` = 34, `updated_at` = '2013-10-11 12:03:41' WHERE `properties`.`id` = 1[0m
+  [1m[35m (74.9ms)[0m  COMMIT
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1[0m
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.8ms)
+  Rendered properties/_map.html.erb (4.1ms)
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered properties/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 294ms (Views: 211.6ms | ActiveRecord: 76.0ms)
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-11 17:34:56 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.4ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `properties` SET `full_view` = 35, `updated_at` = '2013-10-11 12:04:56' WHERE `properties`.`id` = 1
+  [1m[36m (60.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.0ms)
+  Rendered properties/_map.html.erb (2.3ms)
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered properties/show.html.erb within layouts/application (91.6ms)
+Completed 200 OK in 431ms (Views: 308.5ms | ActiveRecord: 67.7ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:35:02 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendered properties/edit.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionController::RoutingError (No route matches {:controller=>"properties", :builder_id=>nil, :format=>#<Property id: 1, builder_id: 1, property_name: "Svr", property_listing: "For Sale", property_type: "Apartment", no_of_flats: 4, no_of_floors: 3, no_of_houses: nil, no_of_plots: nil, state: "karnataka", city: "Bangalore", address: "Btm", zip_code: "515623", latitude: 12.9128, longitude: 77.6092, total_area: "1500", saleable_area: "1000", sale_price: "140000", parking: 1, swimming: 1, playground: 0, party_hall: 0, property_status: "Ongoing", start_date: "2012-10-10", end_date: "2013-11-13", upcoming_date: nil, description: "A private entrance leads into this beautifully land...", gmaps: true, created_at: "2013-10-10 08:53:02", updated_at: "2013-10-11 12:04:56", published: true, search_view: 7, full_view: 35>}):
+  app/views/properties/edit.html.erb:9:in `_app_views_properties_edit_html_erb___959613844_102521570'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:35:47 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 183ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/properties_controller.rb:81:in `edit'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.9ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:37:02 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.1ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered properties/_image_fields.html.erb (1.0ms)
+  Rendered properties/_form.html.erb (80.1ms)
+  Rendered properties/edit.html.erb within layouts/application (82.5ms)
+Completed 200 OK in 351ms (Views: 203.0ms | ActiveRecord: 4.7ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:37:22 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:38:29 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:38:34 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.1ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.1ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 90ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-11 17:38:34 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.4ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 177ms (Views: 172.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:38:42 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-11 17:38:42 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 188ms (Views: 184.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:38:46 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-11 17:38:46 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 223ms (Views: 219.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:38:49 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-11 17:38:49 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 202ms (Views: 199.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-11 17:39:09 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.1ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 318ms (Views: 202.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:39:14 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1[0m
+  Rendered properties/_image_fields.html.erb (1.1ms)
+  Rendered properties/_form.html.erb (66.1ms)
+  Rendered properties/edit.html.erb within layouts/application (70.9ms)
+Completed 200 OK in 344ms (Views: 334.7ms | ActiveRecord: 2.6ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:39:21 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:40:56 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:41:38 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (14.4ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:41:42 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered properties/_image_fields.html.erb (0.5ms)
+  Rendered properties/_form.html.erb (30.4ms)
+  Rendered properties/edit.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 428ms (Views: 200.4ms | ActiveRecord: 7.2ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:42:21 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:44:03 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:44:08 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1[0m
+  Rendered properties/_image_fields.html.erb (0.5ms)
+  Rendered properties/_form.html.erb (31.2ms)
+  Rendered properties/edit.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 467ms (Views: 218.2ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:44:31 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered properties/_image_fields.html.erb (0.5ms)
+  Rendered properties/_form.html.erb (29.9ms)
+  Rendered properties/edit.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 392ms (Views: 203.2ms | ActiveRecord: 6.3ms)
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:44:39 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started PUT "/builders/1/properties.1" for 127.0.0.1 at 2013-10-11 17:57:31 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/builders/1/properties.1"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:57:34 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1[0m
+  Rendered properties/_image_fields.html.erb (0.9ms)
+  Rendered properties/_form.html.erb (28.6ms)
+  Rendered properties/edit.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 259ms (Views: 252.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-11 17:58:27 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.1ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered properties/_image_fields.html.erb (0.5ms)
+  Rendered properties/_form.html.erb (32.8ms)
+  Rendered properties/edit.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 394ms (Views: 250.1ms | ActiveRecord: 4.7ms)
+
+
+Started PUT "/builders/1/properties/1" for 127.0.0.1 at 2013-10-11 17:58:38 +0530
+Processing by PropertiesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rCNNOB9Xh8XNmbuR8fkWK7YcobpWedFy8ydvYwcqWbo=", "property"=>{"property_name"=>"Svr", "property_listing"=>"For Sale", "property_type"=>"Apartment", "no_of_flats"=>"1BHK", "no_of_floors"=>"1", "no_of_houses"=>"1", "no_of_plots"=>"1", "total_area"=>"1500", "saleable_area"=>"1000", "sale_price"=>"140000", "description"=>"A private entrance leads into this beautifully landscaped community conveniently located close to town, offering one, two and three bedroom garden apartment homes and two bedroom town homes, featuring open floor plans, breakfast nooks, and spacious private decks or patios.", "parking"=>"1", "swimming"=>"1", "playground"=>"0", "party_hall"=>"0", "property_status"=>"Ongoing", "start_date(1i)"=>"2012", "start_date(2i)"=>"10", "start_date(3i)"=>"10", "end_date(1i)"=>"2013", "end_date(2i)"=>"11", "end_date(3i)"=>"13", "upcoming_date(1i)"=>"2013", "upcoming_date(2i)"=>"10", "upcoming_date(3i)"=>"11", "images_attributes"=>{"0"=>{"id"=>"1"}}, "state"=>"karnataka", "city"=>"Bangalore", "address"=>"Btm", "zip_code"=>"515623"}, "commit"=>"Update Property", "builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mImage Load (0.5ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1 AND `images`.`id` IN (1)[0m
+  [1m[35m (0.5ms)[0m  UPDATE `properties` SET `no_of_flats` = 1, `no_of_floors` = 1, `no_of_houses` = 1, `no_of_plots` = 1, `upcoming_date` = '2013-10-11', `updated_at` = '2013-10-11 12:28:38' WHERE `properties`.`id` = 1
+  [1m[36m (57.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 92ms (ActiveRecord: 58.8ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-11 17:58:38 +0530
+Processing by PropertiesController#index as HTML
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 232ms (Views: 226.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-11 18:01:07 +0530
+Processing by PropertiesController#index as HTML
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 225ms (Views: 221.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/builders/sign_out" for 127.0.0.1 at 2013-10-11 18:01:15 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rCNNOB9Xh8XNmbuR8fkWK7YcobpWedFy8ydvYwcqWbo="}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 78.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-11 18:01:15 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (5.2ms)
+  Rendered dashboards/index.html.erb within layouts/application (82.3ms)
+Completed 200 OK in 283ms (Views: 281.5ms | ActiveRecord: 0.0ms)

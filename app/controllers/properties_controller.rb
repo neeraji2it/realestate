@@ -78,13 +78,14 @@ class PropertiesController < ApplicationController
   end
   
   def edit
+    @builder = Builder.find params[:builder_id]
     @property = Property.find(params[:id])
   end
   
   def update
     @property = Property.find(params[:id])
     if @property.update_attributes(params[:property])
-      redirect_to properties_path(@property)
+      redirect_to properties_path
     else
       #@property.errors.inspect
       render :action => :edit

@@ -28,13 +28,13 @@ class PropertiesController < ApplicationController
   end
 
   def new
-    @builder = Builder.find params[:builder_id]
+    @builder = params[:builder_id] ? Builder.find(params[:builder_id]) : current_builder
     @property = Property.new
     1.times {@property.images.build}
   end
   
   def create
-    @builder = Builder.find params[:builder_id]
+    @builder = params[:builder_id] ? Builder.find(params[:builder_id]) : current_builder
     @property = Property.new(params[:property])
     @property.builder_id = @builder.id
       

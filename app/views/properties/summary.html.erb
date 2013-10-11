@@ -1,4 +1,4 @@
-<h5>Property summary</h5>
+<h5>Property Summary</h5>
 
 <table class="table table-striped" cellspacing="0" cellpadding="5" border="1">
   <tr>
@@ -11,6 +11,9 @@
   </tr>
   
 <td>
+<div align="left">Property Name :
+  <%=@property.property_name %></div>
+  
 <div align="left">Address & City :
   <%=@property.address %>,<%=@property.city %>
 </div>
@@ -43,7 +46,7 @@
   <%= @property.full_view %>
 </div>
   <div align="left">
-  Total no.of Respones:
+  Total no.of Responses:
   <%= @property.contacts.count %>
 </div>
   <div align="left">

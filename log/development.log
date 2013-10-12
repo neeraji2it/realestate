@@ -15282,3 +15282,54 @@ Processing by DashboardsController#index as HTML
   Rendered dashboards/_form.html.erb (3.7ms)
   Rendered dashboards/index.html.erb within layouts/application (6.1ms)
 Completed 200 OK in 146ms (Views: 144.1ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-12 14:06:18 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (3.0ms)
+  Rendered dashboards/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 467ms (Views: 459.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards/search?utf8=%E2%9C%93&property_listing=For+Rent&property_type=&city=&sale_price=&commit=Search+Property" for 127.0.0.1 at 2013-10-12 14:06:24 +0530
+Processing by DashboardsController#search as HTML
+  Parameters: {"utf8"=>"✓", "property_listing"=>"For Rent", "property_type"=>"", "city"=>"", "sale_price"=>"", "commit"=>"Search Property"}
+  [1m[36mProperty Load (0.8ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (property_listing = 'For Rent') LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mUPDATE `properties` SET `search_view` = 9, `updated_at` = '2013-10-12 08:36:24' WHERE `properties`.`id` = 2[0m
+  [1m[35m (68.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  UPDATE `properties` SET `search_view` = 9, `updated_at` = '2013-10-12 08:36:24' WHERE `properties`.`id` = 3
+  [1m[36m (57.6ms)[0m  [1mCOMMIT[0m
+  Rendered /home/rails/.rvm/gems/ruby-1.9.3-p448/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (2.5ms)
+  [1m[35mImage Load (0.3ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 2
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 3[0m
+  Rendered dashboards/search.html.erb within layouts/application (221.3ms)
+Completed 200 OK in 648ms (Views: 355.5ms | ActiveRecord: 136.7ms)
+
+
+Started GET "/properties/2" for 127.0.0.1 at 2013-10-12 14:06:28 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProperty Load (0.8ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 2 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  UPDATE `properties` SET `full_view` = 3, `updated_at` = '2013-10-12 08:36:28' WHERE `properties`.`id` = 2
+  [1m[36m (92.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mImage Load (0.3ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 2
+  Rendered /home/rails/.rvm/gems/ruby-1.9.3-p448/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.4ms)
+  Rendered properties/_map.html.erb (3.5ms)
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered properties/_contact.html.erb (4.8ms)
+  Rendered properties/show.html.erb within layouts/application (136.2ms)
+Completed 200 OK in 445ms (Views: 305.2ms | ActiveRecord: 100.2ms)
+
+
+Started GET "/dashboards/3" for 127.0.0.1 at 2013-10-12 14:06:44 +0530
+Processing by DashboardsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProperty Load (1.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 3 LIMIT 1
+  Rendered /home/rails/.rvm/gems/ruby-1.9.3-p448/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (3.1ms)
+  Rendered properties/_map.html.erb (6.7ms)
+  Rendered dashboards/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 194ms (Views: 188.3ms | ActiveRecord: 1.0ms)

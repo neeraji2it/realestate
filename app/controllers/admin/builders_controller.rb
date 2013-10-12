@@ -16,7 +16,7 @@ class Admin::BuildersController < ApplicationController
     else
       @builders.update_attribute(:approved,false)
     end
-    redirect_to '/admin/builders'
+    redirect_to '/admin/builders/'
   end
     
   def manage_properties

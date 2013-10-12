@@ -17,15 +17,13 @@ Realestate::Application.routes.draw do
   resources :builderregistrations
   resources :profiles 
   
-  namespace :admin do
-    resources :users
-  end
     
    
   namespace :admin do
+    resources :users
     resources :builders do
       member do
-        put :block_builders
+        get :block_builders
         get :manage_properties
       end
     end

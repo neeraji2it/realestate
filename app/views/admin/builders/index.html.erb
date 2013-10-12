@@ -22,7 +22,7 @@
 
         <td align="center"><%=builder. last_sign_in_at %></td>
         <td align="center">
-          <%=  builder.approved == false ? (link_to image_tag('cross.png'), block_builders_admin_builder_path(builder, :status => 'tru'), :method => :put) : (link_to image_tag('r.gif'), block_builders_admin_builder_path(builder, :status => 'fal'), :method => :put)%>
+          <%=  builder.approved == false ? (link_to image_tag('cross.png'), block_builders_admin_builder_path(builder, :status => 'tru')) : (link_to image_tag('r.gif'), block_builders_admin_builder_path(builder, :status => 'fal'))%>
         </td>
         <td align="center">
           <%= link_to image_tag('ap.jpg'),new_builder_property_path(builder) %>

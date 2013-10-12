@@ -46,32 +46,32 @@
         <%= property.property_status %>
       </td>
       <td>  
-       <% if property.property_status == "Ongoing"  %>
-     
-        <%=property.start_date %>
-     
+        <% if property.property_status == "Ongoing"  %>
+
+          <%=property.start_date %>
+
         <td>
           <%=property.end_date %>
         </td>
- 
+
       <% end %>
-    
+
       <% if property.property_status == "Ready To Move"  %>
         <td>
-      <%=property.end_date %>
+          <%=property.end_date %>
         </td>
       <% end %>
-     
-    
-     <td> 
+
+
+      <td> 
         <% if property.property_status == "Upcoming"  %>
-     <td>
+        <td>
           <%=property.upcoming_date %>
-     </td>
-     <% end %>
-     </td>
-     </td>
-   
+        </td>
+      <% end %>
+      </td>
+      </td>
+
       <td>
         <%= link_to "Edit",  edit_builder_property_path(property.builder_id,property) %> 
         <%= link_to "Delete", builder_property_path(property.builder_id,property),:method => :delete, :confirm => 'Are u sure to delete?' %>

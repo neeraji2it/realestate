@@ -7,5 +7,5 @@
 </span>
 
 <%= form_for @property,:url => builder_property_path(@builder,@property) do |f| %>
-  <%= render :partial => 'properties/form',:locals => {:f => f}%>
+  <%= render :partial => 'properties/form', :locals => {:f => f}%>
 <% end %>

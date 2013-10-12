@@ -3,10 +3,10 @@ class BuilderregistrationsController < ApplicationController
     @builder=Builder.new
   end
 
-def create
-  @builder = Builder.new(params[:project])
-  @builder.save
-  redirect_to 'admins'
-end
+  def create
+    @builder = Builder.new(params[:project])
+    @builder.save
+    redirect_to 'admins'
+  end
 
 end

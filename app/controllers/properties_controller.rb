@@ -20,7 +20,6 @@ class PropertiesController < ApplicationController
   end
   
   def show
-    
     @property = Property.find(params[:id])
     @property.update_attributes(:full_view =>@property.full_view+1)
     @json = @property.to_gmaps4rails

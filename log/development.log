@@ -17121,3 +17121,107 @@ Processing by Admin::BuildersController#manage_properties as HTML
   Rendered admin/builders/manage_properties.html.erb within layouts/admin (5.1ms)
   [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
 Completed 200 OK in 117ms (Views: 111.2ms | ActiveRecord: 3.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 13:01:13 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/index.html.erb within layouts/admin (4.8ms)
+Completed 200 OK in 272ms (Views: 249.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 13:01:17 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lp6Zddv3Bn3QJtIuK6Z/F2di8LPRXGGO2m+IAjz9h1Q="}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 157ms (ActiveRecord: 71.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 13:01:17 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (3.6ms)
+  Rendered dashboards/index.html.erb within layouts/application (63.4ms)
+Completed 200 OK in 231ms (Views: 230.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 13:01:19 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 260ms (Views: 176.4ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-16 13:01:29 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GVftGOCHnQvdLT4c3CcsHw1plj8oSAG3z7z1OSTTidk=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mBuilder Load (0.6ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `builders` SET `last_sign_in_at` = '2013-10-16 06:14:12', `current_sign_in_at` = '2013-10-16 07:31:30', `sign_in_count` = 19, `updated_at` = '2013-10-16 07:31:30' WHERE `builders`.`id` = 1[0m
+  [1m[35m (67.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashboards
+Completed 302 Found in 306ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2013-10-16 13:01:30 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/_form.html.erb (0.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 103ms (Views: 101.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 13:01:33 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.5ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 320ms (Views: 184.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/builders/1/properties/1/summary" for 127.0.0.1 at 2013-10-16 13:01:35 +0530
+Processing by PropertiesController#summary as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (contact_option = 2)
+  Rendered properties/summary.html.erb within layouts/application (34.7ms)
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 243ms (Views: 237.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-16 13:05:37 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.4ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `properties` SET `full_view` = 38, `updated_at` = '2013-10-16 07:35:37' WHERE `properties`.`id` = 1
+  [1m[36m (61.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (3.7ms)
+  Rendered properties/_map.html.erb (73.4ms)
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered properties/show.html.erb within layouts/application (134.9ms)
+Completed 200 OK in 467ms (Views: 343.4ms | ActiveRecord: 65.3ms)
+
+
+Started GET "/builders/sign_out" for 127.0.0.1 at 2013-10-16 13:05:58 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zPEiO3X/ngsgX+ULpOyQlbbWIu2W50GiNJHsEOKW680="}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 58ms (ActiveRecord: 52.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 13:05:58 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 103ms (Views: 102.0ms | ActiveRecord: 0.0ms)

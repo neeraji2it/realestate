@@ -17306,3 +17306,14 @@ Processing by PropertiesController#summary as HTML
   [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (2)[0m
   Rendered properties/summary.html.erb within layouts/admin (6.8ms)
 Completed 200 OK in 243ms (Views: 236.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/builders/1/properties/1/summary" for 127.0.0.1 at 2013-10-16 14:43:15 +0530
+Processing by PropertiesController#summary as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (contact_option = '2')[0m
+  Rendered properties/summary.html.erb within layouts/admin (3.3ms)
+Completed 200 OK in 179ms (Views: 176.2ms | ActiveRecord: 0.7ms)

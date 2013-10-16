@@ -17317,3 +17317,156 @@ Processing by PropertiesController#summary as HTML
   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (contact_option = '2')[0m
   Rendered properties/summary.html.erb within layouts/admin (3.3ms)
 Completed 200 OK in 179ms (Views: 176.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/builders/1/properties/1/summary" for 127.0.0.1 at 2013-10-16 14:46:11 +0530
+Processing by PropertiesController#summary as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (2)[0m
+  Rendered properties/summary.html.erb within layouts/admin (53.4ms)
+Completed 200 OK in 167ms (Views: 165.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 15:00:06 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"etMgJM9MOs0e0tSnaxKWaFHSC2wSO4SMvTnmuffF124="}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 74ms (ActiveRecord: 62.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 15:00:06 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (5.3ms)
+  Rendered dashboards/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 163ms (Views: 161.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 15:00:09 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 135ms (Views: 133.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-16 15:00:17 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R+ZIHfzAXF4sNFdumndNU0CV5VYQgfCOhODj+uvzD8E=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mBuilder Load (1.8ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `builders` SET `last_sign_in_at` = '2013-10-16 07:31:30', `current_sign_in_at` = '2013-10-16 09:30:18', `sign_in_count` = 20, `updated_at` = '2013-10-16 09:30:18' WHERE `builders`.`id` = 1[0m
+  [1m[35m (65.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashboards
+Completed 302 Found in 281ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2013-10-16 15:00:18 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mBuilder Load (0.6ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/_form.html.erb (0.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 260ms (Views: 256.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 15:00:20 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 203ms (Views: 197.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 15:02:08 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[35mBuilder Load (0.5ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 211ms (Views: 207.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-16 15:02:12 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"authenticity_token"=>"BPE+hgLYHveVCWfwcD/7G8cpRE8QFl+ggC2jKADEc8k=", "builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  UPDATE `properties` SET `full_view` = 39, `updated_at` = '2013-10-16 09:32:12' WHERE `properties`.`id` = 1
+  [1m[36m (66.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (3.2ms)
+  Rendered properties/_map.html.erb (14.4ms)
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered properties/show.html.erb within layouts/application (128.6ms)
+Completed 200 OK in 434ms (Views: 339.4ms | ActiveRecord: 70.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-16 15:04:03 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"authenticity_token"=>"BPE+hgLYHveVCWfwcD/7G8cpRE8QFl+ggC2jKADEc8k=", "builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (3.9ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `properties` SET `full_view` = 40, `updated_at` = '2013-10-16 09:34:03' WHERE `properties`.`id` = 1[0m
+  [1m[35m (77.6ms)[0m  COMMIT
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1[0m
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (0.9ms)
+  Rendered properties/_map.html.erb (2.2ms)
+  [1m[35mBuilder Load (0.1ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered properties/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 198ms (Views: 109.6ms | ActiveRecord: 82.3ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 15:04:09 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[35mBuilder Load (2.3ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.8ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 257ms (Views: 251.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 15:04:13 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 206ms (Views: 201.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/properties/1" for 127.0.0.1 at 2013-10-16 15:04:17 +0530
+Processing by PropertiesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BPE+hgLYHveVCWfwcD/7G8cpRE8QFl+ggC2jKADEc8k=", "id"=>"1"}
+  [1m[35mProperty Load (3.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `properties` WHERE `properties`.`id` = 1
+  [1m[36m (72.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 87ms (ActiveRecord: 77.1ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2013-10-16 15:04:17 +0530
+Processing by PropertiesController#index as HTML
+  [1m[35mBuilder Load (0.1ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.4ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 99ms (Views: 96.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 15:04:28 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)[0m
+  Rendered properties/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 217ms (Views: 213.9ms | ActiveRecord: 0.4ms)

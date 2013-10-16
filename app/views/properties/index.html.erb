@@ -74,7 +74,7 @@
 
       <td>
         <%= link_to "Edit",  edit_builder_property_path(property.builder_id,property) %> 
-        <%= link_to "Delete", property_path(property),:method => :delete, :confirm => 'Are u sure to delete?' %>
+        <%= link_to "Delete", builder_property_path(property.builder_id,property),:method => :delete, :confirm => 'Are u sure to delete?' %>
         <%= link_to "View",  builder_property_path(property.builder_id,property) %>
         <%= link_to "Summary",summary_builder_property_path(property.builder_id,property) %>
       </td>

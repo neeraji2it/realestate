@@ -45,36 +45,36 @@
         <%= property.property_status %>
       </td>
       <td>  
-       <% if property.property_status == "Ongoing"  %>
-     
-        <%=property.start_date %>
-     
+        <% if property.property_status == "Ongoing"  %>
+
+          <%=property.start_date %>
+
         <td>
           <%=property.end_date %>
         </td>
- 
+
       <% end %>
-    
+
       <% if property.property_status == "Ready To Move"  %>
         <td>
-      <%=property.end_date %>
+          <%=property.end_date %>
         </td>
       <% end %>
-     
-    
-     <td> 
+
+
+      <td> 
         <% if property.property_status == "Upcoming"  %>
-     <td>
-          <%=property.upcoming_date %>
-     </td>
-     <% end %>
-     </td>
-     </td>
-   
         <td>
-        <%= link_to property.published == false ? image_tag('cross.png') : image_tag('r.gif'), manage_property_builder_property_path(:builder_id => property.builder_id,:id =>property.id,:status => property.published == false ? true : false),:method => :put%></br>
-       <%= link_to image_tag('vp.jpg'),  builder_property_path(property.builder_id,property) %>
-       <%= link_to image_tag('sum.jpg'), summary_builder_property_path(property.builder_id,property) %>
+          <%=property.upcoming_date %>
+        </td>
+      <% end %>
+      </td>
+      </td>
+
+      <td>
+        <%= link_to property.published == false ? image_tag('cross.png') : image_tag('r.gif'), manage_property_builder_property_path(:builder_id => property.builder_id,:id =>property.id,:status => property.published == false ? true : false)%></br>
+        <%= link_to image_tag('vp.jpg'),  builder_property_path(property.builder_id,property) %>
+        <%= link_to image_tag('sum.jpg'), summary_builder_property_path(property.builder_id,property) %>
       </td>
     </tr>
   <% end %>

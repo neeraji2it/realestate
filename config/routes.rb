@@ -40,7 +40,7 @@ Realestate::Application.routes.draw do
   resources :builders do
     resources :properties do
       member do
-        put :manage_property
+        get :manage_property
         get 'summary'
       end
     end

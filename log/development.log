@@ -15452,3 +15452,1672 @@ Processing by Admin::BuildersController#index as HTML
   [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
 Completed 200 OK in 139ms (Views: 136.5ms | ActiveRecord: 1.3ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:12:33 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 830ms (Views: 799.0ms | ActiveRecord: 26.8ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:14:24 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (117.4ms)
+Completed 200 OK in 301ms (Views: 242.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:14:36 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYWWxI9ssZt7nw+rUVIODDEg9pkQpbo43Lh4YyQP5tc=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (20.6ms)[0m  [1mUPDATE `admins` SET `last_sign_in_at` = '2013-10-11 11:06:13', `current_sign_in_at` = '2013-10-16 05:44:37', `sign_in_count` = 100, `updated_at` = '2013-10-16 05:44:37' WHERE `admins`.`id` = 1[0m
+  [1m[35m (81.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 398ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:14:37 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 139ms (Views: 137.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:14:40 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.5ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (114.6ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 392ms (Views: 248.7ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:14:46 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (0.7ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (25.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (98.0ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 256ms (Views: 226.6ms | ActiveRecord: 26.0ms)
+
+
+Started PUT "/builders/1/properties/1/manage_property?status=false" for 127.0.0.1 at 2013-10-16 11:14:48 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"authenticity_token"=>"+5+rtxKDoGKwrOZDgDVn26L5NjibQ0C8YhMmccBmtAc=", "status"=>"false", "builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.5ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (14.5ms)[0m  UPDATE `properties` SET `published` = 0, `updated_at` = '2013-10-16 05:44:48' WHERE `properties`.`id` = 1
+  [1m[36m (77.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 149ms (ActiveRecord: 92.4ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:14:49 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.5ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (3.5ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 106ms (Views: 104.1ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/builders/1/properties/1/manage_property?status=true" for 127.0.0.1 at 2013-10-16 11:14:52 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"authenticity_token"=>"+5+rtxKDoGKwrOZDgDVn26L5NjibQ0C8YhMmccBmtAc=", "status"=>"true", "builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `properties` SET `published` = 1, `updated_at` = '2013-10-16 05:44:52' WHERE `properties`.`id` = 1
+  [1m[36m (57.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 67ms (ActiveRecord: 59.2ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:14:52 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (5.2ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 248ms (Views: 244.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:15:15 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.3ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (7.1ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 238ms (Views: 235.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/builders/1/properties/1/manage_property?status=false" for 127.0.0.1 at 2013-10-16 11:15:18 +0530
+
+ActionController::RoutingError (No route matches [GET] "/builders/1/properties/1/manage_property"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/manage_property?status=false" for 127.0.0.1 at 2013-10-16 11:15:32 +0530
+
+ActionController::RoutingError (No route matches [GET] "/builders/1/properties/1/manage_property"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/builders/1/properties/1/manage_property?status=false" for 127.0.0.1 at 2013-10-16 11:15:35 +0530
+
+ActionController::RoutingError (No route matches [GET] "/builders/1/properties/1/manage_property"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:15:39 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (7.9ms)
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 197ms (Views: 194.0ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/builders/1/properties/1/manage_property?status=false" for 127.0.0.1 at 2013-10-16 11:15:43 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"authenticity_token"=>"+5+rtxKDoGKwrOZDgDVn26L5NjibQ0C8YhMmccBmtAc=", "status"=>"false", "builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `properties` SET `published` = 0, `updated_at` = '2013-10-16 05:45:43' WHERE `properties`.`id` = 1
+  [1m[36m (291.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mBuilder Load (0.1ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 299ms (ActiveRecord: 293.0ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:15:44 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.4ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (3.2ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 149ms (Views: 147.1ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:15:47 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:15:56 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (4.8ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 204ms (Views: 201.1ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:15:58 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:16:17 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+Connecting to database specified by database.yml
+
+
+Started PUT "/admin/builders/1/block_builders?status=tru" for 127.0.0.1 at 2013-10-16 11:30:25 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/admin/builders/1/block_builders"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.7ms)
+
+
+Started PUT "/admin/builders/1/block_builders?status=tru" for 127.0.0.1 at 2013-10-16 11:30:28 +0530
+
+ActionController::RoutingError (No route matches [PUT] "/admin/builders/1/block_builders"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:30:32 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:32:25 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:32:27 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:32:30 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (70.8ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 343ms (Views: 254.3ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:32:33 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"chn8gyx5F7zkoaTcz8WRWntvLh2Qh+4xurBV16kYFvU="}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 153ms (ActiveRecord: 64.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:32:33 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (3.6ms)
+  Rendered dashboards/index.html.erb within layouts/application (58.7ms)
+Completed 200 OK in 227ms (Views: 217.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:32:40 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 227ms (Views: 213.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:32:48 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ssltuMJqBlDQaKdIymOwo36hfjZXHK8P8nw48wIJ/Ic=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `admins` SET `last_sign_in_at` = '2013-10-16 05:52:08', `current_sign_in_at` = '2013-10-16 06:02:48', `sign_in_count` = 104, `updated_at` = '2013-10-16 06:02:48' WHERE `admins`.`id` = 1[0m
+  [1m[35m (57.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 252ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:32:48 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 102ms (Views: 100.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2013-10-16 11:32:52 +0530
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered admin/users/index.html.erb within layouts/admin (1.2ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 265ms (Views: 205.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:32:55 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.3ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (4.4ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 189ms (Views: 186.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/builders/1/block_builders?status=tru" for 127.0.0.1 at 2013-10-16 11:32:59 +0530
+Processing by Admin::BuildersController#block_builders as HTML
+  Parameters: {"status"=>"tru", "id"=>"1"}
+  [1m[36mBuilder Load (0.8ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mUPDATE `builders` SET `approved` = 1, `updated_at` = '2013-10-16 06:02:59' WHERE `builders`.`id` = 1[0m
+  [1m[35m (321.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/builders/
+Completed 302 Found in 330ms (ActiveRecord: 323.1ms)
+
+
+Started GET "/admin/builders/" for 127.0.0.1 at 2013-10-16 11:32:59 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.3ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (2.7ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 100ms (Views: 98.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:33:05 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4EMdL07Q85ePGXj51eoHyGfcygz5KFKQTbGN/UEwuy0="}
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 101ms (ActiveRecord: 93.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:33:05 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.0ms)
+  Rendered dashboards/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 239ms (Views: 237.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:33:10 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 188ms (Views: 186.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:33:17 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ISi/O8Nd/XCxMTnzK8dErysExmOSiHHEy41PHCUq2wo=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `admins` SET `last_sign_in_at` = '2013-10-16 06:02:48', `current_sign_in_at` = '2013-10-16 06:03:18', `sign_in_count` = 105, `updated_at` = '2013-10-16 06:03:18' WHERE `admins`.`id` = 1[0m
+  [1m[35m (68.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 257ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:33:18 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 100ms (Views: 98.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:33:27 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 194ms (Views: 191.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:33:31 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (5.6ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 228ms (Views: 224.6ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:33:33 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:33:54 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:33:58 +0530
+
+ActionController::RoutingError (No route matches [DELETE] "/admins/sign_out"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:34:01 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (1.7ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (4.8ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 150ms (Views: 145.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:34:04 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (4.6ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (2.8ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (7.1ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 218ms (Views: 208.5ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:34:07 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (4.9ms)
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 200ms (Views: 197.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:34:10 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dSGaDDgleuR7QSU1BAlNjQFJEhJrjgoaG2lDWYBdycY="}
+  [1m[36mAdmin Load (1.6ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 75ms (ActiveRecord: 67.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:34:11 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (1.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 145ms (Views: 144.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:34:14 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 215ms (Views: 213.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:34:21 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iiG8gFEcCUrHCRybnL+rx2f90uNsBwgTOcM/DKNWvE8=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mBuilder Load (0.5ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `builders` SET `last_sign_in_at` = '2013-10-11 11:55:29', `current_sign_in_at` = '2013-10-16 06:04:21', `sign_in_count` = 15, `updated_at` = '2013-10-16 06:04:21' WHERE `builders`.`id` = 1
+  [1m[36m (130.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashboards
+Completed 302 Found in 238ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2013-10-16 11:34:21 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered dashboards/_form.html.erb (0.0ms)
+  Rendered dashboards/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 99ms (Views: 97.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 11:34:25 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 201ms (Views: 196.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/builders/sign_out" for 127.0.0.1 at 2013-10-16 11:34:31 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VwUFqp0HH7TZsrNZXrMncJHeDRrVwBTrLFFfVweV3PU="}
+  [1m[36mBuilder Load (2.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 83ms (ActiveRecord: 75.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:34:31 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 235ms (Views: 233.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:34:35 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 193ms (Views: 191.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:34:44 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uAKaik6Bi+fbnVfFBPyxFVOT4xU9uPnFcqOtAPhdx28=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `admins` SET `last_sign_in_at` = '2013-10-16 06:03:18', `current_sign_in_at` = '2013-10-16 06:04:44', `sign_in_count` = 106, `updated_at` = '2013-10-16 06:04:44' WHERE `admins`.`id` = 1
+  [1m[36m (134.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 247ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:34:44 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 146ms (Views: 144.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:34:48 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (1.2ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (6.1ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 202ms (Views: 198.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:34:51 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.1ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (37.5ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 136ms (Views: 133.3ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/builders/1/properties/1/manage_property?status=true" for 127.0.0.1 at 2013-10-16 11:34:53 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"authenticity_token"=>"PU8shhzQXvxD2rsqhnb3XN1RWG/R+D3Xm2rZqwmZBXs=", "status"=>"true", "builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `properties` SET `published` = 1, `updated_at` = '2013-10-16 06:04:53' WHERE `properties`.`id` = 1[0m
+  [1m[35m (62.9ms)[0m  COMMIT
+  [1m[36mBuilder Load (1.6ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 142ms (ActiveRecord: 65.8ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:34:53 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.3ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (5.3ms)
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 205ms (Views: 200.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:34:57 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PU8shhzQXvxD2rsqhnb3XN1RWG/R+D3Xm2rZqwmZBXs="}
+  [1m[36mAdmin Load (1.0ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 61ms (ActiveRecord: 51.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:34:57 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (1.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 151ms (Views: 149.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:34:59 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 150ms (Views: 148.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:35:06 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2I7DbmAuAi7/wmvWof8WDDKx51fDuERln4rVqDUCFZk=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mBuilder Load (0.5ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `builders` SET `last_sign_in_at` = '2013-10-16 06:04:21', `current_sign_in_at` = '2013-10-16 06:05:06', `sign_in_count` = 16, `updated_at` = '2013-10-16 06:05:06' WHERE `builders`.`id` = 1
+  [1m[36m (51.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashboards
+Completed 302 Found in 157ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2013-10-16 11:35:06 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered dashboards/_form.html.erb (0.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 102ms (Views: 100.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 11:35:10 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 202ms (Views: 197.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/builders/1/properties/1/summary" for 127.0.0.1 at 2013-10-16 11:36:08 +0530
+Processing by PropertiesController#summary as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.7ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (contact_option = 2)[0m
+  Rendered properties/summary.html.erb within layouts/application (19.3ms)
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Completed 200 OK in 212ms (Views: 206.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-16 11:36:15 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `properties` SET `full_view` = 36, `updated_at` = '2013-10-16 06:06:15' WHERE `properties`.`id` = 1[0m
+  [1m[35m (98.8ms)[0m  COMMIT
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1[0m
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (3.1ms)
+  Rendered properties/_map.html.erb (99.2ms)
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered properties/show.html.erb within layouts/application (151.3ms)
+Completed 200 OK in 405ms (Views: 254.0ms | ActiveRecord: 101.9ms)
+
+
+Started GET "/builders/1/properties/1/edit" for 127.0.0.1 at 2013-10-16 11:36:28 +0530
+Processing by PropertiesController#edit as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.7ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1
+  Rendered properties/_image_fields.html.erb (1.7ms)
+  Rendered properties/_form.html.erb (29.4ms)
+  Rendered properties/edit.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 249ms (Views: 240.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/builders/sign_out" for 127.0.0.1 at 2013-10-16 11:40:29 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Vrm/RpY7mPnB/PesQhDEpha9WDQtWAbWhfAjk6dpdvQ="}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 85ms (ActiveRecord: 76.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:40:29 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (1.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 159ms (Views: 158.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:40:33 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 166ms (Views: 164.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:40:42 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2FkflZtTlYb/fkPF0ZYgRFC9ewo4o11VnEVIPC5O9IU=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `admins` SET `last_sign_in_at` = '2013-10-16 06:04:44', `current_sign_in_at` = '2013-10-16 06:10:42', `sign_in_count` = 107, `updated_at` = '2013-10-16 06:10:42' WHERE `admins`.`id` = 1
+  [1m[36m (70.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 252ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:40:42 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 146ms (Views: 144.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:40:50 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.6ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (6.9ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 262ms (Views: 258.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/builders/1/block_builders?status=fal" for 127.0.0.1 at 2013-10-16 11:40:53 +0530
+Processing by Admin::BuildersController#block_builders as HTML
+  Parameters: {"status"=>"fal", "id"=>"1"}
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `builders` SET `approved` = 0, `updated_at` = '2013-10-16 06:10:53' WHERE `builders`.`id` = 1
+  [1m[36m (64.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/builders/
+Completed 302 Found in 72ms (ActiveRecord: 65.9ms)
+
+
+Started GET "/admin/builders/" for 127.0.0.1 at 2013-10-16 11:40:53 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (1.5ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (4.7ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 143ms (Views: 139.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:40:55 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"P1dsZ/mdZn9/5tnHE/SzqfyrqOjKG5xsYezdXLkVfe4="}
+  [1m[36mAdmin Load (1.0ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 66ms (ActiveRecord: 57.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:40:55 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 209ms (Views: 208.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:40:58 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 205ms (Views: 203.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:41:04 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sXfYQGK4yUNdSUP+5n7MZdKCqGIqBggee4ZDAFvfmYg=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mBuilder Load (4.3ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 401 Unauthorized in 153ms
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:41:05 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 103ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:41:13 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 243ms (Views: 241.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:41:20 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sXfYQGK4yUNdSUP+5n7MZdKCqGIqBggee4ZDAFvfmYg=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mAdmin Load (0.8ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `admins` SET `last_sign_in_at` = '2013-10-16 06:10:42', `current_sign_in_at` = '2013-10-16 06:11:20', `sign_in_count` = 108, `updated_at` = '2013-10-16 06:11:20' WHERE `admins`.`id` = 1[0m
+  [1m[35m (65.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 235ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:41:21 +0530
+Processing by DashboardsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 149ms (Views: 147.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:41:23 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.6ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (4.9ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 161ms (Views: 158.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/builders/1/block_builders?status=tru" for 127.0.0.1 at 2013-10-16 11:41:26 +0530
+Processing by Admin::BuildersController#block_builders as HTML
+  Parameters: {"status"=>"tru", "id"=>"1"}
+  [1m[36mBuilder Load (0.7ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `builders` SET `approved` = 1, `updated_at` = '2013-10-16 06:11:26' WHERE `builders`.`id` = 1[0m
+  [1m[35m (74.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/builders/
+Completed 302 Found in 82ms (ActiveRecord: 75.8ms)
+
+
+Started GET "/admin/builders/" for 127.0.0.1 at 2013-10-16 11:41:27 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.5ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (4.2ms)
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 268ms (Views: 265.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:41:29 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.9ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (6.0ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 228ms (Views: 223.5ms | ActiveRecord: 1.7ms)
+
+
+Started PUT "/builders/1/properties/1/manage_property?status=false" for 127.0.0.1 at 2013-10-16 11:41:32 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"authenticity_token"=>"BvS/8aslycUaDkQKb0vAoF+4ovIm+SFYWrOk0lx10zY=", "status"=>"false", "builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (1.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mUPDATE `properties` SET `published` = 0, `updated_at` = '2013-10-16 06:11:32' WHERE `properties`.`id` = 1[0m
+  [1m[35m (49.7ms)[0m  COMMIT
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 61ms (ActiveRecord: 51.8ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:41:32 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (5.2ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 189ms (Views: 185.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:41:34 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BvS/8aslycUaDkQKb0vAoF+4ovIm+SFYWrOk0lx10zY="}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 71.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:41:34 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.0ms)
+  Rendered dashboards/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 263ms (Views: 262.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:41:37 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 271ms (Views: 269.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:41:44 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"If+xbDikAM4LD4ROdnwZeggsHSYtsp9EI4bDL+oRP0s=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mBuilder Load (1.8ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `builders` SET `last_sign_in_at` = '2013-10-16 06:05:06', `current_sign_in_at` = '2013-10-16 06:11:44', `sign_in_count` = 17, `updated_at` = '2013-10-16 06:11:44' WHERE `builders`.`id` = 1
+  [1m[36m (92.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashboards
+Completed 302 Found in 245ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2013-10-16 11:41:44 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mBuilder Load (0.4ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered dashboards/_form.html.erb (0.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 102ms (Views: 99.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 11:41:46 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 200ms (Views: 195.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/builders/sign_out" for 127.0.0.1 at 2013-10-16 11:41:50 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Tpi6APsqLqWwKdpdeRU9gLSDGE8VwykPazZK4H0AT0w="}
+  [1m[36mBuilder Load (0.7ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 102ms (ActiveRecord: 92.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:41:50 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.2ms)
+  Rendered dashboards/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 163ms (Views: 162.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:43:28 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (1.3ms)
+  Rendered dashboards/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 113ms (Views: 111.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:43:34 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 225ms (Views: 186.1ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at 2013-10-16 11:43:44 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JJ3hDxrK/8IbL1w53RO9efx6IpHL17NPMkzACu16NHQ=", "admin"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`email` = 'admin@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `admins` SET `last_sign_in_at` = '2013-10-16 06:11:20', `current_sign_in_at` = '2013-10-16 06:13:44', `sign_in_count` = 109, `updated_at` = '2013-10-16 06:13:44' WHERE `admins`.`id` = 1
+  [1m[36m (58.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 223ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:43:45 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+  Rendered dashboards/index.html.erb within layouts/admin (0.1ms)
+Completed 200 OK in 100ms (Views: 98.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/builders" for 127.0.0.1 at 2013-10-16 11:43:49 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (31.5ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 311ms (Views: 235.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:43:52 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (74.8ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 182ms (Views: 177.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/builders/1/properties/1/manage_property?status=true" for 127.0.0.1 at 2013-10-16 11:43:54 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"status"=>"true", "builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.5ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `properties` SET `published` = 1, `updated_at` = '2013-10-16 06:13:54' WHERE `properties`.`id` = 1[0m
+  [1m[35m (38.7ms)[0m  COMMIT
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 51ms (ActiveRecord: 40.0ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 11:43:54 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mProperty Load (0.5ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (4.6ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 220ms (Views: 216.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2013-10-16 11:44:01 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JcCs22xfdcy4D6A2IHdyuVWdGar3HVlVUNogI0UK9Go="}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 96ms (ActiveRecord: 87.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:44:01 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (1.2ms)
+  Rendered dashboards/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 103ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:44:06 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 237ms (Views: 235.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/builders/sign_in" for 127.0.0.1 at 2013-10-16 11:44:12 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lANAkHbBgXrNNW6vBE2gCbkr680bb8LB1KU1Huwqcd0=", "builder"=>{"email"=>"hanumantha@dine-media.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mBuilder Load (0.6ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`email` = 'hanumantha@dine-media.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `builders` SET `last_sign_in_at` = '2013-10-16 06:11:44', `current_sign_in_at` = '2013-10-16 06:14:12', `sign_in_count` = 18, `updated_at` = '2013-10-16 06:14:12' WHERE `builders`.`id` = 1
+  [1m[36m (57.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashboards
+Completed 302 Found in 164ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2013-10-16 11:44:12 +0530
+Processing by DashboardsController#index as HTML
+  [1m[35mBuilder Load (0.3ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered dashboards/_form.html.erb (0.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 172ms (Views: 170.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/builders/1/properties" for 127.0.0.1 at 2013-10-16 11:44:15 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"builder_id"=>"1"}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1 AND (published = true)
+  Rendered properties/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 210ms (Views: 204.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/builders/1/properties/1/summary" for 127.0.0.1 at 2013-10-16 11:44:20 +0530
+Processing by PropertiesController#summary as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.7ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `contacts` WHERE `contacts`.`property_id` = 1 AND (contact_option = 2)[0m
+  Rendered properties/summary.html.erb within layouts/application (18.8ms)
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Completed 200 OK in 261ms (Views: 255.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/builders/1/properties/1" for 127.0.0.1 at 2013-10-16 11:44:25 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"builder_id"=>"1", "id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mUPDATE `properties` SET `full_view` = 37, `updated_at` = '2013-10-16 06:14:25' WHERE `properties`.`id` = 1[0m
+  [1m[35m (62.7ms)[0m  COMMIT
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT `images`.* FROM `images` WHERE `images`.`property_id` = 1[0m
+  Rendered /usr/local/lib/ruby/gems/1.9.1/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.0ms)
+  Rendered properties/_map.html.erb (2.2ms)
+  [1m[35mBuilder Load (0.1ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  Rendered properties/show.html.erb within layouts/application (94.6ms)
+Completed 200 OK in 291ms (Views: 193.7ms | ActiveRecord: 65.9ms)
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2013-10-16 11:44:33 +0530
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  Rendered profiles/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 204ms (Views: 200.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/builders/sign_out" for 127.0.0.1 at 2013-10-16 11:44:38 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Zr4/9IvKnHuRN7yyjRFEsrk88GybThTZzlSQO4HAhQU="}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 70ms (ActiveRecord: 61.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-16 11:44:38 +0530
+Processing by DashboardsController#index as HTML
+  Rendered dashboards/_form.html.erb (2.1ms)
+  Rendered dashboards/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 177ms (Views: 175.8ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/admin/builders/1/block_builders?status=fal" for 127.0.0.1 at 2013-10-16 12:22:17 +0530
+Processing by Admin::BuildersController#block_builders as HTML
+  Parameters: {"status"=>"fal", "id"=>"1"}
+  [1m[36mBuilder Load (0.1ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (13.7ms)[0m  [1mUPDATE `builders` SET `approved` = 0, `updated_at` = '2013-10-16 06:52:17' WHERE `builders`.`id` = 1[0m
+  [1m[35m (74.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/builders/
+Completed 302 Found in 142ms (ActiveRecord: 89.6ms)
+
+
+Started GET "/admin/builders/" for 127.0.0.1 at 2013-10-16 12:22:18 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[36mBuilder Load (0.4ms)[0m  [1mSELECT `builders`.* FROM `builders` [0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/index.html.erb within layouts/admin (98.0ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 339ms (Views: 333.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/admin/builders/1/block_builders?status=tru" for 127.0.0.1 at 2013-10-16 12:22:21 +0530
+Processing by Admin::BuildersController#block_builders as HTML
+  Parameters: {"status"=>"tru", "id"=>"1"}
+  [1m[35mBuilder Load (0.9ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `builders` SET `approved` = 1, `updated_at` = '2013-10-16 06:52:21' WHERE `builders`.`id` = 1
+  [1m[36m (80.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/builders/
+Completed 302 Found in 90ms (ActiveRecord: 81.9ms)
+
+
+Started GET "/admin/builders/" for 127.0.0.1 at 2013-10-16 12:22:21 +0530
+Processing by Admin::BuildersController#index as HTML
+  [1m[35mBuilder Load (0.5ms)[0m  SELECT `builders`.* FROM `builders` 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `properties` WHERE `properties`.`builder_id` = 1[0m
+  Rendered admin/builders/index.html.erb within layouts/admin (4.5ms)
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1
+Completed 200 OK in 110ms (Views: 107.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 12:23:11 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (0.5ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.4ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (37.9ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 185ms (Views: 181.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/builders/1/properties/1/manage_property?status=false" for 127.0.0.1 at 2013-10-16 12:23:13 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"status"=>"false", "builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `properties` SET `published` = 0, `updated_at` = '2013-10-16 06:53:13' WHERE `properties`.`id` = 1
+  [1m[36m (85.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 109ms (ActiveRecord: 87.4ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 12:23:13 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (0.2ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (6.1ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 243ms (Views: 239.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/builders/1/properties/1/manage_property?status=true" for 127.0.0.1 at 2013-10-16 12:23:16 +0530
+Processing by PropertiesController#manage_property as HTML
+  Parameters: {"status"=>"true", "builder_id"=>"1", "id"=>"1"}
+  [1m[35mProperty Load (1.3ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  UPDATE `properties` SET `published` = 1, `updated_at` = '2013-10-16 06:53:16' WHERE `properties`.`id` = 1
+  [1m[36m (79.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mBuilder Load (0.2ms)[0m  SELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/admin/builders/1/manage_properties
+Completed 302 Found in 91ms (ActiveRecord: 82.3ms)
+
+
+Started GET "/admin/builders/1/manage_properties" for 127.0.0.1 at 2013-10-16 12:23:16 +0530
+Processing by Admin::BuildersController#manage_properties as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilder Load (2.7ms)[0m  [1mSELECT `builders`.* FROM `builders` WHERE `builders`.`id` = 1 LIMIT 1[0m
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties` WHERE `properties`.`builder_id` = 1
+  Rendered admin/builders/manage_properties.html.erb within layouts/admin (5.1ms)
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT `admins`.* FROM `admins` WHERE `admins`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 117ms (Views: 111.2ms | ActiveRecord: 3.4ms)

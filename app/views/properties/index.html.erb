@@ -62,7 +62,6 @@
         </td>
       <% end %>
 
-
       <td> 
         <% if property.property_status == "Upcoming"  %>
         <td>
@@ -76,7 +75,7 @@
         <%= link_to "Edit",  edit_builder_property_path(property.builder_id,property) %> </br>
         <%= link_to "View",  builder_property_path(property.builder_id,property) %>
         <%= link_to "Summary",summary_builder_property_path(property.builder_id,property) %>
-         <%= button_to "Delete", builder_property_path(property.builder_id,property), :confirm => 'Are u sure to delete?',:method => :delete %>
+        <%= button_to "Delete", builder_property_path(property.builder_id,property), :confirm => 'Are u sure to delete?',:method => :delete %>
       </td>
     </tr>
   <% end %>

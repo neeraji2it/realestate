@@ -19856,3 +19856,4 @@ ActionController::RoutingError (No route matches [GET] "/system/images/images/00
 
 
   Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+Connecting to database specified by database.yml

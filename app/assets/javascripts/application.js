@@ -14,8 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require gmaps4rails/gmaps4rails.googlemaps
 //= require gmaps4rails/gmaps4rails.base
+//= require gmaps4rails/gmaps4rails.googlemaps
 
 function add_fields(link, association, content){
     var new_id = new Date().getTime();
